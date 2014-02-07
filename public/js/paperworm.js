@@ -10,7 +10,24 @@ $(document).ready(function() {
 		$(header).text(anagram)
 	});
 
+    equalHeight($(".thumbnail")); 
+    equalHeight($(".caption").children("h3"));
+
+
 })
+
+function equalHeight(group) {   
+	console.log("caf") ;
+    var tallest = 0;    
+    group.each(function() {       
+        var thisHeight = $(this).height();       
+        if(thisHeight > tallest) {          
+            tallest = thisHeight;       
+        }    
+    });    
+    group.each(function() { $(this).height(tallest); });
+} 
+
 
 /*
  * Function that is called when the document is ready.
