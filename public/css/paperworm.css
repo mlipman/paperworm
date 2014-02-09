@@ -41,6 +41,7 @@ object {
 .note-head {
 	padding-bottom: 2px;
 	border-bottom: 1px dashed #aaaaaa;
+	background-color: #98AFC7;
 }
 
 .note {
@@ -49,3 +50,6 @@ object {
 	margin-bottom: 10px;
 }
 
+.note-head h4 {
+	color: #000000;
+}
