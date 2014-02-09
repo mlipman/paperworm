@@ -73,3 +73,11 @@ td {
 .citation-modal {
 	padding-top: 5px;
 }
+
+.paper-thumbnail {
+	border: 1px solid #aaaaaa;
+	border-radius: 2px;
+	padding: 5px;
+	background-color: #E5E4E2;
+	margin: 5px;
+}
