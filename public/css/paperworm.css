@@ -53,3 +53,7 @@ object {
 .note-head h4 {
 	color: #000000;
 }
+
+.topbar {
+	padding-top: 10px;
+}
