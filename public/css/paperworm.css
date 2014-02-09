@@ -57,3 +57,19 @@ object {
 .topbar {
 	padding-top: 10px;
 }
+
+#authors {
+	color: #347235;
+}
+
+.paper-details h5 {
+	color: #000000;
+}
+
+td {
+	padding: 5px;
+}
+
+.citation-modal {
+	padding-top: 5px;
+}
