@@ -81,3 +81,25 @@ td {
 	background-color: #E5E4E2;
 	margin: 5px;
 }
+
+#side-pad {
+	background-color: #E5E4E2;
+	height: 100%;
+}
+
+.icon-img {
+	width: 15px;
+	height: 15px;
+}
+
+.side-bar {
+	position: fixed;
+	top: 50%;
+	right: 10px;
+	width: 40px;
+}
+
+.reading-pad {
+	position: relative;
+	margin-top: 10px;
+}

@@ -23,19 +23,58 @@
 <body>
 
 
-	<div class=container>
+	<div class="container">
 		<div class="topbar">
 			<a href="list" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-briefcase"></span> All Papers</a>
 			<a href="/" class="btn btn-default btn-lg" style="float: right"><span class="glyphicon glyphicon-list-alt"></span> Summary</a>
 		</div>
+		<div class="side-bar">
+			<div class="btn-group-vertical">
+				<button type="button" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-edit"></button>
+				<button type="button" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-search"></button>
+				<button type="button" class="btn btn-default btn-lg"><img class="icon-img" src="highlighter01.png"></button>
+			</div>
+		</div>
+		<div class="reading-pad">
+			<div class="row">
+				<div class="col-sm-6">
+					<div>
+						<object data="ShragerSiegler9.txt"></object>
+					</div>
+				</div>
+				<div class="col-sm-6" id="side-pad">
 
-		<p>This is the page where the user will read the paper and make notes, definitions and highlights. They can see the summary page at any time or go back to the list of papers.</p>
+					<!-- Note from student -->
+					<div class="panel panel-default">
+						<!-- Note header -->
+						<div class="panel-heading">
+							<div class="row">
+								<!-- Title -->
+								<div class="col-sm-10">
+									<h4 class="panel-title">Note from you</h4>
+								</div>
+								<!-- Buttons -->
+								<div class="col-sm-2">
+									<div class="btn-group" style="float: right">
+										<button type="button" class="btn btn-default btn-xs" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span></button>
+										<button type="button" class="btn btn-default btn-xs" id="remove-obj"><span class="glyphicon glyphicon-remove"></span></button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Note content -->
+						<div class="panel-body">
+							<p>These articles present a description of aspects of geometry knowledge and reasoning based on the ideas of two Dutch researchers (van Hiele &amp; van Hiele).  The van Heile's noted that children progress from very concrete and unsystematic approaches to geometry to more systematic and more formal approaches, characterizing a series of levels.  Shaughnessy &amp; Burger argue that the levels are useful, but that many students fail to progress to more advanced levels, and also that individuals are not consistent in the levels the use.  They introduce a very interesting idea that students and teachers may 'confront a level' in a geometry class -- that is, that students and teachers are working at different levels and will not be able to properly understand each other.</p>
+						</div>
+					</div>
+				</div>
+			</div>
 
+		</div>
 
+		<!--<p>This is the page where the user will read the paper and make notes, definitions and highlights. They can see the summary page at any time or go back to the list of papers.</p>
 
-
-
-		<object data="ShragerSiegler98SCADS.pdf" ></object>
+		<object data="ShragerSiegler98SCADS.pdf" ></object>-->
 
 
 	<script src="js/jquery-1.11.0.js"></script>
