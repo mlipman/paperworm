@@ -103,3 +103,7 @@ td {
 	position: relative;
 	margin-top: 10px;
 }
+
+body {
+	padding-top: 70px;
+}
