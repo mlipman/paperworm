@@ -39,12 +39,12 @@
 		</div>
 	</nav>
 	<!-- Side bar with note/look up/highlight-->
-	<ul class="nav navbar-nav navbar-right side-bar">
+	<ul class="nav navbar-nav navbar-right side-bar" style="z-index:10">
 		<li>
 			<div class="btn-group-vertical">
-				<button type="button" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-edit"></button>
-				<button type="button" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-search"></button>
-				<button type="button" class="btn btn-default btn-lg"><img class="icon-img" src="highlighter01.png"></button>
+				<button type="button" class="btn btn-default btn-lg" id="makeNoteButton"><span class="glyphicon glyphicon-edit"></button>
+				<button type="button" class="btn btn-default btn-lg" id="makeDefnButton"><span class="glyphicon glyphicon-search"></button>
+				<button type="button" class="btn btn-default btn-lg" id="makeHighlightButton"><img class="icon-img" src="highlighter01.png"></button>
 			</div>
 		</li>	
 	</ul>
@@ -61,7 +61,6 @@
 					</div>
 				{{/each}}
 			</div>
-			<p>End of paper hahahahaha</p>
 
 		</div>
 
@@ -98,18 +97,32 @@
 
 
 
-		<!-- <form id="addHighlighForm" role="form" method="get" action="/add">
-			<h3>Add a note</h3>
+		<form id="addHighlightForm" role="form" method="get" action="/addHighlight">
+			<h3>Add a highlight</h3>
 		    <div class="form-group">
 		      <label for="auth">Author:</label>
 		      <input type="text" class="form-control" id="auth" placeholder="Author" name="auth">
 		    </div>
 		    <div class="form-group">
-		      <label for="bod">Body:</label>
-		      <input type="text" class="form-control" id="bod" placeholder="Type your note here..." name="bod">
+		      <label for="page">Page Number:</label>
+		      <input type="text" class="form-control" id="page" placeholder="Page number" name="page">
 		    </div>
-		    <input type="submit" id="submitBtn" class="btn btn-default" value="Add the note"></input>
-		</form> -->
+		    <div class="form-group">
+		      <label for="paragraph">Paragraph Number:</label>
+		      <input type="text" class="form-control" id="paragraph" placeholder="Paragraph nubmer..." name="paragraph">
+		    </div>
+		    <div class="form-group">
+		      <label for="htext">Text:</label>
+		      <input type="text" class="form-control" id="htext" placeholder="Insert the passage from the paper..." name="htext">
+		    </div>
+		    <div class="form-group">
+		      <label for="ntext">Annotation:</label>
+		      <input type="text" class="form-control" id="ntext" placeholder="Type an optional annotation here..." name="ntext">
+		    </div>
+
+		    <input type="submit" id="submitBtn" class="btn btn-default" value="Add the highligh"></input>
+		</form>
+
 
 
 
