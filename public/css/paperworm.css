@@ -95,8 +95,8 @@ td {
 .side-bar {
 	position: fixed;
 	top: 50%;
-	right: 10px;
 	width: 40px;
+	right: 10px;
 }
 
 .reading-pad {
