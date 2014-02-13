@@ -13,6 +13,15 @@ $(document).ready(function() {
     equalHeight($(".thumbnail")); 
     equalHeight($(".caption").children("h3"));
 
+    $('#searchDict').click(function(e) {
+    	e.preventDefault();
+    	var sel = rangy.getSelection();
+		var range = sel.getRangeAt(0);
+		var selectedText = range.text();
+		console.log(selectedText);
+		$.get("http://glosbe.com/gapi/translate?from=eng&dest=eng&format=json&pretty=true&phrase=" + 
+			selectedText + "&callback=showDefinition", showDefinition, 'jsonp');
+    });
 	//$('#paperToRead').load('SchragerSieglerText.html');
 })
 
@@ -69,4 +78,18 @@ function anagrammedName(name) {
 		console.log(name + " not known for anagramming.");
 		return name;
 	}
+}
+
+//Show defnition on the definition modal on read mode
+function showDefinition(result) {
+	console.log(result);
+	console.log(result['tuc'][0]['meanings']);
+	var defHTML = '<h4>' + result['phrase'] + '</h4>';
+	var meanings = result['tuc'][0]['meanings'];
+	for (var i = 0; i < meanings.length; i++) {
+		defHTML += '<h5> Definition No. ' + i + '</h5>' + 
+		'<p>' + meanings[i]['text'] + '</p>';
+	};
+	console.log(defHTML);
+	$('#defModalBody').html(defHTML);
 }
