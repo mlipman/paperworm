@@ -45,6 +45,7 @@ app.get('/read', read.view);
 app.get('/list', list.view);
 app.get('/addNote', add.note);
 app.get('/addDefn', add.defn);
+app.get('/addHighlight', add.highlight);
 // Example route
 // app.get('/users', user.list);
 

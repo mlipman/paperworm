@@ -10,6 +10,17 @@ $(document).ready(function() {
 		$(header).text(anagram)
 	});
 
+	$("#makeNoteButton").click(showNoteBox);
+	//$("#makeDefnButton").click(showDefnBox);
+	$("#makeHighlightButton").click(showHighlightBox);
+
+	$("#addNoteForm").hide();
+	$("#addDefinitionForm").hide();
+	$("#addHighlightForm").hide();
+
+
+
+
     equalHeight($(".thumbnail")); 
     equalHeight($(".caption").children("h3"));
 
@@ -45,10 +56,24 @@ function initializePage() {
 	console.log("Javascript connected!");
 }
 
+function showNoteBox(e) {
+	$("#addNoteForm").toggle();
+	$("#addDefinitionForm").hide();
+	$("#addHighlightForm").hide();
 
+}
 
-function anagrammedName(name) {
-	// Thanks, Internet Anagram Server!
+function showDefnBox(e) {
+	$("#addNoteForm").hide();
+	$("#addDefinitionForm").toggle();
+	$("#addHighlightForm").hide();
+
+}
+
+function showHighlightBox(e) {
+	$("#addNoteForm").hide();
+	$("#addDefinitionForm").hide();
+	$("#addHighlightForm").toggle();
 	
 	if (name == "Doug Engelbart") {
 		return "Notable Grudge";

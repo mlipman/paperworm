@@ -8,7 +8,6 @@ exports.view = function(req, res) {
 
 	var info = scadsHash;
 
-	console.log(info["glossary"]);
 
 
 	res.render('index', info);
