@@ -10,16 +10,13 @@ $(document).ready(function() {
 		$(header).text(anagram)
 	});
 
-	$("#makeNoteButton").click(showNoteBox);
-	//$("#makeDefnButton").click(showDefnBox);
+	/*$("#makeNoteButton").click(showNoteBox);
+	$("#makeDefnButton").click(showDefnBox);
 	$("#makeHighlightButton").click(showHighlightBox);
 
-	//$("#addNoteForm").hide();
+	$("#addNoteForm").hide();
 	$("#addDefinitionForm").hide();
-	$("#addHighlightForm").hide();
-
-
-
+	$("#addHighlightForm").hide();*/
 
     equalHeight($(".thumbnail")); 
     equalHeight($(".caption").children("h3"));
@@ -36,6 +33,21 @@ $(document).ready(function() {
 		};
     });
 	//$('#paperToRead').load('SchragerSieglerText.html');
+
+	$('#addHighlightButton').click(function(e) {
+		e.preventDefault();
+		var sel = rangy.getSelection();
+		var range = sel.getRangeAt(0);
+		var selectedText = range.text();
+		console.log(selectedText);
+		var cssApplier = rangy.createCssClassApplier("highlightText");
+		var highlighter = rangy.createHighlighter();
+		highlighter.addClassApplier(cssApplier);
+		highlighter.highlightSelection("highlightText", sel);
+		var serializedHighlights = highlighter.serialize();
+		console.log(serializedHighlights);
+		//data['serializedHistory'] = serializedHighlights;
+	});
 })
 
 function equalHeight(group) {   

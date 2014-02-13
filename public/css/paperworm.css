@@ -107,3 +107,7 @@ td {
 body {
 	padding-top: 70px;
 }
+
+.highlightText {
+	background: yellow;
+}

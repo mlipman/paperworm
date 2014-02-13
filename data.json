@@ -282,7 +282,10 @@
 				"nText" : "this is my note, read it."
 			}
 		]
-	}
+	},
 
+    "serializedHistory":
+    {
 
+    }
 }
