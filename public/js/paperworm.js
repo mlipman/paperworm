@@ -14,7 +14,7 @@ $(document).ready(function() {
 	//$("#makeDefnButton").click(showDefnBox);
 	$("#makeHighlightButton").click(showHighlightBox);
 
-	$("#addNoteForm").hide();
+	//$("#addNoteForm").hide();
 	$("#addDefinitionForm").hide();
 	$("#addHighlightForm").hide();
 
@@ -30,8 +30,10 @@ $(document).ready(function() {
 		var range = sel.getRangeAt(0);
 		var selectedText = range.text();
 		console.log(selectedText);
-		$.get("http://glosbe.com/gapi/translate?from=eng&dest=eng&format=json&pretty=true&phrase=" + 
+		if (selectedText.length > 0) {
+			$.get("http://glosbe.com/gapi/translate?from=eng&dest=eng&format=json&pretty=true&phrase=" + 
 			selectedText + "&callback=showDefinition", showDefinition, 'jsonp');
+		};
     });
 	//$('#paperToRead').load('SchragerSieglerText.html');
 })
@@ -108,13 +110,17 @@ function showHighlightBox(e) {
 //Show defnition on the definition modal on read mode
 function showDefinition(result) {
 	console.log(result);
-	console.log(result['tuc'][0]['meanings']);
+	console.log(result['tuc']);
 	var defHTML = '<h4>' + result['phrase'] + '</h4>';
-	var meanings = result['tuc'][0]['meanings'];
-	for (var i = 0; i < meanings.length; i++) {
-		defHTML += '<h5> Definition No. ' + i + '</h5>' + 
+	if (result['tuc'] == undefined || result['tuc'].length == 0) {
+		$('#defModalBody').html(defHTML + "<p>No definition</p>");
+	} else {
+		var meanings = result['tuc'][0]['meanings'];
+		for (var i = 0; i < meanings.length; i++) {
+		defHTML += '<h5> Definition No. ' + (i + 1) + '</h5>' + 
 		'<p>' + meanings[i]['text'] + '</p>';
-	};
-	console.log(defHTML);
-	$('#defModalBody').html(defHTML);
+		};
+		console.log(defHTML);
+		$('#defModalBody').html(defHTML);	
+	}
 }
