@@ -1,5 +1,7 @@
 var data = require("../data.json");
 
 exports.view = function(req, res) {
-	res.render('read');
+	var scadsHash = data["scads"];
+	var info = scadsHash;
+	res.render('read', info);
 };
