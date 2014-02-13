@@ -135,118 +135,67 @@
 
 
 			<div class="tab-pane fade" id="glossary">
-
-				<!-- Word 1 -->
-				<div class="panel panel-default">
+                {{#each glossary}}
 					<!-- Word -->
-					<div class="panel-heading">
-						<div class="row">
-							<!-- Title -->
-							<div class="col-sm-10">
-								<h4 class="panel-title">Word 1</h4>
-							</div>
-							<!-- Buttons -->
-							<div class="col-sm-2">
-								<div class="btn-group" style="float: right">
-									<button type="button" class="btn btn-default btn-xs" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span></button>
-									<button type="button" class="btn btn-default btn-xs" id="remove-obj"><span class="glyphicon glyphicon-remove"></span></button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Definitions -->
-					<div class="panel-body">
-						<h5>Instructor Definition: </h5>
-						<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
-						<h5>Dictionary Definition: </h5>
-						<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.</p>
-					</div>
-				</div>
-
-				<!-- Word 2 -->
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<div class="row">
-							<!-- Title -->
-							<div class="col-sm-10">
-								<h4 class="panel-title">Word 2</h4>
-							</div>
-							<!-- Buttons -->
-							<div class="col-sm-2">
-								<div class="btn-group" style="float: right">
-									<button type="button" class="btn btn-default btn-xs" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span></button>
-									<button type="button" class="btn btn-default btn-xs" id="remove-obj"><span class="glyphicon glyphicon-remove"></span></button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Definitions -->
-					<div class="panel-body">
-						<h5>Dictionary Definition: </h5>
-						<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.</p>
-					</div>
-				</div>
-
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <!-- Title -->
+                                <div class="col-sm-10">
+                                    <h4 class="panel-title">{{ word }}</h4>
+                                </div>
+                                <!-- Buttons -->
+                                <div class="col-sm-2">
+                                    <div class="btn-group" style="float: right">
+                                        <button type="button" class="btn btn-default btn-xs" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span></button>
+                                        <button type="button" class="btn btn-default btn-xs" id="remove-obj"><span class="glyphicon glyphicon-remove"></span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Definitions -->
+                        {{#each defs}}
+                            <div class="panel-body">
+                                <h5>{{ author }} Definition: </h5>
+                                <p> {{ def }} </p>
+                            </div>
+                        {{/each}}
+                    </div>
+                {{/each}}
 			</div> <!-- End of Glossary tab -->
 
 
 
 
 			<div class="tab-pane fade" id="highlights">
-				<!-- Highlight 1-->
-				<div class="panel panel-primary">
-					<!-- Highlight heading-->
-					<div class="panel-heading">
-						<div class="row">
-							<div class="col-sm-10">
-								<h4 class="panel-title">Hightlight 1</h4>
-							</div>
-							<div class="col-sm-2">
-								<div class="btn-group" style="float: right">
-									<button type="button" class="btn btn-default btn-xs" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span></button>
-									<button type="button" class="btn btn-default btn-xs" id="remove-obj"><span class="glyphicon glyphicon-remove"></span></button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Quote-->
-					<div class="panel-body">
-						<h5>Page 7</h5>
-						<p>&ldquo; [Quote] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. &rdquo;</p>
-					</div>
-					<!-- Annotation-->
-					<div class="panel-footer">
-						<p>[Annotation] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. </p>
-					</div>
-				</div>
-
-				<!-- Highlight 2-->
-				<div class="panel panel-primary">
-					<!-- Highlight heading-->
-					<div class="panel-heading">
-						<div class="row">
-							<div class="col-sm-10">
-								<h4 class="panel-title">Hightlight 2</h4>
-							</div>
-							<div class="col-sm-2">
-								<div class="btn-group" style="float: right">
-									<button type="button" class="btn btn-default btn-xs" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span></button>
-									<button type="button" class="btn btn-default btn-xs" id="remove-obj"><span class="glyphicon glyphicon-remove"></span></button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Quote-->
-					<div class="panel-body">
-						<h5>Page 12</h5>
-						<p>&ldquo; [Quote] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. &rdquo;</p>
-					</div>
-					<!-- Annotation-->
-					<div class="panel-footer">
-						<p>[Annotation] Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in </p>
-					</div>
-				</div>
-
+                {{#each highlights}}
+                    <!-- Highlight -->
+                    <div class="panel panel-primary">
+                        <!-- Highlight heading-->
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-sm-10">
+                                    <h4 class="panel-title">{{ author }}</h4>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="btn-group" style="float: right">
+                                        <button type="button" class="btn btn-default btn-xs" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span></button>
+                                        <button type="button" class="btn btn-default btn-xs" id="remove-obj"><span class="glyphicon glyphicon-remove"></span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Quote-->
+                        <div class="panel-body">
+                            <h5>Page 7</h5>
+                            <p>{{ hText }}</p>
+                        </div>
+                        <!-- Annotation-->
+                            <p>{{ nText }}</p>
+                        <div class="panel-footer">
+                        </div>
+                    </div>
+                {{/each}}
 			</div> <!-- End of Highlights tab -->
 
 		</div> <!-- End of tab-content -->
