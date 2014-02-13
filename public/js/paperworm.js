@@ -13,7 +13,7 @@ $(document).ready(function() {
     equalHeight($(".thumbnail")); 
     equalHeight($(".caption").children("h3"));
 
-
+	$('#paperToRead').load('SchragerSieglerText.html');
 })
 
 function equalHeight(group) {   
