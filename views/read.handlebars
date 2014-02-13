@@ -54,7 +54,7 @@
 		</div>
 		<div class="reading-pad">
 			<div class="row">
-				<div class="col-sm-6">
+				<div class="col-sm-6" id="paper-column">
 					<div id="paperToRead">
 						<!--<object data="ShragerSiegler9.txt"></object>-->
 					</div>
@@ -87,12 +87,67 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
 
-		<!--<p>This is the page where the user will read the paper and make notes, definitions and highlights. They can see the summary page at any time or go back to the list of papers.</p>
 
-		<object data="ShragerSiegler98SCADS.pdf" ></object>-->
+		<form id="addNoteForm" role="form" method="get" action="/addNote">
+			<h3>Add a note</h3>
+		    <div class="form-group">
+		      <label for="auth">Author:</label>
+		      <input type="text" class="form-control" id="auth" placeholder="Your name" name="auth">
+		    </div>
+		    <div class="form-group">
+		      <label for="bod">Body:</label>
+		      <input type="text" class="form-control" id="bod" placeholder="Type your note here..." name="bod">
+		    </div>
+		    <input type="submit" id="submitBtn" class="btn btn-default" value="Add the note"></input>
+		</form>
+
+		<form id="addDefinitionForm" role="form" method="get" action="/addDefn">
+			<h3>Add a definition</h3>
+		    <div class="form-group">
+		      <label for="auth">Author:</label>
+		      <input type="text" class="form-control" id="auth" placeholder="Your name" name="auth">
+		    </div>
+		    <div class="form-group">
+		      <label for="word">Word:</label>
+		      <input type="text" class="form-control" id="word" placeholder="The word" name="word">
+		    </div>
+		    <div class="form-group">
+		      <label for="defn">Definition:</label>
+		      <input type="text" class="form-control" id="defn" placeholder="Type your definition here..." name="defn">
+		    </div>
+		    <input type="submit" id="submitBtn" class="btn btn-default" value="Add the definition"></input>
+		</form>
+
+
+
+		<!-- <form id="addHighlighForm" role="form" method="get" action="/add">
+			<h3>Add a note</h3>
+		    <div class="form-group">
+		      <label for="auth">Author:</label>
+		      <input type="text" class="form-control" id="auth" placeholder="Author" name="auth">
+		    </div>
+		    <div class="form-group">
+		      <label for="bod">Body:</label>
+		      <input type="text" class="form-control" id="bod" placeholder="Type your note here..." name="bod">
+		    </div>
+		    <input type="submit" id="submitBtn" class="btn btn-default" value="Add the note"></input>
+		</form> -->
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+
+
 
 
 	<script src="js/jquery-1.11.0.js"></script>
