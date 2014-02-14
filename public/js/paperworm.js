@@ -143,13 +143,15 @@ function showDefinition(result) {
 
 function addHighlight(highlighter, serializedHighlights){
 	var sel = rangy.getSelection();
+	console.log(sel);
 	var range = sel.getRangeAt(0);
+	console.log(range);
 	var selectedText = range.text();
 	console.log(selectedText);
 	var cssApplier = rangy.createCssClassApplier("highlightText");
 	highlighter.addClassApplier(cssApplier);
 	highlighter.highlightSelection("highlightText");
 	serializedHighlights = highlighter.serialize();
-	console.log(serializedHighlights);
+	//console.log(serializedHighlights);
 	//data['serializedHistory'] = serializedHighlights;
 }

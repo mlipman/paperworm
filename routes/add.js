@@ -4,12 +4,13 @@ exports.note = function(req, res) { 
 
 	var author = req.query.auth;
 	var body = req.query.bod;
+	var pNum = req.query.pNum;
 	var note = {
 		"author":author,
 		"body":body
 	};
 	//console.log(window.getSelection().anchorNode);
-	data["scads"]["paragraphs"][0]["notes"].push(note);
+	data["scads"]["paragraphs"][pNum-1]["notes"].push(note);
 
 	res.render('read', data["scads"]);	
 
@@ -45,10 +46,10 @@ exports.defn = function(req, res) {
 
 exports.highlight = function(req, res) {
 	console.log("in highlight function");
+	var pNum = req.query.pNumHi;
 	var tempHighlight = {
 		"author":req.query.auth,
 		"page":req.query.page,
-		"pNumber":req.query.paragraph,
 		"hText":req.query.htext,
 		"hStart":0,
 		"hEnd":0,
@@ -56,7 +57,7 @@ exports.highlight = function(req, res) {
 
 	}
 
-	data["scads"]["highlights"].push(tempHighlight);
+	data["scads"]["paragraphs"][pNum - 1]["highlights"].push(tempHighlight);
 
 
 	res.render('read', data["scads"]);
