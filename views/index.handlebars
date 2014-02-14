@@ -121,30 +121,32 @@
 			<div class="tab-pane fade in active" id="notes">
 
 				{{! a space before #each will cause errors }}
-				{{#each notes}}
-					<!-- Note from student -->
-					<div class="panel panel-default">
-						<!-- Note header -->
-						<div class="panel-heading">
-							<div class="row">
-								<!-- Title -->
-								<div class="col-sm-10">
-									<h4 class="panel-title">Note from {{ author }}</h4>
-								</div>
-								<!-- Buttons -->
-								<div class="col-sm-2">
-									<div class="btn-group" style="float: right">
-										<button type="button" class="btn btn-default btn-xs" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span></button>
-										<button type="button" class="btn btn-default btn-xs" id="remove-obj"><span class="glyphicon glyphicon-remove"></span></button>
+				{{#each paragraphs}}
+					{{#each notes}}
+						<!-- Note from student -->
+						<div class="panel panel-default">
+							<!-- Note header -->
+							<div class="panel-heading">
+								<div class="row">
+									<!-- Title -->
+									<div class="col-sm-10">
+										<h4 class="panel-title">Note from {{ author }}</h4>
+									</div>
+									<!-- Buttons -->
+									<div class="col-sm-2">
+										<div class="btn-group" style="float: right">
+											<button type="button" class="btn btn-default btn-xs" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span></button>
+											<button type="button" class="btn btn-default btn-xs" id="remove-obj"><span class="glyphicon glyphicon-remove"></span></button>
+										</div>
 									</div>
 								</div>
 							</div>
+							<!-- Note content -->
+							<div class="panel-body">
+								<p>{{ body }}</p>
+							</div>
 						</div>
-						<!-- Note content -->
-						<div class="panel-body">
-							<p>{{ body }}</p>
-						</div>
-					</div>
+					{{/each}}
 				{{/each}}
 
 

@@ -8,7 +8,8 @@ exports.note = function(req, res) { 
 		"author":author,
 		"body":body
 	};
-	data["scads"]["notes"].push(note);
+	//console.log(window.getSelection().anchorNode);
+	data["scads"]["paragraphs"][0]["notes"].push(note);
 
 	res.render('read', data["scads"]);	
 

@@ -22,7 +22,7 @@
                         "hText" : "\" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. \"",
                         "hStart" : 5,
                         "hEnd" : 10,
-                        "nText" : "notes"
+                        "nText" : "Annotations bla bla blah"
                     },
                     {
                         "author" : "Professor McClelland",
@@ -30,7 +30,21 @@
                         "hText" : "\" my highlight \"",
                         "hStart" : 11,
                         "hEnd" : 12,
-                        "nText" : "this is my note, read it."
+                        "nText" : "this is what I think about this quote, read it."
+                    }
+                ],
+                "notes":[
+                    {
+                        "author":"you",
+                        "body":"These articles present a description of aspects of geometry knowledge and reasoning based on the ideas of two Dutch researchers (van Hiele and van Hiele).  The van Heile's noted that children progress from very concrete and unsystematic approaches to geometry to more systematic and more formal approaches, characterizing a series of levels.  Shaughnessy and Burger argue that the levels are useful, but that many students fail to progress to more advanced levels, and also that individuals are not consistent in the levels the use.  They introduce a very interesting idea that students and teachers may 'confront a level' in a geometry class -- that is, that students and teachers are working at different levels and will not be able to properly understand each other."
+                    },
+                    {
+                        "author":"Professor McClelland",
+                        "body":"For class on Nov 19, the primary reading is a paper by Koedinger and Anderson (1990) in which the offer an analysis of expert reasoning in Geometry.  The paper argues that earlier models, which approached proof in geometry as proceeding at the level of the formal steps required to get from premises to the desired result, fail to capture the actual process by which experts reason about Geometry proof problems.  They offer an alternative based on what they call the diagram configuration model, which takes a very different approach.  My goal for the session is for us to, first, understand the diagram configuration model and, second, to understand its implications for understanding how geometry should be learned -- and taught."
+                    },
+                    {
+                        "author":"Classmate 3",
+                        "body":"I really liked this article"
                     }
                 ]
             },
@@ -47,258 +61,284 @@
                         "hEnd" : 10,
                         "nText" : "more notes"
                     }
-                ]
+                ],
+                "notes": []
             },
             {
                 "page":1,
                 "pNumber":3,
                 "text": "On behalf of:",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
                 "page":1,
                 "pNumber":4,
                 "text": "Association for Psychological Science",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
                 "page":1,
                 "pNumber":5,
                 "text": "Additional services and information for Psychological Science can be found at: Email Alerts: http://pss.sagepub.com/cgi/alerts Subscriptions: http://pss.sagepub.com/subscriptions Reprints: http://www.sagepub.com/journalsReprints.nav Permissions: http://www.sagepub.com/journalsPermissions.nav",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
                 "page":1,
                 "pNumber":6,
                 "text": ">> Version of Record - Sep 1, 1998 What is This?",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
                 "page":1,
                 "pNumber":7,
                 "text": "Downloaded from pss.sagepub.com at Stanford University Libraries on September 12, 2013",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":2,
                 "pNumber":8,
                 "text": " PSYCHOLOGICAL SCIENCE",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":2,
                 "pNumber":9,
                 "text": "Research Report SCADS: A Model of Children&rsquo;s Strategy Choices and Strategy Discoveries Jeff Shrager and Robert S. Siegler Carnegie Mellon University",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":2,
                 "pNumber":10,
                 "text": "Abstract&mdash;Preschoolers show surprising competence in choosing adaptively among alternative strategies and in discovering new approaches. The SCADS computer simulation illustrates how simple processes can generate this impressive competence. The model&rsquo;s behavior parallels data on children&rsquo;s addition in at least eight ways: It uses diverse strategies over prolonged periods of time, makes adaptive choices among strategies, discovers the same strategies as children, discovers strategies in the same sequence as children, makes discoveries without trial and error, makes discoveries without having experienced failure, narrowly generalizes new approaches, and generalizes more broadly following challenging problems. SCADS thus indicates plausible sources of young children&rsquo;s surprising competence at strategy choice and strategy discovery. In the past 20 years, developmental psychologists have uncovered many surprising competencies in infants and young children. However, detailed understanding of the processes that give rise to these competencies is almost entirely lacking. In the present article, we present a simulation model, SCADS, that illustrates how relatively simple processes can generate two of the most striking and omnipresent of children&rsquo;s early capabilities: making adaptive choices among existing strategies and discovering useful new strategies. Piagetian theories, neo-Piagetian theories, privileged-domains theories, and information-processing theories all have depicted children&rsquo;s thinking in quite monolithic terms. Children of a given age are portrayed as ordinarily thinking about a given concept or problem in a given way. Multiple understandings or multiple strategies are said to be present only during relatively brief periods of cognitive conflict or disequilibrium. Recent research that has examined children&rsquo;s thinking on a trialby-trial basis, however, has revealed much greater variability than these theories imply. This variability has been reported in domains as diverse as infants&rsquo; locomotor procedures (Adolph, 1997), preschoolers&rsquo; attentional strategies (Miller &amp; Aloise-Young, 1996), elementary school children&rsquo;s conceptual understanding (Karmiloff-Smith, 1992), and adolescents&rsquo; and adults&rsquo; scientific reasoning (Kuhn, Garcia-Mila, Zohar, &amp; Andersen, 1995; Schauble, 1996). These careful examinations of performance have shown that even on tasks that are often cited as classic illustrations of discontinuous change, children use a variety of approaches, both before and after the hypothesized discontinuity. For example, sustained variability has been observed in children&rsquo;s thinking about number conservation (Church &amp; Goldin-Meadow, 1986), moral reasoning (Colby, Kohlberg, Gibbs, &amp; Lieberman, 1983), serial recall (McGilly &amp; Siegler, 1989), and syntactic development (&ldquo;&ndash;ed&rdquo; and &ldquo;&ndash;s&rdquo; overgeneralizations; Marcus et al., 1992). In",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":2,
                 "pNumber":11,
                 "text": "Address correspondence to Robert S. Siegler, Department of Psychology, Carnegie Mellon University, Pittsburgh, PA 15213. VOL. 9, NO. 5, SEPTEMBER 1998",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":2,
                 "pNumber":12,
                 "text": "general, superior new approaches only gradually replace less effective older ones. The overlapping-waves model (Siegler, 1996) provides a characterization of development that is more consistent with the data than are the traditional portrayals of development. As illustrated in Figure 1a, the overlapping-waves model depicts children as using multiple approaches for prolonged periods of time. The general direction of development is toward greater use of the more advanced approaches (those with higher numbers in Fig. 1a). New approaches are often discovered and added to the repertoire (Strategies 3, 4, and 5). An example of the empirical data that have given rise to the overlapping-waves formulation is provided in Figure 1b. Being capable of diverse ways of thinking creates a need for children (and adults) to choose which approach to use on a given occasion. From infancy onward, people make these choices in adaptive ways. To cite one example, the steeper the ramp down which infants must descend, the more likely they are to use conservative approaches, such as sliding on their bellies, rather than riskier ones, such as walking (Adolph, 1997). To cite another example, the more difficult the arithmetic problem that preschoolers must solve, the more likely they are to put up their fingers and count them, rather than stating an answer retrieved from memory (Siegler, 1987). The pervasive cognitive variability that has been observed has a further implication: Children must frequently discover new strategies. For example, the fact that the majority of the 4- and 5-year-olds in Siegler and Jenkins (1989) used at least six addition strategies indicates that they had acquired at least that many approaches in the roughly 1-year period in which they had been adding. Similarly, Adolph (1997) reported that all of the infants in her study used all six of the locomotor strategies that she identified for going down slopes. And these are lower limits on the number of strategies generated, because some strategies are short-lived and may have come and gone by the time of the experiment or may not have been selected to solve the particular problems that were presented. Thus, frequent generation of new approaches, like adaptive choices among existing ones, seems a basic characteristic of development. Several computer simulations have been formulated to illustrate how specific cognitive processes could work together to produce strategic development. Each of these models has been limited in important ways, however. Some have generated adaptive choices among strategies and gradually increasing use of more advanced strategies, but they have not discovered new strategies (Siegler &amp; Shipley, 1995; Siegler &amp; Shrager, 1984). Others have shown the exact opposite pattern (Jones &amp; Van Lehn, 1991; Neches, 1987). This dissociation between adaptive choices among existing strategies and discovery of useful new strategies is no coincidence. Discovery of new strategies seems to require quite different representations and learning mechanisms than does changing choices among strategies that are already known. Discovery requires generation of qualitatively novel procedures or concepts, whereas changes in strategy choices require quantitative adjustments in Copyright &copy; 1998 American Psychological Society",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":2,
                 "pNumber":13,
                 "text": "405",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":2,
                 "pNumber":14,
                 "text": "Downloaded from pss.sagepub.com at Stanford University Libraries on September 12, 2013",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":3,
                 "pNumber":15,
                 "text": " PSYCHOLOGICAL SCIENCE",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":3,
                 "pNumber":16,
                 "text": "Modeling Children&rsquo;s Strategy Choices and Discoveries",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":3,
                 "pNumber":17,
                 "text": "Fig. 1. Parallels among overlapping-waves framework, empirical data on children&rsquo;s strategy use, and performance generated by SCADS. A schematic representation of the overlapping-waves framework is shown in (a). The graph in (b) presents empirical data on frequency of use of addition strategies by Swedish first, second, and third graders. Data from Svenson and Sjoberg (1983). SCADS&rsquo;s frequency of use of four addition strategies, averaged over 30 runs of the model, is plotted in (c). Beyond the part of SCADS&rsquo;s run illustrated in (c), percentage use of retrieval continued to increase, reaching 87% after 500 trials.",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":3,
                 "pNumber":18,
                 "text": "406 Downloaded from pss.sagepub.com at Stanford University Libraries on September 12, 2013",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":3,
                 "pNumber":19,
                 "text": "VOL. 9, NO. 5, SEPTEMBER 1998",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":4,
                 "pNumber":20,
                 "text": " PSYCHOLOGICAL SCIENCE",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":4,
                 "pNumber":21,
                 "text": "Jeff Shrager and Robert S. Siegler the probability of choosing each approach. Discovery is abrupt; changes in strategy choices are gradual. Because of these clear differences, the two types of learning are often viewed as unrelated. In our view, however, adaptive choices among strategies and discovery of new strategies are fundamentally interwoven processes (Crowley, Shrager, &amp; Siegler, 1997). Without multiple prior strategy discoveries, there would be no choices to be made, adaptive or otherwise. Without adaptive choices among available strategies, there would be no point to most strategy discoveries; people would be better off relying consistently on the most effective approach overall. Adaptive strategy choices also produce data that allow new strategies to incorporate lessons learned about the strengths and weaknesses of the most effective existing approaches. Given the pervasiveness of both strategy discovery and strategy choice, and the inherent relation between them, it seems important to integrate the two processes into a unified model of strategic development. This article reports the first such model. The model illustrates how associative and heuristic knowledge work together to produce both of these fundamental functions. We first describe eight central empirical phenomena in a domain in which strategic development has been extensively studied, the development of simple addition strategies. Then we present the new model and describe how it reproduces these eight phenomena.",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":4,
                 "pNumber":22,
                 "text": "Table 1. Children&rsquo;s principal addition strategies Strategy Sum Use of strategy to solve 3 + 5 Put up 3 fingers, usually accompanied by saying, &ldquo;1, 2, 3&rdquo;; put up 5 fingers, usually accompanied by saying, &ldquo;1, 2, 3, 4, 5&rdquo;; count all fingers, saying, &ldquo;1, 2, 3, 4, 5, 6, 7, 8&rdquo; Say, &ldquo;1, 2, 3, 4, 5, 6, 7, 8,&rdquo; perhaps simultaneously putting up fingers Say, &ldquo;5, 6, 7, 8&rdquo; or &ldquo;6, 7, 8,&rdquo; perhaps simultaneously putting up fingers on each count beyond 5 Count from first addend, saying, &ldquo;3, 4, 5, 6, 7, 8&rdquo; or &ldquo;4, 5, 6, 7, 8&rdquo; Say an answer and explain by saying, for example, &ldquo;I just knew it&rdquo;",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":4,
                 "pNumber":23,
                 "text": "Shortcut sum Min Count from first Retrieval",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":4,
                 "pNumber":24,
                 "text": "CHILDREN&rsquo;S DISCOVERY OF THE MIN STRATEGY Children&rsquo;s arithmetic has been a focal task for research on strategy development over the past three decades (e.g., Ashcraft, 1982; Fuson, 1988; Geary, 1994; Groen &amp; Parkman, 1972). A detailed database on 4- and 5-year-olds&rsquo; discovery of new strategies in this domain (Siegler &amp; Jenkins, 1989) focused on discovery of the min strategy (counting from the larger addend, as when solving 3 + 5 by counting &ldquo;6, 7, 8&rdquo;). Preschoolers who knew how to add, but who did not know the min strategy, were given 11 weeks of practice solving addition problems. During this period, the children participated in roughly three sessions per week, with seven problems presented per session. Strategy use was assessed on each trial through a combination of videotapes of overt behavior and asking children immediately after each trial, &ldquo;How did you solve that problem?&rdquo; The main findings were as follows: 1. Most 4- and 5-year-olds use at least six strategies, the most common of which are described in Table 1. 2. Children choose adaptively among strategies; they use each approach most often on the types of problems on which that approach is most effective relative to available alternatives. 3. Given practice solving simple addition problems, most 4- and 5year-olds discover the min strategy. 4. Discovery of the shortcut sum strategy appears to play a transitional role in discovery of the min strategy. Most children generate it shortly before they discover the min strategy, and it incorporates aspects of both the already-known sum strategy and the soon-to-be-discovered min strategy (Table 1). 5. Discoveries of new strategies often occur without prior failure. They take place following correct answers as well as following errors. They also take place on easy as well as hard problems. VOL. 9, NO. 5, SEPTEMBER 1998",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":4,
                 "pNumber":25,
                 "text": "6. Generalization proceeds slowly. After discovering the min strategy (i.e., using it for the first time), children only gradually increase its use. 7. For children who have already discovered the min strategy, generalization increases greatly with presentation of &ldquo;challenge problems.&rdquo; These are problems such as 2 + 21, easy to solve via the min strategy, but almost impossible to solve via counting from 1 or retrieval. 8. Finally, discovery does not require trial and error. Almost everyone&rsquo;s commonsense view of discovery, reflected in numerous formal models (e.g., Newell, 1990; Van Lehn, 1990), is that people initially try a mix of legitimate and flawed new strategies, and then winnow out the flawed approaches. However, trial-by-trial examination of Siegler and Jenkins&rsquo;s data revealed that children generate useful new strategies without ever trying conceptually flawed approaches, such as counting the first addend twice. A previous computational model of strategy choice, ASCM (Siegler &amp; Shipley, 1995), generated changes with experience that paralleled changes in children&rsquo;s strategy choices. ASCM learned by associating each problem with answers stated on that problem, and by continually adjusting the strengths of alternative strategies for solving such problems in accord with the relative speeds and accuracies they produced on the problems. Such associative learning produced increasing speed and accuracy, increasingly frequent choices of the more advanced strategies, adaptive generalization to novel problems, and individual differences patterns that mirrored those of children. However, the associative-learning mechanism did not allow discovery of new strategies, a serious shortcoming given the prominence of strategy discovery in this and many other domains. Our new model resolves this problem by including metacognitive as well as associative-learning mechanisms, thereby allowing discovery of novel strategies as well as increasingly adaptive choices among existing ones.",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":4,
                 "pNumber":26,
                 "text": "407 Downloaded from pss.sagepub.com at Stanford University Libraries on September 12, 2013",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":5,
                 "pNumber":27,
                 "text": " PSYCHOLOGICAL SCIENCE",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":5,
                 "pNumber":28,
                 "text": "Modeling Children&rsquo;s Strategy Choices and Discoveries THE SIMULATION&rsquo;S STRUCTURE The new model, called SCADS (Strategy Choice And Discovery Simulation), is schematically outlined in Figure 2. It maintains all of the mechanisms of ASCM but extends it in three ways. First, whereas ASCM represents each strategy as a unit, SCADS represents each strategy as a modular sequence of operators. For example, the sum strategy (Table 1) is represented as the following set of operators: ALL FINGERS DOWN, CHOOSE HAND, CHOOSE ADDEND, SAY ADDEND, CLEAR ECHOIC BUFFER, COUNT OUT FINGERS TO REPRESENT ADDEND, SWITCH HANDS, SWITCH ADDENDS, SAY ADDEND, CLEAR ECHOIC BUFFER, COUNT OUT FINGERS TO REPRESENT ADDEND, CLEAR ECHOIC BUFFER, COUNT ALL FINGERS, END. Second, whereas ASCM recorded only basic statistics about speed and accuracy of strategies, SCADS also forms a working memory trace of each strategy&rsquo;s execution. During and immediately after execution of a strategy, the operations and partial results produced during its execution are available for analysis. The modular representations of strategies and working memory traces of their operation work together with a third new feature of SCADS to generate discoveries. This third feature is a metacognitive system, which analyzes the sequence of operators used to execute existing strategies, identifies potential improvements, and generates new strategies by recombining operators from existing approaches. SCADS&rsquo;s metacognitive system is itself composed of three components: the attentional spotlight, strategy-change heuristics, and goalsketch filters. The attentional spotlight increases the resources devoted to execution of poorly learned strategies. Its operation is analogous to the way in which people focus attention on execution of unpracticed procedures in order to increase the likelihood of executing them correctly. The decision of whether to devote attentional resources to supervising execution of a given operator is based on the current strength of that operator relative to a threshold that varies randomly from trial to trial. Because each operator is at first quite weak, attentional resources are initially required to ensure its appropriate execution. The more often an operator is used, the less often attention will need to be focused on its execution and the more often attentional resources can be devoted to discovering new strategies. As attentional resources are freed, the model allocates them to the strategy-change heuristics, the second component of the metacognitive system. These heuristics operate on the traces of the cognitive operations that were used to solve particular problems. SCADS includes two strategy-change heuristics: (a) If a redundant sequence of behavior is detected, then delete one of the two sets of operators that caused the redundancy; and (b) if statistics on a strategy&rsquo;s speed and accuracy show greater success when the strategy is executed in a particular order, then create a version of the strategy that always uses that order (as opposed to the initial procedure of arbitrarily choosing which addend to quantify first). These heuristics enable the metacognitive system to propose a variety of strategies, some valid, others flawed. An example of a flawed strategy is &ldquo;count the first addend twice.&rdquo; To help SCADS avoid executing invalid strategies, the metacognitive system includes a third component, the goal-sketch filters. These are two standards that are essential for legitimate addition strategies and that therefore provide criteria against which proposed new strategies can be evaluated. One filter requires that both addends be represented; the other requires that the reported result include the representations corresponding to both addends. Each of these features of SCADS is consistent with current knowledge about 4- and 5-year-olds&rsquo; thinking. Children of this age form working memory traces of their execution of strategies, which allow them to provide accurate immediately retrospective verbal reports concerning their strategy use (Siegler, 1987). Like older children and adults, they represent new strategies as sequences of discrete components, as indicated by their fairly often omitting one or another component when they first use a strategy (Miller &amp; Aloise-Young, 1996). They also possess sufficient metacognitive capacity to monitor simple strategies and evaluate them (e.g., one 4-year-old&rsquo;s explanation of why, when presented 6 + 3, she had counted from 6 rather than 1: &ldquo;&rsquo;Cause then you don&rsquo;t have to count all of those numbers&rdquo;; Siegler &amp; Jenkins, 1989, p. 66). Focused attention enhances both performance and learning from infancy onward (Ruff &amp; Rothbart, 1996). Similarly, children as young as 13 months eliminate redundant actions as they gain experience solving a problem (Chen, Sanchez, &amp; Campbell, 1997). Finally, 5-year-olds who do not yet employ the min strategy use knowledge akin to the goal-sketch filters to evaluate potential addition strategies. They judge the min strategy, which conforms to the standards embodied in the goal-sketch filters, as much smarter than an illegal strategy, which violates the standards (Siegler &amp; Crowley, 1994).",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":5,
                 "pNumber":29,
                 "text": "THE SIMULATION&rsquo;S FUNCTIONING Fig. 2. Flow of control within SCADS. Dotted boxes identify the components that are similar to components of a previous model, called ASCM (Siegler &amp; Shipley, 1995). With this background, we can consider a representative run of the simulation that illustrates how SCADS generates performance and VOL. 9, NO. 5, SEPTEMBER 1998 Downloaded from pss.sagepub.com at Stanford University Libraries on September 12, 2013",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":5,
                 "pNumber":30,
                 "text": "408",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":6,
                 "pNumber":31,
                 "text": " PSYCHOLOGICAL SCIENCE",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":6,
                 "pNumber":32,
                 "text": "Jeff Shrager and Robert S. Siegler learning. SCADS begins each run with two strategies: retrieval and the sum strategy (putting up fingers and counting them). Retrieval is a basic cognitive capability, present from infancy; the sum strategy is explicitly taught to young children by their parents and is the first strategy specific to arithmetic that most children learn (Saxe, Guberman, &amp; Gearhart, 1987). When an addition problem is presented, the ASCM-like component of SCADS (the part corresponding to the three dotted squares at the top of Fig. 2) chooses a strategy in the same way as in ASCM. At first, the sum strategy is often chosen, because answers are not associated with problems sufficiently strongly to allow the answers to be retrieved and stated. On these initial trials, the metacognitive system consistently decides that attentional resources are needed to supervise execution of the sum strategy, because the operators within it have little strength. On the run being described, once SCADS had solved about 70 problems, enough attentional resources had been freed for the system to begin discovering new strategies. The first three strategies that it proposed violated the goal sketch, and therefore were not tried. For example, one proposed strategy did not include raising fingers corresponding to the second addend and thus violated the goal-sketch filter that requires both addends to be represented. On Problem 82, SCADS discovered a legitimate but inefficient strategy: representing both addends, starting over and doing the same thing, and then advancing the answer yielded by the second execution. This strategy was added to SCADS&rsquo;s repertoire, because it did not violate the goal sketch, but its inefficiency led to it never being used much. A few problems later, the simulation generated a strategy in which the larger addend was always represented first. Thus, 2 + 4, as well as 4 + 2, was solved by counting &ldquo;1, 2, 3, 4,&rdquo; then &ldquo;1, 2,&rdquo; and finally &ldquo;1, 2, 3, 4, 5, 6.&rdquo; This change had only a small effect on performance initially, but provided one of the bases for the min strategy. Later still, SCADS noticed and eliminated part of the redundant processing involved in the sum strategy and generated the shortcut sum strategy. On 4 + 2, the shortcut sum strategy involves only counting &ldquo;1, 2, 3, 4, 5, 6.&rdquo; Finally, SCADS eliminated the redundancy of the shortcut sum strategy&rsquo;s initial count from 1 by just saying the larger addend to represent its quantity. This last discovery, on top of the previous ones, produced the min strategy, which solves 4 + 2 by simply saying, &ldquo;5, 6.&rdquo; To test the degree to which SCADS produces strategy choices and discoveries like those of children, we ran the model 30 times. On each run, the model was presented 500 problems (20 presentations of each of the 25 addition problems with addends 1 through 5). The reason we conducted multiple runs was that the presence of several probabilistic functions in the model led to its results varying somewhat from run to run. The most important probabilistic components were the 4% probability of making an error on any given counting operation, the 5% probability of trying to discover a new strategy on trials when sufficient metacognitive resources are available, and the range from 0 to 1 for the confidence criterion (a randomly varying threshold for stating a retrieved answer). These values were chosen for being in the general range that would generate behavior like that seen in children. No efforts were made to optimize the values to produce the best possible fit to children&rsquo;s performance, because the likelihood of capitalizing on chance was too great. The model demonstrated all seven of the major phenomena of strategy choice and strategy discovery that could be observed in the absence of challenge problems: It used multiple strategies throughout its run (Fig. 1c). It chose adaptively among the strategies. It discovered VOL. 9, NO. 5, SEPTEMBER 1998 Downloaded from pss.sagepub.com at Stanford University Libraries on September 12, 2013",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":6,
                 "pNumber":33,
                 "text": "the min strategy on all 30 runs. It consistently discovered the shortcut sum strategy before the min strategy. Its discoveries followed correct as well as incorrect performance. It was slow to generalize newly discovered strategies. It never executed illegal strategies. On the 30 individual runs, SCADS proposed between 15 and 21 strategies. Most were vetoed by the goal-sketch filters, and therefore were not used. In addition to the 5 strategies described in Table 1, between 1 and 4 other strategies were passed by the goal-sketch filters on each run. These were legal but inefficient strategies, some of which have been observed in children&rsquo;s addition as well. For example, SCADS, like preschoolers, occasionally executes the sum strategy, obtains an answer, and then executes it again. SCADS&rsquo;s strategy choices were adaptive in the same ways as children&rsquo;s. As is true in the case of children&rsquo;s choices, the easier the problem, as indicated by percentage correct on it, the more often the model used retrieval to generate the answer. Also as with children, the adaptiveness of SCADS&rsquo;s strategy choices increased steadily with experience. Averaged over the 30 runs on which no challenge problems were presented, the correlations between percentage correct on each problem and percentage use of retrieval on the problem rose from r = .38 after 100 trials to r = .91 after 500. SCADS also provided concrete support for the view that the shortcut sum is transitional to the min strategy. The shortcut sum strategy was consistently discovered before the min strategy and made two contributions toward making the latter discovery possible. First, it showed how correct answers could be generated by counting objects only once. Second, it provided data from which the model could learn that starting with the larger addend was more effective than starting with the smaller one. In many runs, these data gave rise to a specialized version of the shortcut sum strategy in which the larger addend was always represented first. Both contributions facilitated discovery of the min strategy. Finally, we tested whether SCADS would also generate the eighth phenomenon&mdash;increased generalization of the min strategy following presentation of challenge problems. We ran SCADS 30 additional times. On each run, we replaced one block of 50 standard problems with a block of 50 challenge problems (problems with one addend above 20 and the other below 5, such as 3 + 25 and 25 + 3). This block of challenge problems began 50 trials after discovery of the min strategy. Comparison of SCADS&rsquo;s performance on these 30 runs with its performance on the original 30 showed that presentation of challenge problems had enduring effects on generalization of the newly discovered strategy. Use of the min strategy increased substantially when the challenge problems were presented, and remained higher afterward when the original set of small-addend problems was again presented. A repeated measures analysis of variance yielded the significant interaction between trial block and presentation of challenge problems implied by this description. Percentage use of the min strategy did not differ before the challenge problems were presented, but during their presentation and afterward, use of the min strategy was greater on the runs that included the challenge problems. Other aspects of SCADS&rsquo;s performance were also consistent with data on children&rsquo;s arithmetic. Accuracy improved with experience, rising from 74% correct on the first 25 trials to 90% correct on the last 25. Use of retrieval increased from 53% on the first 25 trials to 87% on the last 25. Mean number of trials before discovery of the min strategy, 107 (SE = 15.7), resembled that of the 4- and 5-year-olds in the Siegler and Jenkins (1989) study, who on average discovered the strategy after 95 trials. The close numerical similarity may be coinciden-",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":6,
                 "pNumber":34,
                 "text": "409",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":7,
                 "pNumber":35,
                 "text": " PSYCHOLOGICAL SCIENCE",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":7,
                 "pNumber":36,
                 "text": "Modeling Children&rsquo;s Strategy Choices and Discoveries tal, but the fact that the time scale is on the right order of magnitude (as opposed to discoveries occurring after 2 trials or 2,000) is not. These results indicate that the combination of associative and metacognitive processes embodied in SCADS is sufficient to generate both adaptive choices among existing strategies and discovery of new strategies. Important challenges remain, including modeling how children acquire their initial (sum) strategy from parental instruction, showing how discoveries are made when relevant components are not present in any existing strategy, and demonstrating the applicability of SCADS to modeling strategic development in other domains. However, we do not wish to minimize what SCADS has already accomplished. It produces the combination of qualitative novelties and slowly changing distributions of existing approaches that marks children&rsquo;s strategic development. It also generates a large number of particular phenomena that closely parallel the growth of children&rsquo;s arithmetic skills. Previous models of strategy discovery that were based solely on metacognitive mechanisms or solely on associative mechanisms were unable to generate this combination of quantitative and qualitative change. Thus, the model suggests that both metacognitive mechanisms, which can produce qualitative novelties, and associative mechanisms, which produce gradual learning, are essential to strategic development. More generally, SCADS illustrates how relatively simple, nonspecialized processes can give rise to at least some of young children&rsquo;s impressive cognitive competence. Colby, A., Kohlberg, L., Gibbs, J., &amp; Lieberman, M. (1983). A longitudinal study of moral judgement. Monographs of the Society for Research in Child Development, 48(1&ndash;2, Serial No. 200). Crowley, K., Shrager, J., &amp; Siegler, R.S. (1997). Strategy discovery as a competitive negotiation between metacognitive and associative mechanisms. Developmental Review, 17, 462&ndash;489. Fuson, K.C. (1988). Children&rsquo;s counting and concepts of number. New York: Springer-Verlag. Geary, D.C. (1994). Children&rsquo;s mathematical development: Research and practical implications. Washington, DC: American Psychological Association. Groen, G.J., &amp; Parkman, J.M. (1972). A chronometric analysis of simple addition. Psychological Review, 79, 329&ndash;343. Jones, R.M., &amp; Van Lehn, K. (1991). Strategy shifts without impasses: A computational model of the sum-to-min transition. In Proceedings of the Thirteenth Annual Conference of the Cognitive Science Society (pp. 358&ndash;363). Hillsdale, NJ: Erlbaum. Karmiloff-Smith, A. (1992). Beyond modularity: A developmental perspective on cognitive science. Cambridge, MA: MIT Press. Kuhn, D., Garcia-Mila, M., Zohar, A., &amp; Andersen, C. (1995). Strategies of knowledge acquisition. Monographs of the Society for Research in Child Development, 60(4, Serial No. 245). Marcus, G.F., Pinker, S., Ullman, M., Hollander, M., Rosen, T.J., &amp; Xu, F. (1992). Overregularization in language acquisition. Monographs of the Society for Research in Child Development, 57(4, Serial No. 228). McGilly, K., &amp; Siegler, R.S. (1989). How children choose among serial recall strategies. Child Development, 60, 172&ndash;182. Miller, P., &amp; Aloise-Young, P. (1996). Preschoolers&rsquo; strategic behaviors and performance on a same-different task. Journal of Experimental Child Psychology, 60, 284&ndash;303. Neches, R. (1987). Learning through incremental refinement procedures. In D. Klahr, P. Langley, &amp; R. Neches (Eds.), Production system models of learning and development (pp. 163&ndash;219). Cambridge, MA: MIT Press. Newell, A. (1990). Unified theories of cognition. Cambridge, MA: Harvard University Press. Ruff, H.A., &amp; Rothbart, M.K. (1996). Attention in early development: Themes and variations. New York: Oxford University Press. Saxe, G.B., Guberman, S.R., &amp; Gearhart, M. (1987). Social processes in early number development. Monographs of the Society for Research in Child Development, 52(2&ndash;3, Whole No. 216). Schauble, L. (1996). The development of scientific reasoning in knowledge-rich contexts. Developmental Psychology, 32, 102&ndash;119. Siegler, R.S. (1987). The perils of averaging data over strategies: An example from children&rsquo;s addition. Journal of Experimental Psychology: General, 116, 250&ndash;264. Siegler, R.S. (1996). Emerging minds: The process of change in children&rsquo;s thinking. New York: Oxford University Press. Siegler, R.S., &amp; Crowley, K. (1994). Constraints on learning in non-privileged domains. Cognitive Psychology, 27, 194&ndash;227. Siegler, R.S., &amp; Jenkins, E.A. (1989). How children discover new strategies. Hillsdale, NJ: Erlbaum. Siegler, R.S., &amp; Shipley, C. (1995). Variation, selection, and cognitive change. In T. Simon &amp; G. Halford (Eds.), Developing cognitive competence: New approaches to process modeling (pp. 31&ndash;76). Hillsdale, NJ: Erlbaum. Siegler, R.S., &amp; Shrager, J. (1984). Strategy choices in addition and subtraction: How do children know what to do? In C. Sophian (Ed.), The origins of cognitive skills (pp. 229&ndash;293). Hillsdale, NJ: Erlbaum. Svenson, O., &amp; Sjoberg, K. (1983). Evolution of cognitive processes for solving simple additions during the first three school years. Scandinavian Journal of Psychology, 24, 117&ndash;124. Van Lehn, K. (1990). Mind bugs: The origins of procedural misconceptions. Cambridge, MA: MIT Press.",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":7,
                 "pNumber":37,
                 "text": "Acknowledgments&mdash;The authors thank Kevin Crowley for his important contribution to this research. The research was made possible by the support of Grant No. HD 19011 from the National Institute of Child Health and Human Development.",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":7,
                 "pNumber":38,
                 "text": "REFERENCES Adolph, K. (1997). Learning in the development of infant locomotion. Monographs of the Society for Research in Child Development, 62(3, Serial No. 251). Ashcraft, M.H. (1982). The development of mental arithmetic: A chronometric approach. Developmental Review, 2, 213&ndash;236. Chen, Z., Sanchez, R.P., &amp; Campbell, T. (1997). From beyond to within their grasp: The rudiments of analogical problem solving in 10- and 13-month-olds. Developmental Psychology, 33, 790&ndash;801. Church, R.B., &amp; Goldin-Meadow, S. (1986). The mismatch between gesture and speech as an index of transitional knowledge. Cognition, 23, 43&ndash;71.",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":7,
                 "pNumber":39,
                 "text": "(RECEIVED 8/6/97; ACCEPTED 1/5/98)",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":7,
                 "pNumber":40,
                 "text": "410 Downloaded from pss.sagepub.com at Stanford University Libraries on September 12, 2013",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             },
             {
-                "page":1,
+                "page":7,
                 "pNumber":41,
                 "text": "VOL. 9, NO. 5, SEPTEMBER 1998",
-                "highlights":[]
+                "highlights":[],
+                "notes": []
             }
         ],
-		"notes":
-		[
-			{
-				"author":"you",
-				"body":"These articles present a description of aspects of geometry knowledge and reasoning based on the ideas of two Dutch researchers (van Hiele and van Hiele).  The van Heile's noted that children progress from very concrete and unsystematic approaches to geometry to more systematic and more formal approaches, characterizing a series of levels.  Shaughnessy and Burger argue that the levels are useful, but that many students fail to progress to more advanced levels, and also that individuals are not consistent in the levels the use.  They introduce a very interesting idea that students and teachers may 'confront a level' in a geometry class -- that is, that students and teachers are working at different levels and will not be able to properly understand each other."
-			},
-			{
-				"author":"Professor McClelland",
-				"body":"For class on Nov 19, the primary reading is a paper by Koedinger and Anderson (1990) in which the offer an analysis of expert reasoning in Geometry.  The paper argues that earlier models, which approached proof in geometry as proceeding at the level of the formal steps required to get from premises to the desired result, fail to capture the actual process by which experts reason about Geometry proof problems.  They offer an alternative based on what they call the diagram configuration model, which takes a very different approach.  My goal for the session is for us to, first, understand the diagram configuration model and, second, to understand its implications for understanding how geometry should be learned -- and taught."
-			},
-			{
-				"author":"Classmate 3",
-				"body":"I really liked this article"
-			}
-		],
+
 		"glossary":
 		[
 			{
