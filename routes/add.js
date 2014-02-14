@@ -2,7 +2,8 @@ var data = require("../data.json");
 
 exports.note = function(req, res) {    
 
-	var author = req.query.auth;
+	//var author = req.query.auth;
+    var author = "You";
 	var body = req.query.bod;
 	var pNum = req.query.pNum;
 	var note = {
@@ -18,7 +19,8 @@ exports.note = function(req, res) { 
 
 exports.defn = function(req, res) {
 	console.log(req.query.defn);
-	var author = req.query.auth;
+	//var author = req.query.auth;
+    var author = "You";
 	var word = req.query.word;
 	var def = req.query.defn;
 
@@ -48,7 +50,7 @@ exports.highlight = function(req, res) {
 	console.log("in highlight function");
 	var pNum = req.query.pNumHi;
 	var tempHighlight = {
-		"author":req.query.auth,
+		"author":"You",
 		"page":req.query.page,
 		"hText":req.query.htext,
 		"hStart":0,

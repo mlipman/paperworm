@@ -60,10 +60,12 @@
 						<h4 class="modal-title" id="noteModalLabel">Add Note</h4>
 					</div>
 					<div class="modal-body" id="noteModalBody">
+                        <!--
 						<div class="form-group">
 							<label for="auth">Author:</label>
 							<input type="text" class="form-control" id="auth" placeholder="Your name" name="auth">
 						</div>
+                        -->
 						<div class="form-group">
 							<label for="pNum">Paragraph No:</label>
 							<input type="number" class="form-control" id="pNum" placeholder="Paragraph No." name="pNum">
@@ -74,8 +76,8 @@
 					    </div>
 				    </div>
 				    <div class="modal-footer">
-						<input type="submit" id="submitBtn" class="btn btn-default" value="Add the note"></input>
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<input type="submit" id="submitBtn" class="btn btn-default" value="Add"></input>
+						<!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
 					</div>
 				</form>
 
@@ -94,7 +96,7 @@
 				<div class="modal-body" id="defModalBody"></div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary">Add</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
 				</div>
 			</div>
 		</div>
@@ -107,13 +109,15 @@
 				<form class="form-horizontal" id="addHighlightForm" role="form" method="get" action="/addHighlight">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title" id="highlightModalLabel">Add Note</h4>
+						<h4 class="modal-title" id="highlightModalLabel">Add Annotation</h4>
 					</div>
 					<div class="modal-body" id="highlightModalBody">
+                        <!--
 						<div class="form-group">
 							<label for="auth">Author:</label>
 							<input type="text" class="form-control" id="auth" placeholder="Author" name="auth">
 						</div>
+                        -->
 						<div class="form-group">
 							<label for="page">Page Number:</label>
 							<input type="text" class="form-control" id="page" placeholder="Page number" name="page">
@@ -132,8 +136,8 @@
 						</div>
 				    </div>
 				    <div class="modal-footer">
-						<input type="submit" id="submitBtn" class="btn btn-default" value="Add Annotation"></input>
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<input type="submit" id="submitBtn" class="btn btn-default" value="Add"></input>
+						<!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
 					</div>
 				</form>
 			</div>
@@ -146,7 +150,7 @@
 				{{#each paragraphs}}
 					<div class="row" id="pNumber{{ pNumber }}">
 						<div class="col-sm-6" id="para-left">
-							<p>[P#{{ pNumber }}] {{ text }}</p>
+							<p>[{{ pNumber }}] {{ text }}</p>
 						</div>
                         <div class="col-sm-6" id="annotation-right">
                         {{#each highlights}}
@@ -156,7 +160,7 @@
                                         <div class="row">
                                             <!-- Title -->
                                             <div class="col-sm-7">
-                                                <h4 class="panel-title">Annotation by {{ author }}</h4>
+                                                <h4 class="panel-title">{{ author }}</h4>
                                             </div>
                                             <!-- Buttons -->
                                             <div class="col-sm-5">
@@ -184,7 +188,7 @@
                                         <div class="row">
                                             <!-- Title -->
                                             <div class="col-sm-7">
-                                                <h4 class="panel-title">Note from {{ author }}</h4>
+                                                <h4 class="panel-title">{{ author }}</h4>
                                             </div>
                                             <!-- Buttons -->
                                             <div class="col-sm-5">

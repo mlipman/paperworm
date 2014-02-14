@@ -35,16 +35,12 @@
                 ],
                 "notes":[
                     {
-                        "author":"you",
+                        "author":"You",
                         "body":"These articles present a description of aspects of geometry knowledge and reasoning based on the ideas of two Dutch researchers (van Hiele and van Hiele).  The van Heile's noted that children progress from very concrete and unsystematic approaches to geometry to more systematic and more formal approaches, characterizing a series of levels.  Shaughnessy and Burger argue that the levels are useful, but that many students fail to progress to more advanced levels, and also that individuals are not consistent in the levels the use.  They introduce a very interesting idea that students and teachers may 'confront a level' in a geometry class -- that is, that students and teachers are working at different levels and will not be able to properly understand each other."
                     },
                     {
                         "author":"Professor McClelland",
                         "body":"For class on Nov 19, the primary reading is a paper by Koedinger and Anderson (1990) in which the offer an analysis of expert reasoning in Geometry.  The paper argues that earlier models, which approached proof in geometry as proceeding at the level of the formal steps required to get from premises to the desired result, fail to capture the actual process by which experts reason about Geometry proof problems.  They offer an alternative based on what they call the diagram configuration model, which takes a very different approach.  My goal for the session is for us to, first, understand the diagram configuration model and, second, to understand its implications for understanding how geometry should be learned -- and taught."
-                    },
-                    {
-                        "author":"Classmate 3",
-                        "body":"I really liked this article"
                     }
                 ]
             },
@@ -69,7 +65,12 @@
                 "pNumber":3,
                 "text": "On behalf of:",
                 "highlights":[],
-                "notes": []
+                "notes": [
+                    {
+                        "author":"Classmate 3",
+                        "body":"I really liked this article"
+                    }
+                ]
             },
             {
                 "page":1,
