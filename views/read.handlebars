@@ -115,12 +115,14 @@
 	<div class="container">
 		<div class="reading-pad">
 			<div id="paperToRead">
-				{{#each paragraphs}}<!--random comment to be deleted-->
+				{{#each paragraphs}}
 					<div class="row">
 						<div class="col-sm-6" id="para-left">
 							<p>{{ text }}</p>
 						</div>
-						<div class="col-sm-6" id="annotation-right"></div>
+                        {{#each highlights}}
+                            <div class="col-sm-6" id="annotation-right">{{nText}}</div>
+                        {{/each}}
 					</div>
 				{{/each}}
 			</div>
