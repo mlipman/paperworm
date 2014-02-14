@@ -18,6 +18,8 @@ $(document).ready(function() {
 	$("#addDefinitionForm").hide();
 	$("#addHighlightForm").hide();*/
 
+	rangy.init();
+
     equalHeight($(".thumbnail")); 
     equalHeight($(".caption").children("h3"));
 
@@ -44,6 +46,18 @@ $(document).ready(function() {
 		var highlighter = rangy.createHighlighter();
 		highlighter.addClassApplier(cssApplier);
 		highlighter.highlightSelection("highlightText", sel);
+		var serializedHighlights = highlighter.serialize();
+		console.log(serializedHighlights);
+		//data['serializedHistory'] = serializedHighlights;
+	});
+
+	$('#deleteHighlightButton').click(function(e) {
+		e.preventDefault();
+		var sel = rangy.getSelection();
+		var cssApplier = rangy.createCssClassApplier("highlightText");
+		var highlighter = rangy.createHighlighter();
+		highlighter.addClassApplier(cssApplier);
+		highlighter.unhighlightSelection(sel);
 		var serializedHighlights = highlighter.serialize();
 		console.log(serializedHighlights);
 		//data['serializedHistory'] = serializedHighlights;
