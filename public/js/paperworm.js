@@ -3,12 +3,12 @@
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
 	initializePage();
-	$('.friend-name').click(function(e) {
+	/*$('.friend-name').click(function(e) {
 		e.preventDefault()
 		var header = $(this).children()[0]
 		var anagram = anagrammedName($(header).text());
 		$(header).text(anagram)
-	});
+	});*/
 
 	/*$("#makeNoteButton").click(showNoteBox);
 	$("#makeDefnButton").click(showDefnBox);
@@ -20,8 +20,8 @@ $(document).ready(function() {
 
 	rangy.init();
 
-    equalHeight($(".thumbnail")); 
-    equalHeight($(".caption").children("h3"));
+    //equalHeight($(".thumbnail")); 
+    //equalHeight($(".caption").children("h3"));
 
     $('#searchDict').click(function(e) {
     	e.preventDefault();
@@ -37,41 +37,24 @@ $(document).ready(function() {
 	//$('#paperToRead').load('SchragerSieglerText.html');
 
 	var highlighter = rangy.createHighlighter();
+	var serializedHighlights = highlighter.serialize();
 
 	$('#addHighlightButton').click(function(e) {
 		e.preventDefault();
-		var sel = rangy.getSelection();
-		var range = sel.getRangeAt(0);
-		var selectedText = range.text();
-		console.log(selectedText);
-		var cssApplier = rangy.createCssClassApplier("highlightText");
-		//var highlighter = rangy.createHighlighter();
-		highlighter.addClassApplier(cssApplier);
-		highlighter.highlightSelection("highlightText");
-		var serializedHighlights = highlighter.serialize();
-		console.log(serializedHighlights);
-		/*$('#deleteHighlightButton').click(function(e) {
-			//e.preventDefault();
-			//var sel = rangy.getSelection();
-			highlighter.unhighlightSelection();
-			var serializedHighlights = highlighter.serialize();
-			console.log(serializedHighlights);
-			//data['serializedHistory'] = serializedHighlights;
-		});*/
-		//data['serializedHistory'] = serializedHighlights;
+		addHighlight(highlighter, serializedHighlights);
 	});
 
 	$('#deleteHighlightButton').click(function(e) {
 		e.preventDefault();
 		//var sel = rangy.getSelection();
 		highlighter.unhighlightSelection();
-		var serializedHighlights = highlighter.serialize();
+		serializedHighlights = highlighter.serialize();
 		console.log(serializedHighlights);
 		//data['serializedHistory'] = serializedHighlights;
 	});
 })
 
-function equalHeight(group) {   
+/*function equalHeight(group) {   
 	console.log("caf") ;
     var tallest = 0;    
     group.each(function() {       
@@ -81,7 +64,7 @@ function equalHeight(group) {
         }    
     });    
     group.each(function() { $(this).height(tallest); });
-} 
+} */
 
 
 /*
@@ -105,7 +88,7 @@ function showDefnBox(e) {
 
 }
 
-function showHighlightBox(e) {
+/*function showHighlightBox(e) {
 	$("#addNoteForm").hide();
 	$("#addDefinitionForm").hide();
 	$("#addHighlightForm").toggle();
@@ -138,7 +121,7 @@ function showHighlightBox(e) {
 		console.log(name + " not known for anagramming.");
 		return name;
 	}
-}
+}*/
 
 //Show defnition on the definition modal on read mode
 function showDefinition(result) {
@@ -156,4 +139,17 @@ function showDefinition(result) {
 		console.log(defHTML);
 		$('#defModalBody').html(defHTML);	
 	}
+}
+
+function addHighlight(highlighter, serializedHighlights){
+	var sel = rangy.getSelection();
+	var range = sel.getRangeAt(0);
+	var selectedText = range.text();
+	console.log(selectedText);
+	var cssApplier = rangy.createCssClassApplier("highlightText");
+	highlighter.addClassApplier(cssApplier);
+	highlighter.highlightSelection("highlightText");
+	serializedHighlights = highlighter.serialize();
+	console.log(serializedHighlights);
+	//data['serializedHistory'] = serializedHighlights;
 }
