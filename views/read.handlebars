@@ -76,8 +76,8 @@
 					    </div>
 				    </div>
 				    <div class="modal-footer">
+				    	<!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
 						<input type="submit" id="submitBtn" class="btn btn-default" value="Add"></input>
-						<!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
 					</div>
 				</form>
 
@@ -95,7 +95,7 @@
 				</div>
 				<div class="modal-body" id="defModalBody"></div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary">Add</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Add</button>
 					<!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
 				</div>
 			</div>
@@ -153,42 +153,14 @@
 							<p>[{{ pNumber }}] {{ text }}</p>
 						</div>
                         <div class="col-sm-6" id="annotation-right">
-                        {{#each highlights}}
-                                <div class="panel panel-primary">
-                                    <!-- Note header -->
-                                    <div class="panel-heading">
-                                        <div class="row">
-                                            <!-- Title -->
-                                            <div class="col-sm-7">
-                                                <h4 class="panel-title">{{ author }}</h4>
-                                            </div>
-                                            <!-- Buttons -->
-                                            <div class="col-sm-5">
-                                                <div class="btn-group pull-right">
-                                                    <button type="button" class="btn btn-default btn-xs" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span></button>
-                                                    <button type="button" class="btn btn-default btn-xs" id="remove-obj"><span class="glyphicon glyphicon-remove"></span></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Note content -->
-                                    <div class="panel-body">
-                                        <p>{{ hText }}</p>
-                                    </div>
-                                    <div class="panel-footer">
-                                		<p>{{ nText }}</p>
-                            		</div>
-                                </div>
-                            <!--<div class="col-sm-6" id="annotation-right">{{nText}}</div>-->
-                        {{/each}}
-                        {{#each notes}}
+                        	{{#each notes}}
                                 <div class="panel panel-default">
                                     <!-- Note header -->
                                     <div class="panel-heading">
                                         <div class="row">
                                             <!-- Title -->
                                             <div class="col-sm-7">
-                                                <h4 class="panel-title">{{ author }}</h4>
+                                                <a data-toggle="collapse" href="#noteCont{{ pNumber }}x{{ iden }}"><h4 class="panel-title">{{ author }}</h4></a>
                                             </div>
                                             <!-- Buttons -->
                                             <div class="col-sm-5">
@@ -200,12 +172,45 @@
                                         </div>
                                     </div>
                                     <!-- Note content -->
-                                    <div class="panel-body">
-                                        <p>{{ body }}</p>
-                                    </div>
+                                    <div id="noteCont{{ pNumber }}x{{ iden }}" class="collapse">
+	                                    <div class="panel-body">
+	                                        <p>{{ body }}</p>
+	                                    </div>
+                                	</div>
                                 </div>
                             <!--<div class="col-sm-6" id="annotation-right">{{nText}}</div>-->
-                        {{/each}}
+                        	{{/each}}
+                        	{{#each highlights}}
+                                <div class="panel panel-primary">
+                                    <!-- Note header -->
+                                    <div class="panel-heading">
+                                        <div class="row">
+                                            <!-- Title -->
+                                            <div class="col-sm-7">
+                                                <a data-toggle="collapse" href="#highlightCont{{ pNumber }}x{{ iden }}" id="hCollapseButton"><h4 class="panel-title">{{ author }}</h4></a>
+                                            </div>
+                                            <!-- Buttons -->
+                                            <div class="col-sm-5">
+                                                <div class="btn-group pull-right">
+                                                    <button type="button" class="btn btn-default btn-xs" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span></button>
+                                                    <button type="button" class="btn btn-default btn-xs" id="remove-obj"><span class="glyphicon glyphicon-remove"></span></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Note content -->
+                                    <div id="highlightCont{{ pNumber }}x{{ iden }}" class="collapse">
+	                                    <div class="panel-body">
+	                                        <p>{{ hText }}</p>
+	                                    </div>
+	                                    <div class="panel-footer">
+	                                		<p>{{ nText }}</p>
+	                            		</div>
+	                            	</div>
+                                </div>
+                            <!--<div class="col-sm-6" id="annotation-right">{{nText}}</div>-->
+                        	{{/each}}
+
                         </div>
 					</div>
 				{{/each}}

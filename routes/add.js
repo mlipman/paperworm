@@ -6,7 +6,11 @@ exports.note = function(req, res) { 
     var author = "You";
 	var body = req.query.bod;
 	var pNum = req.query.pNum;
+	//existed number of notes
+	var num = data["scads"]["paragraphs"][pNum-1]["notes"].length;
 	var note = {
+		"pNumber": pNum,
+		"iden": num + 1,
 		"author":author,
 		"body":body
 	};
@@ -14,7 +18,6 @@ exports.note = function(req, res) { 
 	data["scads"]["paragraphs"][pNum-1]["notes"].push(note);
 
 	res.render('read', data["scads"]);	
-
  }
 
 exports.defn = function(req, res) {
@@ -49,7 +52,10 @@ exports.defn = function(req, res) {
 exports.highlight = function(req, res) {
 	console.log("in highlight function");
 	var pNum = req.query.pNumHi;
+	var num = data["scads"]["paragraphs"][pNum-1]["highlights"].length;
 	var tempHighlight = {
+		"pNumber": pNum,
+		"iden": num + 1,
 		"author":"You",
 		"page":req.query.page,
 		"hText":req.query.htext,

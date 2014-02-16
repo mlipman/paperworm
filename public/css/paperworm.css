@@ -111,3 +111,7 @@ body {
 .highlightText {
 	background: yellow;
 }
+
+#hCollapseButton {
+	color: white;
+}

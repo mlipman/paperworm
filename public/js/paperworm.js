@@ -52,6 +52,7 @@ $(document).ready(function() {
 		console.log(serializedHighlights);
 		//data['serializedHistory'] = serializedHighlights;
 	});
+
 })
 
 /*function equalHeight(group) {   
