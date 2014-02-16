@@ -23,6 +23,8 @@ $(document).ready(function() {
     //equalHeight($(".thumbnail")); 
     //equalHeight($(".caption").children("h3"));
 
+    showPageNumber();
+
     $('#searchDict').click(function(e) {
     	e.preventDefault();
     	var sel = rangy.getSelection();
@@ -166,4 +168,23 @@ function addHighlight(highlighter, serializedHighlights, currentPNumber){
 	//data['serializedHistory'] = serializedHighlights;
 	$("#htext").val('"' + selectedText + '"');
 	$("#pNumHi").val(currentPNumber);
+}
+
+
+
+function showPageNumber(){
+	var curPage = 1;
+	var curPara = 1;
+	var totalPages = $("#totalPages").text();
+	var totalParagraphs = $("#totalParagraphs").text();
+	totalPages = totalPages[totalPages.length - 1];
+	console.log(totalPages);
+	while (curPara <= totalParagraphs) {
+		$("#pageNum"+curPage+"x"+curPara).html("<h5><center>Page: " + curPage+"</center></h5>");
+		while($("#pageNum"+curPage+"x"+curPara).length){
+			curPara++;
+		}
+		curPage++;
+		//console.log(curPage);
+	};
 }

@@ -113,5 +113,27 @@ body {
 }
 
 #hCollapseButton {
-	color: white;
+	color: black;
+}
+
+#hiliPanelHead {
+	background: #FFFF99;
+	border-color: #FFFF99;
+	color: black;
+}
+
+#notePanelHead {
+	background: #99CCFF;
+	border-color: #99CCFF;
+	color: black;
+}
+
+#nCollapseButton {
+	color: black;
+}
+
+.textPara {
+	font-family: "Times New Roman", Times, serif;
+	text-align:justify;
+	text-justify:inter-word;
 }

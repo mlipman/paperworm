@@ -147,20 +147,23 @@
 	<div class="container">
 		<div class="reading-pad">
 			<div id="paperToRead">
+				<p id="totalPages">Total Pages: {{ details.pages }}</p>
+				<p id="totalParagraphs" style="display: none">{{ details.total-paragraphs }}</p>
 				{{#each paragraphs}}
 					<div class="row" id="pNumber{{ pNumber }}">
 						<div class="col-sm-7" id="para-left">
+							<div id="pageNum{{ page }}x{{ pNumber }}"></div>
 							<p class="textPara" id="pNum{{ pNumber }}">[{{ pNumber }}] {{ text }}</p>
 						</div>
                         <div class="col-sm-5" id="annotation-right">
                         	{{#each notes}}
                                 <div class="panel panel-default">
                                     <!-- Note header -->
-                                    <div class="panel-heading">
+                                    <div class="panel-heading" id="notePanelHead">
                                         <div class="row">
                                             <!-- Title -->
                                             <div class="col-sm-7">
-                                                <a data-toggle="collapse" href="#noteCont{{ pNumber }}x{{ iden }}"><h4 class="panel-title">{{ author }}</h4></a>
+                                                <a data-toggle="collapse" href="#noteCont{{ pNumber }}x{{ iden }}" id="nCollapseButton"><h4 class="panel-title">{{ author }}</h4></a>
                                             </div>
                                             <!-- Buttons -->
                                             <div class="col-sm-5">
@@ -181,9 +184,9 @@
                             <!--<div class="col-sm-6" id="annotation-right">{{nText}}</div>-->
                         	{{/each}}
                         	{{#each highlights}}
-                                <div class="panel panel-primary">
+                                <div class="panel panel-default">
                                     <!-- Note header -->
-                                    <div class="panel-heading">
+                                    <div class="panel-heading" id="hiliPanelHead">
                                         <div class="row">
                                             <!-- Title -->
                                             <div class="col-sm-7">
@@ -201,7 +204,7 @@
                                     <!-- Note content -->
                                     <div id="highlightCont{{ pNumber }}x{{ iden }}" class="collapse">
 	                                    <div class="panel-body">
-	                                        <p>{{ hText }}</p>
+	                                        <p><small>{{ hText }}</small></p>
 	                                    </div>
 	                                    <div class="panel-footer">
 	                                		<p>{{ nText }}</p>
