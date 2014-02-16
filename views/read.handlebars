@@ -128,7 +128,7 @@
 						</div>
 						<div class="form-group">
 							<label for="htext">Quote:</label>
-							<input type="text" class="form-control" id="htext" placeholder="Insert the passage from the paper..." name="htext">
+							<textarea type="text" class="form-control" id="htext" placeholder="Insert the passage from the paper..." name="htext" rows="3"></textarea>
 						</div>
 						<div class="form-group">
 							<label for="ntext">Annotation:</label>
@@ -149,10 +149,10 @@
 			<div id="paperToRead">
 				{{#each paragraphs}}
 					<div class="row" id="pNumber{{ pNumber }}">
-						<div class="col-sm-6" id="para-left">
-							<p>[{{ pNumber }}] {{ text }}</p>
+						<div class="col-sm-7" id="para-left">
+							<p class="textPara" id="pNum{{ pNumber }}">[{{ pNumber }}] {{ text }}</p>
 						</div>
-                        <div class="col-sm-6" id="annotation-right">
+                        <div class="col-sm-5" id="annotation-right">
                         	{{#each notes}}
                                 <div class="panel panel-default">
                                     <!-- Note header -->

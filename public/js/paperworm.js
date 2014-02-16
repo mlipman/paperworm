@@ -38,10 +38,11 @@ $(document).ready(function() {
 
 	var highlighter = rangy.createHighlighter();
 	var serializedHighlights = highlighter.serialize();
+	var currentPNumber = 1;
 
 	$('#addHighlightButton').click(function(e) {
 		e.preventDefault();
-		addHighlight(highlighter, serializedHighlights);
+		addHighlight(highlighter, serializedHighlights, currentPNumber);
 	});
 
 	$('#deleteHighlightButton').click(function(e) {
@@ -51,6 +52,14 @@ $(document).ready(function() {
 		serializedHighlights = highlighter.serialize();
 		console.log(serializedHighlights);
 		//data['serializedHistory'] = serializedHighlights;
+	});
+
+	//Determine id of the current selected text
+	$('.textPara').mousedown(function(e) {
+		var currentHilightID = e.target.id;
+		currentPNumber = currentHilightID.substring(4);
+		console.log(currentHilightID);
+		console.log(currentPNumber);
 	});
 
 })
@@ -142,7 +151,7 @@ function showDefinition(result) {
 	}
 }
 
-function addHighlight(highlighter, serializedHighlights){
+function addHighlight(highlighter, serializedHighlights, currentPNumber){
 	var sel = rangy.getSelection();
 	console.log(sel);
 	var range = sel.getRangeAt(0);
@@ -155,4 +164,6 @@ function addHighlight(highlighter, serializedHighlights){
 	serializedHighlights = highlighter.serialize();
 	//console.log(serializedHighlights);
 	//data['serializedHistory'] = serializedHighlights;
+	$("#htext").val('"' + selectedText + '"');
+	$("#pNumHi").val(currentPNumber);
 }
