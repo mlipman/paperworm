@@ -66,13 +66,17 @@
 							<input type="text" class="form-control" id="auth" placeholder="Your name" name="auth">
 						</div>
                         -->
+                        <div class="form-group">
+							<label for="page">Page Number:</label>
+							<input type="number" class="form-control" id="pageNum" placeholder="Page number" name="pageNum">
+						</div>
 						<div class="form-group">
 							<label for="pNum">Paragraph No:</label>
 							<input type="number" class="form-control" id="pNum" placeholder="Paragraph No." name="pNum">
 						</div>
 					    <div class="form-group">
-							<label for="bod">Body:</label>
-							<input type="text" class="form-control" id="bod" placeholder="Type your note here..." name="bod">
+							<label for="bod">Note:</label>
+							<textarea type="text" class="form-control" id="bod" placeholder="Type your note here..." name="bod" rows="5"></textarea>
 					    </div>
 				    </div>
 				    <div class="modal-footer">
@@ -120,11 +124,11 @@
                         -->
 						<div class="form-group">
 							<label for="page">Page Number:</label>
-							<input type="text" class="form-control" id="page" placeholder="Page number" name="page">
+							<input type="number" class="form-control" id="page" placeholder="Page number" name="page">
 						</div>
 						<div class="form-group">
 							<label for="pNumHi">Paragraph Number:</label>
-							<input type="text" class="form-control" id="pNumHi" placeholder="Paragraph nubmer..." name="pNumHi">
+							<input type="number" class="form-control" id="pNumHi" placeholder="Paragraph nubmer..." name="pNumHi">
 						</div>
 						<div class="form-group">
 							<label for="htext">Quote:</label>
@@ -132,7 +136,7 @@
 						</div>
 						<div class="form-group">
 							<label for="ntext">Annotation:</label>
-							<input type="text" class="form-control" id="ntext" placeholder="Type an optional annotation here..." name="ntext">
+							<textarea type="text" class="form-control" id="ntext" placeholder="Type an optional annotation here..." name="ntext" rows="3"></textarea>
 						</div>
 				    </div>
 				    <div class="modal-footer">
@@ -153,7 +157,7 @@
 					<div class="row" id="pNumber{{ pNumber }}">
 						<div class="col-sm-7" id="para-left">
 							<div id="pageNum{{ page }}x{{ pNumber }}"></div>
-							<p class="textPara" id="pNum{{ pNumber }}">[{{ pNumber }}] {{ text }}</p>
+							<p class="text-para" id="pageNum{{ page }}x{{ pNumber }}">[{{ pNumber }}] {{ text }}</p>
 						</div>
                         <div class="col-sm-5" id="annotation-right">
                         	{{#each notes}}
@@ -181,7 +185,6 @@
 	                                    </div>
                                 	</div>
                                 </div>
-                            <!--<div class="col-sm-6" id="annotation-right">{{nText}}</div>-->
                         	{{/each}}
                         	{{#each highlights}}
                                 <div class="panel panel-default">
@@ -211,7 +214,6 @@
 	                            		</div>
 	                            	</div>
                                 </div>
-                            <!--<div class="col-sm-6" id="annotation-right">{{nText}}</div>-->
                         	{{/each}}
 
                         </div>

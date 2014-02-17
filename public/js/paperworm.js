@@ -40,11 +40,18 @@ $(document).ready(function() {
 
 	var highlighter = rangy.createHighlighter();
 	var serializedHighlights = highlighter.serialize();
-	var currentPNumber = 1;
+	var currentPNumber = 1; //current paragraph number
+	var currentPage = 1; //current page number
+
+	$('#addNoteButton').click(function(e) {
+		e.preventDefault();
+		$('#pageNum').val(currentPage);
+		$('#pNum').val(currentPNumber);
+	});
 
 	$('#addHighlightButton').click(function(e) {
 		e.preventDefault();
-		addHighlight(highlighter, serializedHighlights, currentPNumber);
+		addHighlight(highlighter, serializedHighlights, currentPNumber, currentPage);
 	});
 
 	$('#deleteHighlightButton').click(function(e) {
@@ -57,11 +64,15 @@ $(document).ready(function() {
 	});
 
 	//Determine id of the current selected text
-	$('.textPara').mousedown(function(e) {
+	$('.text-para').mousedown(function(e) {
 		var currentHilightID = e.target.id;
-		currentPNumber = currentHilightID.substring(4);
+		var pageNumIndex = 'pageNum'.length;
+		var xIndex = currentHilightID.indexOf('x');
+		currentPage = currentHilightID.substring(7, xIndex);
+		currentPNumber = currentHilightID.substring(xIndex+1);
 		console.log(currentHilightID);
-		console.log(currentPNumber);
+		console.log("Page: "+currentPage);
+		console.log("Para: "+currentPNumber);
 	});
 
 })
@@ -153,7 +164,7 @@ function showDefinition(result) {
 	}
 }
 
-function addHighlight(highlighter, serializedHighlights, currentPNumber){
+function addHighlight(highlighter, serializedHighlights, currentPNumber, currentPage){
 	var sel = rangy.getSelection();
 	console.log(sel);
 	var range = sel.getRangeAt(0);
@@ -168,6 +179,7 @@ function addHighlight(highlighter, serializedHighlights, currentPNumber){
 	//data['serializedHistory'] = serializedHighlights;
 	$("#htext").val('"' + selectedText + '"');
 	$("#pNumHi").val(currentPNumber);
+	$("#page").val(currentPage);
 }
 
 

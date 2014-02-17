@@ -128,11 +128,17 @@ body {
 	color: black;
 }
 
+#glosPanelHead {
+	background: #99CC66;
+	border-color: #99CC66;
+	color: black;
+}
+
 #nCollapseButton {
 	color: black;
 }
 
-.textPara {
+.text-para {
 	font-family: "Times New Roman", Times, serif;
 	text-align:justify;
 	text-justify:inter-word;

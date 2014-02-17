@@ -6,12 +6,14 @@ exports.note = function(req, res) { 
     var author = "You";
 	var body = req.query.bod;
 	var pNum = req.query.pNum;
+	var pageNum = req.query.pageNum;
 	//existed number of notes
 	var num = data["scads"]["paragraphs"][pNum-1]["notes"].length;
 	var note = {
 		"pNumber": pNum,
 		"iden": num + 1,
 		"author":author,
+		"page": pageNum,
 		"body":body
 	};
 	//console.log(window.getSelection().anchorNode);
