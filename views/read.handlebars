@@ -160,6 +160,12 @@
 							<p class="text-para" id="pageNum{{ page }}x{{ pNumber }}">[{{ pNumber }}] {{ text }}</p>
 						</div>
                         <div class="col-sm-5" id="annotation-right">
+                        	{{#each images}}
+                        		<div>
+                        			<img src="{{ src }}" class="img-responsive">
+                        			<p class="image-label">{{ label }}</p>
+                        		</div>
+                        	{{/each}}
                         	{{#each notes}}
                                 <div class="panel panel-default">
                                     <!-- Note header -->
@@ -172,8 +178,14 @@
                                             <!-- Buttons -->
                                             <div class="col-sm-5">
                                                 <div class="btn-group pull-right">
-                                                    <button type="button" class="btn btn-default btn-xs" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span></button>
-                                                    <button type="button" class="btn btn-default btn-xs" id="remove-obj"><span class="glyphicon glyphicon-remove"></span></button>
+                                                	<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                                		<span class="caret"></span>
+                                                	</button>
+                                                	<ul class="dropdown-menu" role="menu">
+                                                    	<li><a href="#" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
+                                                    	<li class="divider"></li>
+                                                    	<li><a href="#" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
+                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>
@@ -198,8 +210,14 @@
                                             <!-- Buttons -->
                                             <div class="col-sm-5">
                                                 <div class="btn-group pull-right">
-                                                    <button type="button" class="btn btn-default btn-xs" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span></button>
-                                                    <button type="button" class="btn btn-default btn-xs" id="remove-obj"><span class="glyphicon glyphicon-remove"></span></button>
+                                                	<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                                		<span class="caret"></span>
+                                                	</button>
+                                                	<ul class="dropdown-menu" role="menu">
+                                                    	<li><a href="#" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
+                                                    	<li class="divider"></li>
+                                                    	<li><a href="#" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
+                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>
