@@ -66,7 +66,7 @@ exports.highlight = function(req, res) {
 		"nText":req.query.ntext
 
 	}
-
+	data["scads"]["serializedString"] = req.query.sstring;
 	data["scads"]["paragraphs"][pNum - 1]["highlights"].push(tempHighlight);
 
 
