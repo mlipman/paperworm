@@ -84,7 +84,38 @@
 			</div>
 		</div>
 	</div>
+    
+    <!-- Edit Note Modal -->
+	<div class="modal fade" id="editNoteModal" tabindex="-1" role="dialog" aria-labelledby="noteModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form class="form-horizontal" id="editNoteForm" role="form" method="get" action="/editNote?url=/read">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="noteModalLabel">Edit Note</h4>
+					</div>
+					<div class="modal-body" id="noteModalBody">
+						<div class="form-group">
+							<label for="pNum">Paragraph No:</label>
+							<input type="number" class="form-control" id="pNum-e" placeholder="Paragraph No." name="pNum">
+						</div>
+					    <div class="form-group">
+							<label for="bod">Note:</label>
+							<textarea type="text" class="form-control" id="bod-e" placeholder="Type your note here..." name="bod" rows="5"></textarea>
+					    </div>
+                        <input id = "oldpNum-e" type="hidden" name="oldpNum" value=1>
+                        <input id = "iden-e" type="hidden" name="iden" value="">
+                        <input type="hidden" name="url" value="/read">
+				    </div>
+				    <div class="modal-footer">
+						<input type="submit" id="submitBtn" class="btn btn-default" value="Save"></input>
+					</div>
+				</form>
 
+			</div>
+		</div>
+	</div>
+    
 	<!-- Definition Modal -->
 	<div class="modal fade" id="defModal" tabindex="-1" role="dialog" aria-labelledby="defModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -142,11 +173,46 @@
 			</div>
 		</div>
 	</div>
-
+    
+    <!-- Edit Highlight Modal -->
+	<div class="modal fade" id="editHighlightModal" tabindex="-1" role="dialog" aria-labelledby="highlightModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form class="form-horizontal" id="editHighlightForm" role="form" method="get" action="/editHighlight?url=/read"> <!-- HEREEEE -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="highlightModalLabel">Edit Annotation</h4>
+					</div>
+					<div class="modal-body" id="highlightModalBody">
+						<div class="form-group">
+							<label for="pNumHi">Paragraph Number:</label>
+							<input type="number" class="form-control" id="pNumHi" placeholder="Paragraph number..." name="pNumHi">
+						</div>
+						<div class="form-group">
+							<label for="htext">Quote:</label>
+							<textarea type="text" class="form-control" id="htext" placeholder="Insert the passage from the paper..." name="htext" rows="3"></textarea>
+						</div>
+						<div class="form-group">
+							<label for="ntext">Annotation:</label>
+							<textarea type="text" class="form-control" id="ntext" placeholder="Type an optional annotation here..." name="ntext" rows="3"></textarea>
+						</div>
+						<div class="form-group">
+							<input type="hidden" class="form-control" id="sstring" name="sstring"></input>
+						</div>						
+				    </div>
+				    <div class="modal-footer">
+						<input type="submit" id="submitBtn" class="btn btn-default" value="Save"></input>
+						<!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+    
 	<div class="container">
 		<div class="reading-pad">
 			<div id="paperToRead">
-				<p id="totalPages">Total Pages: {{ details.pages }}</p>
+				<!--<p id="totalPages">Total Pages: {{ details.pages }}</p>-->
 				<p id="totalParagraphs" style="display: none">{{ details.total-paragraphs }}</p>
 				{{#each paragraphs}}
 					<div class="row" id="pNumber{{ pNumber }}">
@@ -177,7 +243,8 @@
                                                 		<span class="caret"></span>
                                                 	</button>
                                                 	<ul class="dropdown-menu" role="menu">
-                                                    	<li><a href="/editNote?pNum={{ pNumber }}&iden={{ iden }}&url=/read&text=" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
+                                                        <!--"/editNote?pNum={{ pNumber }}&iden={{ iden }}&url=/read&text="-->
+                                                    	<li><a href="#" class="edit-obj-note" data-toggle="modal" data-target="#editNoteModal"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
                                                     	<li class="divider"></li>
                                                     	<li><a href="/deleteNote?pNum={{ pNumber }}&iden={{ iden }}&url=/read", id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
                                                     </ul>
@@ -209,7 +276,8 @@
                                                 		<span class="caret"></span>
                                                 	</button>
                                                 	<ul class="dropdown-menu" role="menu">
-                                                    	<li><a href="/editHighlight?pNum={{ pNumber }}&iden={{ iden }}&url=/read&text=" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
+                                                        <!--"/editHighlight?pNum={{ pNumber }}&iden={{ iden }}&url=/read&text="-->
+                                                    	<li><a href="#" data-toggle="modal" data-target="#editHighlightModal" id="edit-obj-hi"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
                                                     	<li class="divider"></li>
                                                     	<li><a href="/deleteHighlight?pNum={{ pNumber }}&iden={{ iden }}&url=/read", id="remove-obj"" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
                                                     </ul>

@@ -76,7 +76,7 @@ exports.highlight = function(req, res) { //#HEREEEE
 }
 
 exports.delNote = function(req, res){
-    console.log(req.query.id);
+    console.log(req);
     var ID = req.query.iden;
     var pNum = req.query.pNum;
     var url = req.query.url;
@@ -135,23 +135,27 @@ exports.delDef = function(req, res){
 
 exports.editNote = function(req, res){
     var ID = req.query.iden;
-    var pNum = req.query.pNum;
+    var newpNum = req.query.pNum;
+    var oldpNum = req.query.oldpNum;
     var url = req.query.url;
-    var text = req.query.text;
-    var elem = $(this).closest("#noteCont{{ pNumber }}x{{ iden }}")
-    console.log(elem)
-    var index = data["scads"]["paragraphs"][pNum - 1]["notes"].length;
-    for (var i=0; i<data["scads"]["paragraphs"][pNum - 1]["notes"].length; ++i){
-        if (data["scads"]["paragraphs"][pNum - 1]["notes"][i]["iden"] == ID){
+    var text = req.query.bod;
+    var index = data["scads"]["paragraphs"][oldpNum - 1]["notes"].length;
+    for (var i=0; i<data["scads"]["paragraphs"][oldpNum - 1]["notes"].length; ++i){
+        if (data["scads"]["paragraphs"][oldpNum - 1]["notes"][i]["iden"] == ID){
             index = i;
             break;
         }
     }
-    data["scads"]["paragraphs"][pNum - 1]["notes"][index]["body"] = text;
+    data["scads"]["paragraphs"][oldpNum - 1]["notes"][index]["body"] = text;
+    if (newpNum != oldpNum){
+        data["scads"]["paragraphs"][newpNum - 1]["notes"].push(data["scads"]["paragraphs"][oldpNum - 1]["notes"][index]);
+        data["scads"]["paragraphs"][oldpNum - 1]["notes"].splice(index, 1)
+    }
+    
     res.render('read', data["scads"]);
     res.redirect(url);
 }
-exports.editHi = function(req, res){
+exports.editHi = function(req, res){ //TODO: GINA
     var ID = req.query.iden;
     var pNum = req.query.pNum;
     var url = req.query.url;
@@ -169,7 +173,7 @@ exports.editHi = function(req, res){
     res.render('read', data["scads"]);
     res.redirect(url);
 }
-exports.editDef = function(req, res){
+exports.editDef = function(req, res){ //TODO: GINA
     var word = req.query.word;
     var changes = req.query.changes;
     var index = data["scads"]["glossary"].length

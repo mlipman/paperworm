@@ -52,7 +52,21 @@ $(document).ready(function() {
 		e.preventDefault();
 		addHighlight(highlighter, serializedHighlights, currentPNumber, currentPage);
 	});
-
+    
+    $('.edit-obj-note').click(function(e){
+        e.preventDefault();
+        var str = "";
+        var text = "";
+        var curr = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
+        for (var i=0; i<curr.childNodes.length; ++i){
+            if(curr.childNodes[i].className == "collapse"){
+                str = curr.childNodes[i].id.substring(8);
+                text = curr.childNodes[i].childNodes[1].childNodes[1].innerHTML;
+            }
+        }
+        editNote(Number(str.split("x")[0]), Number(str.split("x")[1]), text);
+    });
+    
 	$('#deleteHighlightButton').click(function(e) {
 		e.preventDefault();
 		//var sel = rangy.getSelection();
@@ -70,8 +84,8 @@ $(document).ready(function() {
 		currentPage = currentHilightID.substring(7, xIndex);
 		currentPNumber = currentHilightID.substring(xIndex+1);
 		console.log(currentHilightID);
-		console.log("Page: "+currentPage);
-		console.log("Para: "+currentPNumber);
+		console.log("Page "+currentPage);
+		console.log("Para "+currentPNumber);
 	});
 
 })
@@ -149,7 +163,13 @@ function addHighlight(highlighter, serializedHighlights, currentPNumber, current
 
 }
 
-
+function editNote(pNum, iden, text){
+    $("#iden-e").val(iden);
+    $("#pNum-e").val(pNum);
+    $("#oldpNum-e").val(pNum);
+    $("#bod-e").val(text);
+    console.log("end");
+}
 
 function showPageNumber(){
 	var curPage = 1;
@@ -159,7 +179,7 @@ function showPageNumber(){
 	totalPages = totalPages[totalPages.length - 1];
 	console.log(totalPages);
 	while (curPara <= totalParagraphs) {
-		$("#pageNum"+curPage+"x"+curPara).html("<h5><center>Page: " + curPage+"</center></h5>");
+		$("#pageNum"+curPage+"x"+curPara).html("<h5><center>Page " + curPage+"</center></h5>");
 		while($("#pageNum"+curPage+"x"+curPara).length){
 			curPara++;
 		}
