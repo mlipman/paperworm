@@ -43,9 +43,14 @@ if ('development' == app.get('env')) {
 app.get('/', index.view);
 app.get('/read', read.view);
 app.get('/list', list.view);
-app.get('/addNote', add.note);
+app.get('/addNote', add.note); 
 app.get('/addDefn', add.defn);
-app.get('/addHighlight', add.highlight);
+app.get('/addHighlight', add.highlight); // HEREEEE
+app.get('/deleteNote', add.delNote);
+app.get('/editNote', add.editNote);
+app.get('/deleteHighlight', add.delHi);
+app.get('/editHighlight', add.editHi);
+
 // Example route
 // app.get('/users', user.list);
 

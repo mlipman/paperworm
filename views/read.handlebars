@@ -60,12 +60,6 @@
 						<h4 class="modal-title" id="noteModalLabel">Add Note</h4>
 					</div>
 					<div class="modal-body" id="noteModalBody">
-                        <!--
-						<div class="form-group">
-							<label for="auth">Author:</label>
-							<input type="text" class="form-control" id="auth" placeholder="Your name" name="auth">
-						</div>
-                        -->
                         <div class="form-group">
 							<label for="page">Page Number:</label>
 							<input type="number" class="form-control" id="pageNum" placeholder="Page number" name="pageNum">
@@ -110,25 +104,19 @@
 	<div class="modal fade" id="highlightModal" tabindex="-1" role="dialog" aria-labelledby="highlightModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form class="form-horizontal" id="addHighlightForm" role="form" method="get" action="/addHighlight">
+				<form class="form-horizontal" id="addHighlightForm" role="form" method="get" action="/addHighlight"> <!-- HEREEEE -->
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						<h4 class="modal-title" id="highlightModalLabel">Add Annotation</h4>
 					</div>
 					<div class="modal-body" id="highlightModalBody">
-                        <!--
-						<div class="form-group">
-							<label for="auth">Author:</label>
-							<input type="text" class="form-control" id="auth" placeholder="Author" name="auth">
-						</div>
-                        -->
 						<div class="form-group">
 							<label for="page">Page Number:</label>
 							<input type="number" class="form-control" id="page" placeholder="Page number" name="page">
 						</div>
 						<div class="form-group">
 							<label for="pNumHi">Paragraph Number:</label>
-							<input type="number" class="form-control" id="pNumHi" placeholder="Paragraph nubmer..." name="pNumHi">
+							<input type="number" class="form-control" id="pNumHi" placeholder="Paragraph number..." name="pNumHi">
 						</div>
 						<div class="form-group">
 							<label for="htext">Quote:</label>
@@ -182,9 +170,9 @@
                                                 		<span class="caret"></span>
                                                 	</button>
                                                 	<ul class="dropdown-menu" role="menu">
-                                                    	<li><a href="#" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
+                                                    	<li><a href="/editNote?pNum={{ pNumber }}&iden={{ iden }}&url=/read&text=" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
                                                     	<li class="divider"></li>
-                                                    	<li><a href="#" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
+                                                    	<li><a href="/deleteNote?pNum={{ pNumber }}&iden={{ iden }}&url=/read", id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -214,9 +202,9 @@
                                                 		<span class="caret"></span>
                                                 	</button>
                                                 	<ul class="dropdown-menu" role="menu">
-                                                    	<li><a href="#" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
+                                                    	<li><a href="/editHighlight?pNum={{ pNumber }}&iden={{ iden }}&url=/read&text=" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
                                                     	<li class="divider"></li>
-                                                    	<li><a href="#" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
+                                                    	<li><a href="/deleteHighlight?pNum={{ pNumber }}&iden={{ iden }}&url=/read", id="remove-obj"" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -283,7 +271,7 @@
 		      <input type="text" class="form-control" id="ntext" placeholder="Type an optional annotation here..." name="ntext">
 		    </div>
 
-		    <input type="submit" id="submitBtn" class="btn btn-default" value="Add the highligh"></input>
+		    <input type="submit" id="submitBtn" class="btn btn-default" value="Add the highlight"></input>
 		</form>-->
 
 

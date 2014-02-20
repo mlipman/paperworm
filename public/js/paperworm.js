@@ -10,16 +10,8 @@ $(document).ready(function() {
 		$(header).text(anagram)
 	});*/
 
-	/*$("#makeNoteButton").click(showNoteBox);
-	$("#makeDefnButton").click(showDefnBox);
-	$("#makeHighlightButton").click(showHighlightBox);
-
-	$("#addNoteForm").hide();
-	$("#addDefinitionForm").hide();
-	$("#addHighlightForm").hide();*/
-
 	rangy.init();
-
+    
     //equalHeight($(".thumbnail")); 
     //equalHeight($(".caption").children("h3"));
 
@@ -111,42 +103,7 @@ function showDefnBox(e) {
 
 }
 
-/*function showHighlightBox(e) {
-	$("#addNoteForm").hide();
-	$("#addDefinitionForm").hide();
-	$("#addHighlightForm").toggle();
-	
-	if (name == "Doug Engelbart") {
-		return "Notable Grudge";
-	} 
-	else if (name == "Ivan Sutherland") {
-		return "Vandal Heist Run";
-	}
-	else if (name == "JCR Licklider") {
-		return "Crick Rid Jell";
-	}
-	else if (name == "Vannevar Bush") {
-		return "Ravens Van Hub";
-	}
-	else if (name == "Alan C. Kay") {
-		return "Canal Yak";
-	}
-	else if (name == "Allen Newell") {
-		return "Ellen All New";
-	}
-	else if (name == "Lucy Suchman") {
-		return "Lunacy Chums";
-	}
-	else if (name == "Grace Hopper") {
-		return "Gear Chopper";
-	}
-	else {
-		console.log(name + " not known for anagramming.");
-		return name;
-	}
-}*/
-
-//Show defnition on the definition modal on read mode
+//Show definition on the definition modal on read mode
 function showDefinition(result) {
 	console.log(result);
 	console.log(result['tuc']);

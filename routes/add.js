@@ -1,6 +1,6 @@
 var data = require("../data.json");
 
-exports.note = function(req, res) {    
+exports.note = function(req, res) {
 
 	//var author = req.query.auth;
     var author = "You";
@@ -20,7 +20,7 @@ exports.note = function(req, res) { 
 	data["scads"]["paragraphs"][pNum-1]["notes"].push(note);
 
 	res.render('read', data["scads"]);	
- }
+}
 
 exports.defn = function(req, res) {
 	console.log(req.query.defn);
@@ -51,7 +51,7 @@ exports.defn = function(req, res) {
 }
 
 
-exports.highlight = function(req, res) {
+exports.highlight = function(req, res) { //#HEREEEE
 	console.log("in highlight function");
 	var pNum = req.query.pNumHi;
 	var num = data["scads"]["paragraphs"][pNum-1]["highlights"].length;
@@ -73,4 +73,73 @@ exports.highlight = function(req, res) {
 	res.render('read', data["scads"]);
 
 
+}
+
+exports.delNote = function(req, res){
+    console.log(req.query.id);
+    var ID = req.query.iden;
+    var pNum = req.query.pNum;
+    var url = req.query.url;
+    var index = data["scads"]["paragraphs"][pNum - 1]["notes"].length;
+    for (var i=0; i<data["scads"]["paragraphs"][pNum - 1]["notes"].length; ++i){
+        if (data["scads"]["paragraphs"][pNum - 1]["notes"][i]["iden"] == ID){
+            index = i;
+            break;
+        }
+    }
+    data["scads"]["paragraphs"][pNum - 1]["notes"].splice(index, 1);
+    res.render('read', data["scads"]);
+    res.redirect(url);
+}
+
+exports.delHi = function(req, res){
+    console.log(req.query.id);
+    var ID = req.query.iden;
+    var pNum = req.query.pNum;
+    var url = req.query.url;
+    var index = data["scads"]["paragraphs"][pNum - 1]["highlights"].length;
+    for (var i=0; i<data["scads"]["paragraphs"][pNum - 1]["highlights"].length; ++i){
+        if (data["scads"]["paragraphs"][pNum - 1]["highlights"][i]["iden"] == ID){
+            index = i;
+            break;
+        }
+    }
+    data["scads"]["paragraphs"][pNum - 1]["highlights"].splice(index, 1);
+    res.render('read', data["scads"]);
+    res.redirect(url);
+}
+
+exports.editNote = function(req, res){
+    console.log(req.query.id);
+    var ID = req.query.iden;
+    var pNum = req.query.pNum;
+    var url = req.query.url;
+    var text = req.query.text;
+    var index = data["scads"]["paragraphs"][pNum - 1]["notes"].length;
+    for (var i=0; i<data["scads"]["paragraphs"][pNum - 1]["notes"].length; ++i){
+        if (data["scads"]["paragraphs"][pNum - 1]["notes"][i]["iden"] == ID){
+            index = i;
+            break;
+        }
+    }
+    data["scads"]["paragraphs"][pNum - 1]["notes"][index]["body"] = text;
+    res.render('read', data["scads"]);
+    res.redirect(url);
+}
+exports.editHi = function(req, res){
+    console.log(req.query.id);
+    var ID = req.query.iden;
+    var pNum = req.query.pNum;
+    var url = req.query.url;
+    var text = req.query.text;
+    var index = data["scads"]["paragraphs"][pNum - 1]["highlights"].length;
+    for (var i=0; i<data["scads"]["paragraphs"][pNum - 1]["highlights"].length; ++i){
+        if (data["scads"]["paragraphs"][pNum - 1]["highlights"][i]["iden"] == ID){
+            index = i;
+            break;
+        }
+    }
+    data["scads"]["paragraphs"][pNum - 1]["highlights"][index]["nText"] = text;
+    res.render('read', data["scads"]);
+    res.redirect(url);
 }
