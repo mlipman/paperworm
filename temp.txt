@@ -1,0 +1,16 @@
+		{{#each things}}
+			<p>key: {{@key}}, val: {{this}}</p>
+		{{/each}}
+
+
+
+
+
+
+{
+	"things":
+	{
+		"one":"ihava",
+		"two":"dreem"
+	}
+}
