@@ -62,6 +62,9 @@ $(document).ready(function() {
             if(curr.childNodes[i].className == "collapse"){
                 str = curr.childNodes[i].id.substring(8);
                 text = curr.childNodes[i].childNodes[1].childNodes[1].innerHTML;
+            }else if (curr.childNodes[i].className == "panel-body"){
+                str = curr.childNodes[i].id.substring(8);
+                text = curr.childNodes[i].childNodes[1].innerHTML;
             }
         }
         editNote(Number(str.split("x")[0]), Number(str.split("x")[1]), text);
@@ -164,10 +167,10 @@ function addHighlight(highlighter, serializedHighlights, currentPNumber, current
 }
 
 function editNote(pNum, iden, text){
-    $("#iden-e").val(iden);
-    $("#pNum-e").val(pNum);
-    $("#oldpNum-e").val(pNum);
-    $("#bod-e").val(text);
+    $(".iden-e").val(iden);
+    $(".pNum-e").val(pNum);
+    $(".oldpNum-e").val(pNum);
+    $(".bod-e").val(text);
     console.log("end");
 }
 

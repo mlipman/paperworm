@@ -139,7 +139,7 @@
                                         		<span class="caret"></span>
                                         	</button>
                                         	<ul class="dropdown-menu" role="menu">
-                                            	<li><a href="/editNote?pNum={{ pNumber }}&iden={{ iden }}&url=/&text=" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
+                                            	<li><a href="#" class="edit-obj-note" data-toggle="modal" data-target="#editNoteModal" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
                                             	<li class="divider"></li>
                                             	<li><a href="/deleteNote?pNum={{ pNumber }}&iden={{ iden }}&url=/" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
                                             </ul>
@@ -148,7 +148,7 @@
 								</div>
 							</div>
 							<!-- Note content -->
-							<div class="panel-body">
+							<div class="panel-body" id = "noteCont{{ pNumber }}x{{ iden }}">
 								<p>{{ body }}</p>
 							</div>
 						</div>
@@ -179,7 +179,7 @@
                                     	<ul class="dropdown-menu" role="menu">
                                         	<li><a href="#" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
                                         	<li class="divider"></li>
-                                        	<li><a href="/deleteDefinition?word={{ word }}" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
+                                        	<li><a href="#" class="edit-obj-note" data-toggle="modal" data-target="#editNoteModal"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -243,8 +243,38 @@
 
 	</div> <!-- End of container -->
 
+    
+    <!-- Edit Note Modal -->
+	<div class="modal fade" id="editNoteModal" tabindex="-1" role="dialog" aria-labelledby="noteModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form class="form-horizontal" id="editNoteForm" role="form" method="get" action="/editNote?url=/read">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="noteModalLabel">Edit Note</h4>
+					</div>
+					<div class="modal-body" id="noteModalBody">
+						<div class="form-group">
+							<label for="pNum">Paragraph No:</label>
+							<input type="number" class="form-control pNum-e" placeholder="Paragraph No." name="pNum">
+						</div>
+					    <div class="form-group">
+							<label for="bod">Note:</label>
+							<textarea type="text" class="form-control bod-e" placeholder="Type your note here..." name="bod" rows="5"></textarea>
+					    </div>
+                        <input class = "oldpNum-e" type="hidden" name="oldpNum" value=1>
+                        <input class = "iden-e" type="hidden" name="iden" value="">
+                        <input type="hidden" name="url" value="/">
+				    </div>
+				    <div class="modal-footer">
+						<input type="submit" id="submitBtn" class="btn btn-default" value="Save"></input>
+					</div>
+				</form>
 
-
+			</div>
+		</div>
+	</div>
+    
 
 	<script src="js/jquery-1.11.0.js"></script>
 	<script src="js/bootstrap.js"></script>
