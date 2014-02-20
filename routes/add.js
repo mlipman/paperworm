@@ -13,7 +13,7 @@ exports.note = function(req, res) {
 		"pNumber": pNum,
 		"iden": num + 1,
 		"author":author,
-		"page": pageNum,
+		"page": data["scads"]["paragraphs"][pNum-1]["page"],
 		"body":body
 	};
 	//console.log(window.getSelection().anchorNode);
@@ -59,7 +59,7 @@ exports.highlight = function(req, res) { //#HEREEEE
 		"pNumber": pNum,
 		"iden": num + 1,
 		"author":"You",
-		"page":req.query.page,
+		"page":data["scads"]["paragraphs"][pNum-1]["page"],
 		"hText":req.query.htext,
 		"hStart":0,
 		"hEnd":0,

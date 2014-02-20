@@ -60,10 +60,12 @@
 						<h4 class="modal-title" id="noteModalLabel">Add Note</h4>
 					</div>
 					<div class="modal-body" id="noteModalBody">
+                        <!--
                         <div class="form-group">
 							<label for="page">Page Number:</label>
 							<input type="number" class="form-control" id="pageNum" placeholder="Page number" name="pageNum">
 						</div>
+                        -->
 						<div class="form-group">
 							<label for="pNum">Paragraph No:</label>
 							<input type="number" class="form-control" id="pNum" placeholder="Paragraph No." name="pNum">
@@ -110,10 +112,12 @@
 						<h4 class="modal-title" id="highlightModalLabel">Add Annotation</h4>
 					</div>
 					<div class="modal-body" id="highlightModalBody">
+                        <!--
 						<div class="form-group">
 							<label for="page">Page Number:</label>
 							<input type="number" class="form-control" id="page" placeholder="Page number" name="page">
 						</div>
+                        -->
 						<div class="form-group">
 							<label for="pNumHi">Paragraph Number:</label>
 							<input type="number" class="form-control" id="pNumHi" placeholder="Paragraph number..." name="pNumHi">
@@ -196,7 +200,7 @@
                                         <div class="row">
                                             <!-- Title -->
                                             <div class="col-sm-7">
-                                                <a data-toggle="collapse" href="#highlightCont" id="hCollapseButton"><h6 class="panel-title unselectable">{{ author }}</h6></a>
+                                                <a data-toggle="collapse" href="#highlightCont{{ pNumber }}x{{ iden }}" id="hCollapseButton"><h6 class="panel-title unselectable">{{ author }}</h6></a>
                                             </div>
                                             <!-- Buttons -->
                                             <div class="col-sm-5">
