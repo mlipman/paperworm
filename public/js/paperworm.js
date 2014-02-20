@@ -76,18 +76,20 @@ $(document).ready(function() {
         var high = "";
         var curr = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
         for (var i=0; i<curr.childNodes.length; ++i){
+            console.log(curr.childNodes[i].className)
             if(curr.childNodes[i].className == "collapse" || curr.childNodes[i].className == "in"){
                 str = curr.childNodes[i].id.substring(13);
+                console.log(str)
                 high = curr.childNodes[i].childNodes[1].childNodes[1].childNodes[0].innerHTML;
                 text = curr.childNodes[i].childNodes[3].childNodes[1].innerHTML;
             }else if (curr.childNodes[i].className == "panel-body"){
                 str = curr.childNodes[i].id.substring(13);
-                high = curr.childNodes[i].childNodes[1].childNodes[1].childNodes[0].innerHTML;
-                text = curr.childNodes[i].childNodes[3].childNodes[1].innerHTML;
-                console.log(high);
+                high = curr.childNodes[i].childNodes[1].childNodes[3].innerHTML;
+                console.log(high)
+                text = curr.childNodes[i].childNodes[1].innerHTML; //TODO: Gina
+                console.log(text)
             }
         }
-        console.log(str);
         editHighlight(Number(str.split("x")[0]), Number(str.split("x")[1]), text, high);
     });
 	$('#deleteHighlightButton').click(function(e) {
