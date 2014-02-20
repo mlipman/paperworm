@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 
 <html>
@@ -30,218 +32,86 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="list"><span class="glyphicon glyphicon-briefcase"></span> All Papers</a>
+				<a class="navbar-brand" href="index"><span class="glyphicon glyphicon-briefcase"></span> All Papers</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<a href="read" class="btn btn-default navbar-btn navbar-right"><span class="glyphicon glyphicon-book"></span> Read </a>
+				<a href="#" class="btn btn-default navbar-btn navbar-right"><span class="glyphicon glyphicon-off"></span> Log out</a>
 			</div>
 		</div>
 	</nav>
+
 	<div class="container">
-		<!--
-		<div class="topbar">
-			<a href="list" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-briefcase"></span> All Papers</a>
-			<a href="read" class="btn btn-default btn-lg" style="float: right"><span class="glyphicon glyphicon-book"></span> Read </a>
-		</div>-->
+		
 
-		<div class="row" style="padding-top: 10px; padding-bottom: 10px">
-			<!--Paper Cover-->
-			<div class="col-sm-3">
-				<div class="paper-container">
-					<a href="read" height="600" width="400" ><img src="paperImg.png" class="img-responsive paper-image" height="600" width="400"/></a>
+		<h1>Your Papers</h1>
+
+
+		<div class="row">
+		  <div class="col-xs-6 col-md-3 paper-thumbnail">
+		    <a href="/summary" class="thumbnail">
+		      <img src="paperImg.png" alt="...">
+		    </a>
+		    <div class="caption">
+		    	<h3>SCADS: A Model...</h3>
+		    	<h4 id="authors">Jeff Shrager and Robert S. Siegler</h4>
+				<div class="btn-group btn-group-justified">
+					<a href="/summary" class="btn btn-default" role="button"><span class="glyphicon glyphicon-list-alt"></span> Summary</a>
+					<a href="/read" class="btn btn-default" role="button"><span class="glyphicon glyphicon-book"> Read</a>
 				</div>
-                <div class="citation-modal">
-                    <!-- Button trigger Citation modal -->
-                    <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#citationModal" style="width:100%">
-                        APA Citation
-                    </button>
+		    </div>
+		  </div>
+		  
+		  <div class="col-xs-6 col-md-3 paper-thumbnail">
+		    <a href="#" class="thumbnail">
+		      <img src="paper2.jpeg" alt="...">
+		    </a>
+		    <div class="caption">
+		    	<h3>SenSay: A Context-Aware...</h3>
+		    	<h4 id="authors">Author 1</h4>
+				<div class="btn-group btn-group-justified">
+					<a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-list-alt"></span> Summary</a>
+					<a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-book"> Read</a>
+				</div>
+		    </div>		    
+		  </div>
 
-                    <!-- Citation Modal -->
-                    <div class="modal fade" id="citationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                    <h4 class="modal-title" id="myModalLabel">APA</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <p>{{ details.citation }}</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary">Copy</button>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-			</div>
-			<!--Paper Details-->
-			<div class="col-sm-9">
-				<div class="paper-details">
-					<h2>SCADS: A Model of Children’s Strategy Choices and Strategy Discoveries</h2>
-					<h4 id="authors">Jeff Shrager and Robert S. Siegler</h4>
-					<!--Paper information-->
-					<div class="table-responsive">
-						<table class="table-striped table-bordered">
-							<tr>
-								<td><b>Journal</b></td>
-								<td>{{ details.journal }}</td>
-							</tr>
-							<tr>
-								<td><b>Publication Date</b></td>
-								<td>{{ details.pubdate }}</td>
-							</tr>
-							<tr>
-								<td><b>Pages</b></td>
-								<td>{{ details.pages }}</td>
-							</tr>
-							<tr>
-								<td><b>Abstract</b></td>
-								<td><p>{{ details.abstract }}</p></td>
-							</tr>
-						</table>
-					</div>
-				</div> <!--End of paperdetails-->
-			</div>
-		</div>
+		  <div class="col-xs-6 col-md-3 paper-thumbnail">
+		    <a href="#" class="thumbnail">
+		      <img src="paper3.jpeg" alt="...">
+		    </a>
+		    <div class="caption">
+		    	<h3>Prelude to Conflict...</h3>
+		    	<h4 id="authors">Author 2</h4>
+				<div class="btn-group btn-group-justified">
+					<a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-list-alt"></span> Summary</a>
+					<a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-book"> Read</a>
+				</div>
+		    </div>
+		  </div>
 
-		<div>
-
-			<ul class="nav nav-tabs nav-justified">
-				<li class="active"><a href="#notes" data-toggle="tab">Notes</a></li>
-				<li><a href="#glossary" data-toggle="tab">Glossary</a></li>
-				<li><a href="#highlights" data-toggle="tab">Highlights</a></li>
-			</ul>
+		  <div class="col-xs-6 col-md-3 paper-thumbnail">
+		    <a href="#" class="thumbnail">
+		      <img src="paper4.jpeg" alt="...">
+		    </a>
+		    <div class="caption">
+		    	<h3>A Longitudinal Study...</h3>
+		    	<h4 id="authors">Author 3</h4>
+				<div class="btn-group btn-group-justified">
+					<a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-list-alt"></span> Summary</a>
+					<a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-book"> Read</a>
+				</div>
+		    </div>
+		  </div>
 
 		</div>
 
-		<div class="tab-content">
-			<div class="tab-pane fade in active" id="notes">
-
-				{{! a space before #each will cause errors }}
-				{{#each paragraphs}}
-					{{#each notes}}
-						<!-- Note from student -->
-						<div class="panel panel-default">
-							<!-- Note header -->
-							<div class="panel-heading" id="notePanelHead">
-								<div class="row">
-									<!-- Title -->
-									<div class="col-sm-10">
-										<h4 class="panel-title">Note from {{ author }}</h4>
-									</div>
-									<!-- Buttons -->
-									<div class="col-sm-2">
-										<div class="btn-group pull-right">
-                                        	<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        		<span class="caret"></span>
-                                        	</button>
-                                        	<ul class="dropdown-menu" role="menu">
-                                            	<li><a href="#" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
-                                            	<li class="divider"></li>
-                                            	<li><a href="#" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
-                                            </ul>
-                                        </div>
-									</div>
-								</div>
-							</div>
-							<!-- Note content -->
-							<div class="panel-body">
-								<p>{{ body }}</p>
-							</div>
-						</div>
-					{{/each}}
-				{{/each}}
-
-
-
-			</div> <!-- End of notes tab -->
-
-
-			<div class="tab-pane fade" id="glossary">
-                {{#each glossary}}
-					<!-- Word -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading" id="glosPanelHead">
-                            <div class="row">
-                                <!-- Title -->
-                                <div class="col-sm-10">
-                                    <h4 class="panel-title">{{ word }}</h4>
-                                </div>
-                                <!-- Buttons -->
-                                <div class="col-sm-2">
-                                    <div class="btn-group pull-right">
-                                    	<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    		<span class="caret"></span>
-                                    	</button>
-                                    	<ul class="dropdown-menu" role="menu">
-                                        	<li><a href="#" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
-                                        	<li class="divider"></li>
-                                        	<li><a href="#" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Definitions -->
-                        {{#each defs}}
-                            <div class="panel-body">
-                                <h5>{{ author }} Definition: </h5>
-                                <p> {{ def }} </p>
-                            </div>
-                        {{/each}}
-                    </div>
-                {{/each}}
-			</div> <!-- End of Glossary tab -->
 
 
 
 
-			<div class="tab-pane fade" id="highlights">
-                {{#each paragraphs}}
-                    {{#each highlights}}
-                        <!-- Highlight -->
-                        <div class="panel panel-default" id={{pNumber}}>
-                            <!-- Highlight heading-->
-                            <div class="panel-heading" id="hiliPanelHead">
-                                <div class="row">
-                                    <div class="col-sm-10">
-                                        <h4 class="panel-title">{{ author }}</h4>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <div class="btn-group pull-right">
-                                        	<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        		<span class="caret"></span>
-                                        	</button>
-                                        	<ul class="dropdown-menu" role="menu">
-                                            	<li><a href="#" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
-                                            	<li class="divider"></li>
-                                            	<li><a href="#" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Quote-->
-                            <div class="panel-body">
-                                <h5>Page {{page}}</h5>
-                                <p>{{ hText }}</p>
-                            </div>
-                            <!-- Annotation-->
-                            <div class="panel-footer">
-                                <p>{{ nText }}</p>
-                            </div>
-                        </div>
-                    {{/each}}
-                {{/each}}
-			</div> <!-- End of Highlights tab -->
 
-		</div> <!-- End of tab-content -->
-
-
-	</div> <!-- End of container -->
+	</div>
 
 
 
