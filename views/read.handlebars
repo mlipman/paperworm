@@ -89,7 +89,7 @@
 	<div class="modal fade" id="editNoteModal" tabindex="-1" role="dialog" aria-labelledby="noteModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form class="form-horizontal" id="editNoteForm" role="form" method="get" action="/editNote?url=/read">
+				<form class="form-horizontal" id="editNoteForm" role="form" method="get" action="/editNote">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						<h4 class="modal-title" id="noteModalLabel">Edit Note</h4>
@@ -186,19 +186,20 @@
 					<div class="modal-body" id="highlightModalBody">
 						<div class="form-group">
 							<label for="pNumHi">Paragraph Number:</label>
-							<input type="number" class="form-control" id="pNumHi" placeholder="Paragraph number..." name="pNumHi">
+							<input type="number" class="form-control pNumHi-e" id="pNumHi" placeholder="Paragraph number..." name="pNumHi">
 						</div>
 						<div class="form-group">
 							<label for="htext">Quote:</label>
-							<textarea type="text" class="form-control" id="htext" placeholder="Insert the passage from the paper..." name="htext" rows="3"></textarea>
+							<textarea type="text" class="form-control htext-e" id="htext" placeholder="Insert the passage from the paper..." name="htext" rows="3"></textarea>
 						</div>
 						<div class="form-group">
 							<label for="ntext">Annotation:</label>
-							<textarea type="text" class="form-control" id="ntext" placeholder="Type an optional annotation here..." name="ntext" rows="3"></textarea>
+							<textarea type="text" class="form-control ntext-e" id="ntext" placeholder="Type an optional annotation here..." name="ntext" rows="3"></textarea>
 						</div>
-						<div class="form-group">
-							<input type="hidden" class="form-control" id="sstring" name="sstring"></input>
-						</div>						
+                        <input type="hidden" class="form-control" id="sstring" name="sstring"></input>		
+                        <input class = "oldpNum-e" type="hidden" name="oldpNum" value=1>
+                        <input class = "iden-e" type="hidden" name="iden" value="">
+                        <input type="hidden" name="url" value="/read">
 				    </div>
 				    <div class="modal-footer">
 						<input type="submit" id="submitBtn" class="btn btn-default" value="Save"></input>
@@ -276,8 +277,7 @@
                                                 		<span class="caret"></span>
                                                 	</button>
                                                 	<ul class="dropdown-menu" role="menu">
-                                                        <!--"/editHighlight?pNum={{ pNumber }}&iden={{ iden }}&url=/read&text="-->
-                                                    	<li><a href="#" data-toggle="modal" data-target="#editHighlightModal" id="edit-obj-hi"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
+                                                    	<li><a href="#" data-toggle="modal" data-target="#editHighlightModal" class="edit-obj-hi"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
                                                     	<li class="divider"></li>
                                                     	<li><a href="/deleteHighlight?pNum={{ pNumber }}&iden={{ iden }}&url=/read", id="remove-obj"" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
                                                     </ul>

@@ -149,27 +149,37 @@ exports.editNote = function(req, res){
     data["scads"]["paragraphs"][oldpNum - 1]["notes"][index]["body"] = text;
     if (newpNum != oldpNum){
         data["scads"]["paragraphs"][newpNum - 1]["notes"].push(data["scads"]["paragraphs"][oldpNum - 1]["notes"][index]);
-        data["scads"]["paragraphs"][oldpNum - 1]["notes"].splice(index, 1)
+        data["scads"]["paragraphs"][oldpNum - 1]["notes"].splice(index, 1);
+        len =  data["scads"]["paragraphs"][newpNum - 1]["notes"].length; //update paragraph number, page number
+        data["scads"]["paragraphs"][newpNum - 1]["notes"][len-1]["pNumber"] = newpNum;
+        data["scads"]["paragraphs"][newpNum - 1]["notes"][len-1]["page"] = data["scads"]["paragraphs"][newpNum - 1]["page"];
     }
-    
     res.render('read', data["scads"]);
     res.redirect(url);
 }
-exports.editHi = function(req, res){ //TODO: GINA
+exports.editHi = function(req, res){
     var ID = req.query.iden;
-    var pNum = req.query.pNum;
+    var newpNum = req.query.pNumHi;
+    var oldpNum = req.query.oldpNum;
     var url = req.query.url;
-    var text = req.query.text;
-    var elem = $(this).closest("#highlightCont{{ pNumber }}x{{ iden }}")
-    console.log(elem)
-    var index = data["scads"]["paragraphs"][pNum - 1]["highlights"].length;
-    for (var i=0; i<data["scads"]["paragraphs"][pNum - 1]["highlights"].length; ++i){
-        if (data["scads"]["paragraphs"][pNum - 1]["highlights"][i]["iden"] == ID){
+    var text = req.query.ntext;
+    var highlight = req.query.htext;
+    var index = data["scads"]["paragraphs"][oldpNum - 1]["highlights"].length;
+    for (var i=0; i<data["scads"]["paragraphs"][oldpNum - 1]["highlights"].length; ++i){
+        if (data["scads"]["paragraphs"][oldpNum - 1]["highlights"][i]["iden"] == ID){
             index = i;
             break;
         }
     }
-    data["scads"]["paragraphs"][pNum - 1]["highlights"][index]["nText"] = text;
+    data["scads"]["paragraphs"][oldpNum - 1]["highlights"][index]["nText"] = text;
+    data["scads"]["paragraphs"][oldpNum - 1]["highlights"][index]["hText"] = highlight;//update highlight text
+    if (newpNum != oldpNum){
+        data["scads"]["paragraphs"][newpNum - 1]["highlights"].push(data["scads"]["paragraphs"][oldpNum - 1]["highlights"][index]);
+        data["scads"]["paragraphs"][oldpNum - 1]["highlights"].splice(index, 1)
+        len =  data["scads"]["paragraphs"][newpNum - 1]["highlights"].length; //update paragraph number, page number
+        data["scads"]["paragraphs"][newpNum - 1]["highlights"][len-1]["pNumber"] = newpNum;
+        data["scads"]["paragraphs"][newpNum - 1]["highlights"][len-1]["page"] = data["scads"]["paragraphs"][newpNum - 1]["page"];
+    }
     res.render('read', data["scads"]);
     res.redirect(url);
 }

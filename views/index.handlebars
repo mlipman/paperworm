@@ -187,7 +187,7 @@
                         </div>
                         <!-- Definitions -->
                         {{#each defs}}
-                            <div class="panel-body">
+                            <div class="panel-body getInfoHere">
                                 <h5>{{ author }} Definition: </h5>
                                 <p> {{ def }} </p>
                             </div>
@@ -216,7 +216,7 @@
                                         		<span class="caret"></span>
                                         	</button>
                                         	<ul class="dropdown-menu" role="menu">
-                                            	<li><a href="/editHighlight?pNum={{ pNumber }}&iden={{ iden }}&url=/&text=" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
+                                            	<li><a href="#" class="edit-obj-hi"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
                                             	<li class="divider"></li>
                                             	<li><a href="/deleteHighlight?pNum={{ pNumber }}&iden={{ iden }}&url=/" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
                                             </ul>
