@@ -14,6 +14,7 @@ var index = require('./routes/index');
 var read = require('./routes/read');
 var list = require('./routes/list');
 var add = require('./routes/add');
+var data = require('./routes/data');
 
 
 
@@ -50,6 +51,7 @@ app.get('/deleteNote', add.delNote);
 app.get('/editNote', add.editNote);
 app.get('/deleteHighlight', add.delHi);
 app.get('/editHighlight', add.editHi);
+app.get('/serializedString', data.serializedString);
 
 // Example route
 // app.get('/users', user.list);

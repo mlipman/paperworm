@@ -31,6 +31,13 @@ $(document).ready(function() {
 	//$('#paperToRead').load('SchragerSieglerText.html');
 
 	var highlighter = rangy.createHighlighter();
+
+	var callbackProxy = function(dataFromServer) {
+	  callbackFunc(dataFromServer, highlighter);
+	};
+	$.getJSON("/serializedString", callbackProxy);
+
+
 	var serializedHighlights = highlighter.serialize();
 	var currentPNumber = 1; //current paragraph number
 	var currentPage = 1; //current page number
@@ -132,11 +139,14 @@ function addHighlight(highlighter, serializedHighlights, currentPNumber, current
 	highlighter.addClassApplier(cssApplier);
 	highlighter.highlightSelection("highlightText");
 	serializedHighlights = highlighter.serialize();
-	//console.log(serializedHighlights);
-	//data['serializedHistory'] = serializedHighlights;
+	$('#sstring').val(serializedHighlights);
+
+	console.log(serializedHighlights);
 	$("#htext").val('"' + selectedText + '"');
 	$("#pNumHi").val(currentPNumber);
 	$("#page").val(currentPage);
+
+
 }
 
 
@@ -157,3 +167,36 @@ function showPageNumber(){
 		//console.log(curPage);
 	};
 }
+
+
+
+function callbackFunc(data, highlighter) {
+	var cssApplier = rangy.createCssClassApplier("highlightText");
+	highlighter.addClassApplier(cssApplier);
+
+	var serialString = data.val;
+	
+	if (serialString.length>0) {
+		console.log("about to deserialize: " + serialString);
+		highlighter.deserialize(serialString);
+	} else {
+		console.log("not deserializing bc ss is " + serialString);
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
