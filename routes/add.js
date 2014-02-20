@@ -109,12 +109,37 @@ exports.delHi = function(req, res){
     res.redirect(url);
 }
 
+exports.delDef = function(req, res){
+    var word = req.query.word;
+    var index = data["scads"]["glossary"].length
+    for (var i=0; i<data["scads"]["glossary"].length; ++i){
+        if (data["scads"]["glossary"][i]["word"] == word){
+            index = i;
+            break;
+        }
+    }
+    /**
+    var index2 = data["scads"]["glossary"][index]["defs"].length
+    for (var i=0; i<data["scads"]["glossary"][index]["defs"].length; ++i){
+        if (data["scads"]["glossary"][index]["defs"][i]["author"] == author){
+            index2 = i;
+            break;
+        }
+    }
+    data["scads"]["glossary"][index]["defs"].splice(index2, 1);
+    **/
+    data["scads"]["glossary"].splice(index, 1);
+    res.render('read', data["scads"]);
+    res.redirect('/');
+}
+
 exports.editNote = function(req, res){
-    console.log(req.query.id);
     var ID = req.query.iden;
     var pNum = req.query.pNum;
     var url = req.query.url;
     var text = req.query.text;
+    var elem = $(this).closest("#noteCont{{ pNumber }}x{{ iden }}")
+    console.log(elem)
     var index = data["scads"]["paragraphs"][pNum - 1]["notes"].length;
     for (var i=0; i<data["scads"]["paragraphs"][pNum - 1]["notes"].length; ++i){
         if (data["scads"]["paragraphs"][pNum - 1]["notes"][i]["iden"] == ID){
@@ -127,11 +152,12 @@ exports.editNote = function(req, res){
     res.redirect(url);
 }
 exports.editHi = function(req, res){
-    console.log(req.query.id);
     var ID = req.query.iden;
     var pNum = req.query.pNum;
     var url = req.query.url;
     var text = req.query.text;
+    var elem = $(this).closest("#highlightCont{{ pNumber }}x{{ iden }}")
+    console.log(elem)
     var index = data["scads"]["paragraphs"][pNum - 1]["highlights"].length;
     for (var i=0; i<data["scads"]["paragraphs"][pNum - 1]["highlights"].length; ++i){
         if (data["scads"]["paragraphs"][pNum - 1]["highlights"][i]["iden"] == ID){
@@ -142,4 +168,23 @@ exports.editHi = function(req, res){
     data["scads"]["paragraphs"][pNum - 1]["highlights"][index]["nText"] = text;
     res.render('read', data["scads"]);
     res.redirect(url);
+}
+exports.editDef = function(req, res){
+    var word = req.query.word;
+    var changes = req.query.changes;
+    var index = data["scads"]["glossary"].length
+    for (var i=0; i<data["scads"]["glossary"].length; ++i){
+        if (data["scads"]["glossary"][i]["word"] == word){
+            index = i;
+            break;
+        }
+    }
+    remove = []
+    for (var i=0; i<data["scads"]["glossary"][index]["defs"].length; ++i){
+        if (data["scads"]["glossary"][index]["defs"][i]["author"] in changes){
+            data["scads"]["glossary"][index]["defs"][i]["def"] = changes["author"]
+        }
+    } //TODO: remove authors no longer with definitions
+    res.render('read', data["scads"]);
+    res.redirect('/');
 }

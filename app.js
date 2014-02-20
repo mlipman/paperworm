@@ -52,6 +52,8 @@ app.get('/editNote', add.editNote);
 app.get('/deleteHighlight', add.delHi);
 app.get('/editHighlight', add.editHi);
 app.get('/serializedString', data.serializedString);
+app.get('/deleteDefinition', add.delDef);
+app.get('/editDefinition', add.editDef);
 
 // Example route
 // app.get('/users', user.list);
