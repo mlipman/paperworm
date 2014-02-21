@@ -22,10 +22,15 @@ $(document).ready(function() {
     	var sel = rangy.getSelection();
 		var range = sel.getRangeAt(0);
 		var selectedText = range.text();
+		selectedText = trimString(selectedText);
 		console.log(selectedText);
+		var lowercaseText = selectedText.toLowerCase();
+		console.log(lowercaseText);
 		if (selectedText.length > 0) {
 			$.get("http://glosbe.com/gapi/translate?from=eng&dest=eng&format=json&pretty=true&phrase=" + 
 			selectedText + "&callback=showDefinition", showDefinition, 'jsonp');
+			$.get("http://glosbe.com/gapi/translate?from=eng&dest=eng&format=json&pretty=true&phrase=" + 
+			lowercaseText + "&callback=showDefinition", showDefinition, 'jsonp');
 		};
     });
 	//$('#paperToRead').load('SchragerSieglerText.html');
@@ -153,7 +158,7 @@ function showDefinition(result) {
 	console.log(result['tuc']);
 	var defHTML = '<h4>' + result['phrase'] + '</h4>';
 	if (result['tuc'] == undefined || result['tuc'].length == 0) {
-		$('#defModalBody').html(defHTML + "<p>No definition</p>");
+		$('#defModalBody').append(defHTML + "<p>No definition</p>");
 	} else {
 		var meanings = result['tuc'][0]['meanings'];
 		for (var i = 0; i < meanings.length; i++) {
@@ -161,7 +166,7 @@ function showDefinition(result) {
 		'<p>' + meanings[i]['text'] + '</p>';
 		};
 		console.log(defHTML);
-		$('#defModalBody').html(defHTML);	
+		$('#defModalBody').append(defHTML);	
 	}
 }
 
@@ -237,7 +242,9 @@ function callbackFunc(data, highlighter) {
 }
 
 
-
+function trimString (str) {
+    return str.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+}
 
 
 
