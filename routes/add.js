@@ -120,7 +120,8 @@ exports.delHi = function(req, res){
 exports.delDef = function(req, res){
     var paper = req.params.paper;
     var word = req.query.word;
-    var index = data[paper]["glossary"].length
+    var index = data[paper]["glossary"].length;
+    var url = req.query.url;
     for (var i=0; i<data[paper]["glossary"].length; ++i){
         if (data[paper]["glossary"][i]["word"] == word){
             index = i;
@@ -139,7 +140,7 @@ exports.delDef = function(req, res){
     **/
     data[paper]["glossary"].splice(index, 1);
     res.render('read', data[paper]);
-    res.redirect('/');
+    res.redirect(url);
 }
 
 exports.editNote = function(req, res){
