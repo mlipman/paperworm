@@ -175,6 +175,12 @@ exports.editHi = function(req, res){
     var url = req.query.url;
     var text = req.query.ntext;
     var highlight = req.query.htext;
+    if (highlight.charAt(0)!='"'){
+        highlight = '"'+highlight
+    }
+    if (highlight.charAt(highlight.length-1)!='"'){
+        highlight = highlight + '"'
+    }
     var index = data[paper]["paragraphs"][oldpNum - 1]["highlights"].length;
     for (var i=0; i<data[paper]["paragraphs"][oldpNum - 1]["highlights"].length; ++i){
         if (data[paper]["paragraphs"][oldpNum - 1]["highlights"][i]["iden"] == ID){
