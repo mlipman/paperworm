@@ -141,7 +141,7 @@
                                         	<ul class="dropdown-menu" role="menu">
                                             	<li><a href="#" class="edit-obj-note" data-toggle="modal" data-target="#editNoteModal" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
                                             	<li class="divider"></li>
-                                            	<li><a href="/deleteNote?pNum={{ pNumber }}&iden={{ iden }}&url=/" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
+                                            	<li><a href="/deleteNote/{{details.name}}?pNum={{ pNumber }}&iden={{ iden }}&url=/" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
                                             </ul>
                                         </div>
 									</div>
@@ -218,7 +218,7 @@
                                         	<ul class="dropdown-menu" role="menu">
                                             	<li><a href="#" class="edit-obj-hi" data-toggle="modal" data-target="#editHighlightModal"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
                                             	<li class="divider"></li>
-                                            	<li><a href="/deleteHighlight?pNum={{ pNumber }}&iden={{ iden }}&url=/" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
+                                            	<li><a href="/deleteHighlight/{{details.name}}?pNum={{ pNumber }}&iden={{ iden }}&url=/" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -250,7 +250,7 @@
 	<div class="modal fade" id="editNoteModal" tabindex="-1" role="dialog" aria-labelledby="noteModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form class="form-horizontal" id="editNoteForm" role="form" method="get" action="/editNote?url=/read">
+				<form class="form-horizontal" id="editNoteForm" role="form" method="get" action="/editNote/{{details.name}}?url=/read">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						<h4 class="modal-title" id="noteModalLabel">Edit Note</h4>
@@ -266,7 +266,7 @@
 					    </div>
                         <input class = "oldpNum-e" type="hidden" name="oldpNum" value=1>
                         <input class = "iden-e" type="hidden" name="iden" value="">
-                        <input type="hidden" name="url" value="/">
+                        <input type="hidden" name="url" value="/summary/{{details.name}}">
 				    </div>
 				    <div class="modal-footer">
 						<input type="submit" id="submitBtn" class="btn btn-default" value="Save"></input>
@@ -281,7 +281,7 @@
 	<div class="modal fade" id="editHighlightModal" tabindex="-1" role="dialog" aria-labelledby="highlightModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form class="form-horizontal" id="editHighlightForm" role="form" method="get" action="/editHighlight?url=/read"> <!-- HEREEEE -->
+				<form class="form-horizontal" id="editHighlightForm" role="form" method="get" action="/editHighlight/{{details.name}}?url=/read"> <!-- HEREEEE -->
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						<h4 class="modal-title" id="highlightModalLabel">Edit Annotation</h4>
@@ -302,7 +302,7 @@
                         <input type="hidden" class="form-control" id="sstring" name="sstring"></input>		
                         <input class = "oldpNum-e" type="hidden" name="oldpNum" value=1>
                         <input class = "iden-e" type="hidden" name="iden" value="">
-                        <input type="hidden" name="url" value="/read">
+                        <input type="hidden" name="url" value="/read/{{details.name}}">
 				    </div>
 				    <div class="modal-footer">
 						<input type="submit" id="submitBtn" class="btn btn-default" value="Save"></input>
