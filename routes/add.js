@@ -1,6 +1,6 @@
 var data = require("../data.json");
 
-exports.note = function(req, res) {    
+exports.note = function(req, res) {
 
 	//var author = req.query.auth;
     var author = "You";
@@ -13,14 +13,14 @@ exports.note = function(req, res) { 
 		"pNumber": pNum,
 		"iden": num + 1,
 		"author":author,
-		"page": pageNum,
+		"page": data["scads"]["paragraphs"][pNum-1]["page"],
 		"body":body
 	};
 	//console.log(window.getSelection().anchorNode);
 	data["scads"]["paragraphs"][pNum-1]["notes"].push(note);
 
 	res.render('read', data["scads"]);	
- }
+}
 
 exports.defn = function(req, res) {
 	console.log(req.query.defn);
@@ -51,7 +51,7 @@ exports.defn = function(req, res) {
 }
 
 
-exports.highlight = function(req, res) {
+exports.highlight = function(req, res) { //#HEREEEE
 	console.log("in highlight function");
 	var pNum = req.query.pNumHi;
 	var num = data["scads"]["paragraphs"][pNum-1]["highlights"].length;
@@ -59,7 +59,7 @@ exports.highlight = function(req, res) {
 		"pNumber": pNum,
 		"iden": num + 1,
 		"author":"You",
-		"page":req.query.page,
+		"page":data["scads"]["paragraphs"][pNum-1]["page"],
 		"hText":req.query.htext,
 		"hStart":0,
 		"hEnd":0,
@@ -73,4 +73,132 @@ exports.highlight = function(req, res) {
 	res.render('read', data["scads"]);
 
 
+}
+
+exports.delNote = function(req, res){
+    console.log(req);
+    var ID = req.query.iden;
+    var pNum = req.query.pNum;
+    var url = req.query.url;
+    var index = data["scads"]["paragraphs"][pNum - 1]["notes"].length;
+    for (var i=0; i<data["scads"]["paragraphs"][pNum - 1]["notes"].length; ++i){
+        if (data["scads"]["paragraphs"][pNum - 1]["notes"][i]["iden"] == ID){
+            index = i;
+            break;
+        }
+    }
+    data["scads"]["paragraphs"][pNum - 1]["notes"].splice(index, 1);
+    res.render('read', data["scads"]);
+    res.redirect(url);
+}
+
+exports.delHi = function(req, res){
+    console.log(req.query.id);
+    var ID = req.query.iden;
+    var pNum = req.query.pNum;
+    var url = req.query.url;
+    var index = data["scads"]["paragraphs"][pNum - 1]["highlights"].length;
+    for (var i=0; i<data["scads"]["paragraphs"][pNum - 1]["highlights"].length; ++i){
+        if (data["scads"]["paragraphs"][pNum - 1]["highlights"][i]["iden"] == ID){
+            index = i;
+            break;
+        }
+    }
+    data["scads"]["paragraphs"][pNum - 1]["highlights"].splice(index, 1);
+    res.render('read', data["scads"]);
+    res.redirect(url);
+}
+
+exports.delDef = function(req, res){
+    var word = req.query.word;
+    var index = data["scads"]["glossary"].length
+    for (var i=0; i<data["scads"]["glossary"].length; ++i){
+        if (data["scads"]["glossary"][i]["word"] == word){
+            index = i;
+            break;
+        }
+    }
+    /**
+    var index2 = data["scads"]["glossary"][index]["defs"].length
+    for (var i=0; i<data["scads"]["glossary"][index]["defs"].length; ++i){
+        if (data["scads"]["glossary"][index]["defs"][i]["author"] == author){
+            index2 = i;
+            break;
+        }
+    }
+    data["scads"]["glossary"][index]["defs"].splice(index2, 1);
+    **/
+    data["scads"]["glossary"].splice(index, 1);
+    res.render('read', data["scads"]);
+    res.redirect('/');
+}
+
+exports.editNote = function(req, res){
+    var ID = req.query.iden;
+    var newpNum = req.query.pNum;
+    var oldpNum = req.query.oldpNum;
+    var url = req.query.url;
+    var text = req.query.bod;
+    var index = data["scads"]["paragraphs"][oldpNum - 1]["notes"].length;
+    for (var i=0; i<data["scads"]["paragraphs"][oldpNum - 1]["notes"].length; ++i){
+        if (data["scads"]["paragraphs"][oldpNum - 1]["notes"][i]["iden"] == ID){
+            index = i;
+            break;
+        }
+    }
+    data["scads"]["paragraphs"][oldpNum - 1]["notes"][index]["body"] = text;
+    if (newpNum != oldpNum){
+        data["scads"]["paragraphs"][newpNum - 1]["notes"].push(data["scads"]["paragraphs"][oldpNum - 1]["notes"][index]);
+        data["scads"]["paragraphs"][oldpNum - 1]["notes"].splice(index, 1);
+        len =  data["scads"]["paragraphs"][newpNum - 1]["notes"].length; //update paragraph number, page number
+        data["scads"]["paragraphs"][newpNum - 1]["notes"][len-1]["pNumber"] = newpNum;
+        data["scads"]["paragraphs"][newpNum - 1]["notes"][len-1]["page"] = data["scads"]["paragraphs"][newpNum - 1]["page"];
+    }
+    res.render('read', data["scads"]);
+    res.redirect(url);
+}
+exports.editHi = function(req, res){
+    var ID = req.query.iden;
+    var newpNum = req.query.pNumHi;
+    var oldpNum = req.query.oldpNum;
+    var url = req.query.url;
+    var text = req.query.ntext;
+    var highlight = req.query.htext;
+    var index = data["scads"]["paragraphs"][oldpNum - 1]["highlights"].length;
+    for (var i=0; i<data["scads"]["paragraphs"][oldpNum - 1]["highlights"].length; ++i){
+        if (data["scads"]["paragraphs"][oldpNum - 1]["highlights"][i]["iden"] == ID){
+            index = i;
+            break;
+        }
+    }
+    data["scads"]["paragraphs"][oldpNum - 1]["highlights"][index]["nText"] = text;
+    data["scads"]["paragraphs"][oldpNum - 1]["highlights"][index]["hText"] = highlight;//update highlight text
+    if (newpNum != oldpNum){
+        data["scads"]["paragraphs"][newpNum - 1]["highlights"].push(data["scads"]["paragraphs"][oldpNum - 1]["highlights"][index]);
+        data["scads"]["paragraphs"][oldpNum - 1]["highlights"].splice(index, 1)
+        len =  data["scads"]["paragraphs"][newpNum - 1]["highlights"].length; //update paragraph number, page number
+        data["scads"]["paragraphs"][newpNum - 1]["highlights"][len-1]["pNumber"] = newpNum;
+        data["scads"]["paragraphs"][newpNum - 1]["highlights"][len-1]["page"] = data["scads"]["paragraphs"][newpNum - 1]["page"];
+    }
+    res.render('read', data["scads"]);
+    res.redirect(url);
+}
+exports.editDef = function(req, res){ //TODO: GINA
+    var word = req.query.word;
+    var changes = req.query.changes;
+    var index = data["scads"]["glossary"].length
+    for (var i=0; i<data["scads"]["glossary"].length; ++i){
+        if (data["scads"]["glossary"][i]["word"] == word){
+            index = i;
+            break;
+        }
+    }
+    remove = []
+    for (var i=0; i<data["scads"]["glossary"][index]["defs"].length; ++i){
+        if (data["scads"]["glossary"][index]["defs"][i]["author"] in changes){
+            data["scads"]["glossary"][index]["defs"][i]["def"] = changes["author"]
+        }
+    } //TODO: remove authors no longer with definitions
+    res.render('read', data["scads"]);
+    res.redirect('/');
 }

@@ -10,16 +10,8 @@ $(document).ready(function() {
 		$(header).text(anagram)
 	});*/
 
-	/*$("#makeNoteButton").click(showNoteBox);
-	$("#makeDefnButton").click(showDefnBox);
-	$("#makeHighlightButton").click(showHighlightBox);
-
-	$("#addNoteForm").hide();
-	$("#addDefinitionForm").hide();
-	$("#addHighlightForm").hide();*/
-
 	rangy.init();
-
+    
     //equalHeight($(".thumbnail")); 
     //equalHeight($(".caption").children("h3"));
 
@@ -60,7 +52,46 @@ $(document).ready(function() {
 		e.preventDefault();
 		addHighlight(highlighter, serializedHighlights, currentPNumber, currentPage);
 	});
-
+    
+    $('.edit-obj-note').click(function(e){
+        e.preventDefault();
+        var str = "";
+        var text = "";
+        var curr = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
+        for (var i=0; i<curr.childNodes.length; ++i){
+            if(curr.childNodes[i].className == "collapse" || curr.childNodes[i].className == "in"){
+                str = curr.childNodes[i].id.substring(8);
+                text = curr.childNodes[i].childNodes[1].childNodes[1].innerHTML;
+            }else if (curr.childNodes[i].className == "panel-body"){
+                str = curr.childNodes[i].id.substring(8);
+                text = curr.childNodes[i].childNodes[1].innerHTML;
+            }
+        }
+        editNote(Number(str.split("x")[0]), Number(str.split("x")[1]), text);
+    });
+    $('.edit-obj-hi').click(function(e){
+        e.preventDefault();
+        var str = "";
+        var text = "";
+        var high = "";
+        var curr = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
+        for (var i=0; i<curr.childNodes.length; ++i){
+            console.log(curr.childNodes[i].className)
+            if(curr.childNodes[i].className == "collapse" || curr.childNodes[i].className == "in"){
+                str = curr.childNodes[i].id.substring(13);
+                console.log(str)
+                high = curr.childNodes[i].childNodes[1].childNodes[1].childNodes[0].innerHTML;
+                text = curr.childNodes[i].childNodes[3].childNodes[1].innerHTML;
+            }else if (curr.childNodes[i].className == "panel-body"){
+                str = curr.childNodes[i].id.substring(13);
+                high = curr.childNodes[i].childNodes[1].childNodes[3].innerHTML;
+                console.log(high)
+                text = curr.childNodes[i].childNodes[1].innerHTML; //TODO: Gina
+                console.log(text)
+            }
+        }
+        editHighlight(Number(str.split("x")[0]), Number(str.split("x")[1]), text, high);
+    });
 	$('#deleteHighlightButton').click(function(e) {
 		e.preventDefault();
 		//var sel = rangy.getSelection();
@@ -78,8 +109,8 @@ $(document).ready(function() {
 		currentPage = currentHilightID.substring(7, xIndex);
 		currentPNumber = currentHilightID.substring(xIndex+1);
 		console.log(currentHilightID);
-		console.log("Page: "+currentPage);
-		console.log("Para: "+currentPNumber);
+		console.log("Page "+currentPage);
+		console.log("Para "+currentPNumber);
 	});
 
 })
@@ -118,42 +149,7 @@ function showDefnBox(e) {
 
 }
 
-/*function showHighlightBox(e) {
-	$("#addNoteForm").hide();
-	$("#addDefinitionForm").hide();
-	$("#addHighlightForm").toggle();
-	
-	if (name == "Doug Engelbart") {
-		return "Notable Grudge";
-	} 
-	else if (name == "Ivan Sutherland") {
-		return "Vandal Heist Run";
-	}
-	else if (name == "JCR Licklider") {
-		return "Crick Rid Jell";
-	}
-	else if (name == "Vannevar Bush") {
-		return "Ravens Van Hub";
-	}
-	else if (name == "Alan C. Kay") {
-		return "Canal Yak";
-	}
-	else if (name == "Allen Newell") {
-		return "Ellen All New";
-	}
-	else if (name == "Lucy Suchman") {
-		return "Lunacy Chums";
-	}
-	else if (name == "Grace Hopper") {
-		return "Gear Chopper";
-	}
-	else {
-		console.log(name + " not known for anagramming.");
-		return name;
-	}
-}*/
-
-//Show defnition on the definition modal on read mode
+//Show definition on the definition modal on read mode
 function showDefinition(result) {
 	console.log(result);
 	console.log(result['tuc']);
@@ -192,8 +188,22 @@ function addHighlight(highlighter, serializedHighlights, currentPNumber, current
 
 }
 
+function editNote(pNum, iden, text){
+    $(".iden-e").val(iden);
+    $(".pNum-e").val(pNum);
+    $(".oldpNum-e").val(pNum);
+    $(".bod-e").val(text);
+    console.log("end");
+}
 
-
+function editHighlight(pNum, iden, text, high){
+    $(".iden-e").val(iden);
+    $(".pNumHi-e").val(pNum);
+    $(".oldpNum-e").val(pNum);
+    $(".ntext-e").val(text);
+    $(".htext-e").val(high);
+    console.log("end");
+}
 function showPageNumber(){
 	var curPage = 1;
 	var curPara = 1;
@@ -202,7 +212,7 @@ function showPageNumber(){
 	totalPages = totalPages[totalPages.length - 1];
 	console.log(totalPages);
 	while (curPara <= totalParagraphs) {
-		$("#pageNum"+curPage+"x"+curPara).html("<h5><center>Page: " + curPage+"</center></h5>");
+		$("#pageNum"+curPage+"x"+curPara).html("<h5><center>Page " + curPage+"</center></h5>");
 		while($("#pageNum"+curPage+"x"+curPara).length){
 			curPara++;
 		}

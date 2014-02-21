@@ -47,8 +47,15 @@ app.get('/read/:paper', read.view);
 app.get('/summary/:paper', summary.view);
 app.get('/addNote', add.note);
 app.get('/addDefn', add.defn);
-app.get('/addHighlight', add.highlight);
+app.get('/addHighlight', add.highlight); // HEREEEE
+app.get('/deleteNote', add.delNote);
+app.get('/editNote', add.editNote);
+app.get('/deleteHighlight', add.delHi);
+app.get('/editHighlight', add.editHi);
 app.get('/serializedString', data.serializedString);
+app.get('/deleteDefinition', add.delDef);
+app.get('/editDefinition', add.editDef);
+
 // Example route
 // app.get('/users', user.list);
 

@@ -1,16 +1,148 @@
-		{{#each things}}
-			<p>key: {{@key}}, val: {{this}}</p>
-		{{/each}}
-
-
-
-
-
-
-{
-	"things":
-	{
-		"one":"ihava",
-		"two":"dreem"
-	}
-}
+diff --git a/views/index.handlebars b/views/index.handlebars
+index c136b23..c206dd9 100644
+--- a/views/index.handlebars
++++ b/views/index.handlebars
+@@ -139,7 +139,7 @@
+                                                        <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu">
+-                                               <li><a href="/editNote?pNum={{ pNumber }}&iden={{ iden }}&url=/&text=" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
++                                               <li><a href="#" class="edit-obj-note" data-toggle="modal" data-target="#editNoteModal" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="/deleteNote?pNum={{ pNumber }}&iden={{ iden }}&url=/" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
+                                             </ul>
+@@ -148,7 +148,7 @@
+                                                                </div>
+                                                        </div>
+                                                        <!-- Note content -->
+-                                                       <div class="panel-body">
++                                                       <div class="panel-body" id = "noteCont{{ pNumber }}x{{ iden }}">
+                                                                <p>{{ body }}</p>
+                                                        </div>
+                                                </div>
+@@ -179,7 +179,7 @@
+                                        <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
+                                                <li class="divider"></li>
+-                                               <li><a href="#" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
++                                               <li><a href="#" class="edit-obj-note" data-toggle="modal" data-target="#editNoteModal"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
+                                         </ul>
+                                     </div>
+                                 </div>
+@@ -187,7 +187,7 @@
+                         </div>
+                         <!-- Definitions -->
+                         {{#each defs}}
+-                            <div class="panel-body">
++                            <div class="panel-body getInfoHere">
+                                 <h5>{{ author }} Definition: </h5>
+                                 <p> {{ def }} </p>
+                             </div>
+@@ -216,7 +216,7 @@
+                                                        <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu">
+-                                               <li><a href="/editHighlight?pNum={{ pNumber }}&iden={{ iden }}&url=/&text=" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
++                                               <li><a href="#" class="edit-obj-hi" data-toggle="modal" data-target="#editHighlightModal"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="/deleteHighlight?pNum={{ pNumber }}&iden={{ iden }}&url=/" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
+                                             </ul>
+@@ -225,13 +225,15 @@
+                                 </div>
+                             </div>
+                             <!-- Quote-->
+-                            <div class="panel-body">
+-                                <h5>Page {{page}}</h5>
+-                                <p>{{ hText }}</p>
+-                            </div>
+-                            <!-- Annotation-->
+-                            <div class="panel-footer">
+-                                <p>{{ nText }}</p>
++                            <div id="highlightCont{{ pNumber }}x{{ iden }}" class="panel-body">
++                                <div class="panel-body">
++                                    <h5>Page {{page}}</h5>
++                                    <p>{{ hText }}</p>
++                                </div>
++                                <!-- Annotation-->
++                                <div class="panel-footer">
++                                    <p>{{ nText }}</p>
++                                </div>
+                             </div>
+                         </div>
+                     {{/each}}
+@@ -243,8 +245,73 @@
+ 
+        </div> <!-- End of container -->
+ 
++    
++    <!-- Edit Note Modal -->
++       <div class="modal fade" id="editNoteModal" tabindex="-1" role="dialog" aria-labelledby="noteModalLabel" aria-hidden="true">
++               <div class="modal-dialog">
++                       <div class="modal-content">
++                               <form class="form-horizontal" id="editNoteForm" role="form" method="get" action="/editNote?url=/read">
++                                       <div class="modal-header">
++                                               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
++                                               <h4 class="modal-title" id="noteModalLabel">Edit Note</h4>
++                                       </div>
++                                       <div class="modal-body" id="noteModalBody">
++                                               <div class="form-group">
++                                                       <label for="pNum">Paragraph No:</label>
++                                                       <input type="number" class="form-control pNum-e" placeholder="Paragraph No." name="pNum">
++                                               </div>
++                                           <div class="form-group">
++                                                       <label for="bod">Note:</label>
++                                                       <textarea type="text" class="form-control bod-e" placeholder="Type your note here..." name="bod" rows="5"></textarea>
++                                           </div>
++                        <input class = "oldpNum-e" type="hidden" name="oldpNum" value=1>
++                        <input class = "iden-e" type="hidden" name="iden" value="">
++                        <input type="hidden" name="url" value="/">
++                                   </div>
++                                   <div class="modal-footer">
++                                               <input type="submit" id="submitBtn" class="btn btn-default" value="Save"></input>
++                                       </div>
++                                       </div>
++                               </form>
+ 
+-
++                       </div>
++               </div>
++       </div>
++    
++    <!-- Edit Highlight Modal -->
++       <div class="modal fade" id="editHighlightModal" tabindex="-1" role="dialog" aria-labelledby="highlightModalLabel" aria-hidden="true">
++               <div class="modal-dialog">
++                       <div class="modal-content">
++                               <form class="form-horizontal" id="editHighlightForm" role="form" method="get" action="/editHighlight?url=/read"> <!-- HEREEEE -->
++                                       <div class="modal-header">
++                                               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
++                                               <h4 class="modal-title" id="highlightModalLabel">Edit Annotation</h4>
++                                       </div>
++                                       <div class="modal-body" id="highlightModalBody">
++                                               <div class="form-group">
++                                                       <label for="pNumHi">Paragraph Number:</label>
++                                                       <input type="number" class="form-control pNumHi-e" id="pNumHi" placeholder="Paragraph number..." name="pNumHi">
++                                               </div>
++                                               <div class="form-group">
++                                                       <label for="htext">Quote:</label>
++                                                       <textarea type="text" class="form-control htext-e" id="htext" placeholder="Insert the passage from the paper..." name="htext" rows="3"></textarea>
++                                               </div>
++                                               <div class="form-group">
++                                                       <label for="ntext">Annotation:</label>
++                                                       <textarea type="text" class="form-control ntext-e" id="ntext" placeholder="Type an optional annotation here..." name="ntext" rows="3"></textarea>
++                                               </div>
++                        <input type="hidden" class="form-control" id="sstring" name="sstring"></input>         
++                        <input class = "oldpNum-e" type="hidden" name="oldpNum" value=1>
++                        <input class = "iden-e" type="hidden" name="iden" value="">
++                        <input type="hidden" name="url" value="/read">
++                                   </div>
++                                   <div class="modal-footer">
++                                               <input type="submit" id="submitBtn" class="btn btn-default" value="Save"></input>
++                                               <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
++                                       </div>
++                               </form>
++                       </div>
++               </div>
++       </div>
+ 
+        <script src="js/jquery-1.11.0.js"></script>
+        <script src="js/bootstrap.js"></script>
