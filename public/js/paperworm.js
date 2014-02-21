@@ -27,10 +27,11 @@ $(document).ready(function() {
 		var lowercaseText = selectedText.toLowerCase();
 		console.log(lowercaseText);
 		if (selectedText.length > 0) {
+			$('#defModalBody').html("");
 			$.get("http://glosbe.com/gapi/translate?from=eng&dest=eng&format=json&pretty=true&phrase=" + 
 			selectedText + "&callback=showDefinition", showDefinition, 'jsonp');
-			$.get("http://glosbe.com/gapi/translate?from=eng&dest=eng&format=json&pretty=true&phrase=" + 
-			lowercaseText + "&callback=showDefinition", showDefinition, 'jsonp');
+			if (selectedText != lowercaseText) {$.get("http://glosbe.com/gapi/translate?from=eng&dest=eng&format=json&pretty=true&phrase=" + 
+			lowercaseText + "&callback=showDefinition", showDefinition, 'jsonp');}
 		};
     });
 	//$('#paperToRead').load('SchragerSieglerText.html');
