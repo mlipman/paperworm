@@ -247,7 +247,7 @@
                                                         <!--"/editNote?pNum={{ pNumber }}&iden={{ iden }}&url=/read/{{details.name}}&text="-->
                                                     	<li><a href="#" class="edit-obj-note" data-toggle="modal" data-target="#editNoteModal"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
                                                     	<li class="divider"></li>
-                                                    	<li><a href="/deleteNote/{{details.name}}?pNum={{ pNumber }}&iden={{ iden }}&url=/read/{{details.name}}", id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
+                                                    	<li><a href="/deleteNote/{{ ../../details.name }}?pNum={{ pNumber }}&iden={{ iden }}&url=/read/{{ ../../details.name }}", id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -279,7 +279,7 @@
                                                 	<ul class="dropdown-menu" role="menu">
                                                     	<li><a href="#" data-toggle="modal" data-target="#editHighlightModal" class="edit-obj-hi"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
                                                     	<li class="divider"></li>
-                                                    	<li><a href="/deleteHighlight/{{details.name}}?pNum={{ pNumber }}&iden={{ iden }}&url=/read/{{details.name}}", id="remove-obj" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
+                                                    	<li><a href="/deleteHighlight/{{../../details.name}}?pNum={{ pNumber }}&iden={{ iden }}&url=/read/{{../../details.name}}", id="remove-obj" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
                                                     </ul>
                                                 </div>
                                             </div>

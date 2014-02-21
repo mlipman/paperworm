@@ -141,7 +141,7 @@
                                         	<ul class="dropdown-menu" role="menu">
                                             	<li><a href="#" class="edit-obj-note" data-toggle="modal" data-target="#editNoteModal" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
                                             	<li class="divider"></li>
-                                            	<li><a href="/deleteNote/{{details.name}}?pNum={{ pNumber }}&iden={{ iden }}&url=/" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
+                                            	<li><a href="/deleteNote/{{../../details.name}}?pNum={{ pNumber }}&iden={{ iden }}&url=/summary/{{../../details.name}}" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
                                             </ul>
                                         </div>
 									</div>
@@ -179,7 +179,7 @@
                                     	<ul class="dropdown-menu" role="menu">
                                         	<li><a href="#" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
                                         	<li class="divider"></li>
-                                        	<li><a href="/deleteDefinition/{{details.name}}?paper={{ details.name }}&word={{ word }}&url=/summary" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
+                                        	<li><a href="/deleteDefinition/{{../details.name}}?paper={{ ../details.name }}&word={{ word }}&url=/summary/{{../details.name}}" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -218,7 +218,7 @@
                                         	<ul class="dropdown-menu" role="menu">
                                             	<li><a href="#" class="edit-obj-hi" data-toggle="modal" data-target="#editHighlightModal"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
                                             	<li class="divider"></li>
-                                            	<li><a href="/deleteHighlight/{{details.name}}?pNum={{ pNumber }}&iden={{ iden }}&url=/" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
+                                            	<li><a href="/deleteHighlight/{{../../details.name}}?pNum={{ pNumber }}&iden={{ iden }}&url=/summary/{{../../details.name}}" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
                                             </ul>
                                         </div>
                                     </div>
