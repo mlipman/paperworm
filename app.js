@@ -43,8 +43,8 @@ if ('development' == app.get('env')) {
 // Add routes here
 app.get('/', index.view);
 app.get('/index', index.view);
-app.get('/read', read.view);
-app.get('/summary', summary.view);
+app.get('/read/:paper', read.view);
+app.get('/summary/:paper', summary.view);
 app.get('/addNote', add.note);
 app.get('/addDefn', add.defn);
 app.get('/addHighlight', add.highlight);

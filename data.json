@@ -3,7 +3,8 @@
 	{
 		"details":
 		{
-			"title":"SCADS: A Model of Children's Strategy Choices and Strategy Discoveries",
+			"name":"scads",
+            "title":"SCADS: A Model of Children's Strategy Choices and Strategy Discoveries",
             "authors":"Jeff Shrager and Robert S. Siegler",
             "journal":"Psychological Sciences",
 			"pubdate": "Sep 1, 1998",
@@ -452,6 +453,7 @@
     {
         "details":
         {
+            "name":"social",
             "title":"Predicting tie strength with social media",
             "authors":"Eric Gilbert and Karrie Karahalios",
             "journal":"Proceedings of the SIGCHI Conference on Human Factors in Computing Systems",

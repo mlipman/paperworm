@@ -7,9 +7,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-	<link href="css/bootstrap.css" rel="stylesheet">
-	<link href="css/bootstrap-theme.css" rel="stylesheet">
-	<link href="css/paperworm.css" rel="stylesheet">
+	<link href="/css/bootstrap.css" rel="stylesheet">
+	<link href="/css/bootstrap-theme.css" rel="stylesheet">
+	<link href="/css/paperworm.css" rel="stylesheet">
 	
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,26 +30,26 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index"><span class="glyphicon glyphicon-briefcase"></span> All Papers</a>
+				<a class="navbar-brand" href="/index"><span class="glyphicon glyphicon-briefcase"></span> All Papers</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<a href="read" class="btn btn-default navbar-btn navbar-right"><span class="glyphicon glyphicon-book"></span> Read </a>
+				<a href="/read/{{details.name}}" class="btn btn-default navbar-btn navbar-right"><span class="glyphicon glyphicon-book"></span> Read </a>
 			</div>
 		</div>
 	</nav>
 	<div class="container">
 		<!--
 		<div class="topbar">
-			<a href="index" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-briefcase"></span> All Papers</a>
-			<a href="read" class="btn btn-default btn-lg" style="float: right"><span class="glyphicon glyphicon-book"></span> Read </a>
+			<a href="/index" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-briefcase"></span> All Papers</a>
+			<a href="/read/{{details.name}}" class="btn btn-default btn-lg" style="float: right"><span class="glyphicon glyphicon-book"></span> Read </a>
 		</div>-->
 
 		<div class="row" style="padding-top: 10px; padding-bottom: 10px">
 			<!--Paper Cover-->
 			<div class="col-sm-3">
 				<div class="paper-container">
-					<a href="read" height="600" width="400" ><img src="scads_img.png" class="img-responsive paper-image" height="600" width="400"/></a>
+					<a href="/read/{{details.name}}" height="600" width="400" ><img src="/{{details.name}}_img.png" class="img-responsive paper-image" height="600" width="400"/></a>
 				</div>
                 <div class="citation-modal">
                     <!-- Button trigger Citation modal -->
@@ -80,8 +80,8 @@
 			<!--Paper Details-->
 			<div class="col-sm-9">
 				<div class="paper-details">
-					<h2>SCADS: A Model of Children’s Strategy Choices and Strategy Discoveries</h2>
-					<h4 id="authors">Jeff Shrager and Robert S. Siegler</h4>
+					<h2>{{details.title}}</h2>
+					<h4 id="authors">{{details.authors}}</h4>
 					<!--Paper information-->
 					<div class="table-responsive">
 						<table class="table-striped table-bordered">
@@ -246,14 +246,14 @@
 
 
 
-	<script src="js/jquery-1.11.0.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<script src="js/paperworm.js"></script>
-	<script src="js/rangy/rangy-core.js"></script>
-	<script src="js/rangy/rangy-cssclassapplier.js"></script>
-	<script src="js/rangy/rangy-highlighter.js"></script>
-	<script src="js/rangy/rangy-selectionsaverestore.js"></script>
-	<script src="js/rangy/rangy-serializer.js"></script>
-	<script src="js/rangy/rangy-textrange.js"></script>
+	<script src="/js/jquery-1.11.0.js"></script>
+	<script src="/js/bootstrap.js"></script>
+	<script src="/js/paperworm.js"></script>
+	<script src="/js/rangy/rangy-core.js"></script>
+	<script src="/js/rangy/rangy-cssclassapplier.js"></script>
+	<script src="/js/rangy/rangy-highlighter.js"></script>
+	<script src="/js/rangy/rangy-selectionsaverestore.js"></script>
+	<script src="/js/rangy/rangy-serializer.js"></script>
+	<script src="/js/rangy/rangy-textrange.js"></script>
 </body>
 </html>
