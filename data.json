@@ -3,7 +3,9 @@
 	{
 		"details":
 		{
-			"journal":"Psychological Sciences",
+			"title":"SCADS: A Model of Children's Strategy Choices and Strategy Discoveries",
+            "authors":"Jeff Shrager and Robert S. Siegler",
+            "journal":"Psychological Sciences",
 			"pubdate": "Sep 1, 1998",
 			"pages": 7,
             "total-paragraphs": 41,
@@ -450,12 +452,14 @@
     {
         "details":
         {
-            "journal":"Psychological Sciences",
-            "pubdate": "Sep 1, 1998",
-            "pages": 7,
-            "total-paragraphs": 41,
-            "abstract":"Preschoolers show surprising competence in choosing adaptively among alternative strategies and in discovering new approaches. The SCADS computer simulation illustrates how simple processes can generate this impressive competence. The model's behavior parallels data on children's addition in at least eight ways: It uses diverse strategies over prolonged periods of time, makes adaptive choices among strategies, discovers the same strategies as children, discovers strategies in the same sequence as children, makes discoveries without trial and error, makes discoveries without having experienced failure, narrowly generalizes new approaches, and generalizes more broadly following challenging problems. SCADS thus indicates plausible sources of young children's surprising competence at strategy choice and strategy discovery.",
-            "citation":"Shrager, J., and Siegler, R. S. (1998). SCADS: A model of children's strategy choices and strategy discoveries. Psychological Science, 9(5), 405-410. doi:10.1111/1467-9280.00076"
+            "title":"Predicting tie strength with social media",
+            "authors":"Eric Gilbert and Karrie Karahalios",
+            "journal":"Proceedings of the SIGCHI Conference on Human Factors in Computing Systems",
+            "pubdate": "April, 2009",
+            "pages": 10,
+            "total-paragraphs": 119,
+            "abstract":"Social media treats all users the same: trusted friend or total stranger, with little or nothing in between. In reality, relationships fall everywhere along this spectrum, a topic social science has investigated for decades under the theme of tie strength. Our work bridges this gap between theory and practice. In this paper, we present a predictive model that maps social media data to tie strength. The model builds on a dataset of over 2,000 social media ties and performs quite well, distinguishing between strong and weak ties with over 85% accuracy. We complement these quantitative findings with interviews that unpack the relationships we could not predict. The paper concludes by illustrating how modeling tie strength can improve social media design elements, including privacy controls, message routing, friend introductions and information prioritization.",
+            "citation":"Gilbert, E., & Karahalios, K. (2009, April). Predicting tie strength with social media. In Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (pp. 211-220). ACM."
         },
         "paragraphs":
         [
