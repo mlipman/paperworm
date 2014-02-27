@@ -9,6 +9,9 @@ $(document).ready(function() {
 		var anagram = anagrammedName($(header).text());
 		$(header).text(anagram)
 	});*/
+	
+	$("#welcomeModal").modal('show');
+	$("#tutorialModal").modal('show');
 
 	rangy.init();
     
