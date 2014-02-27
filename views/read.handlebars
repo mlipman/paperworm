@@ -221,7 +221,7 @@
 							<div id="pageNum{{ page }}x{{ pNumber }}"></div>
 							<p class="text-para" id="pageNum{{ page }}x{{ pNumber }}">[{{ pNumber }}] {{ text }}</p>
 						</div>
-                        <div class="col-sm-5 unselectable" id="annotation-right">
+                        <div class="col-sm-5" id="annotation-right">
                         	{{#each images}}
                         		<div>
                         			<img src="{{ src }}" class="img-responsive">
@@ -235,7 +235,7 @@
                                         <div class="row">
                                             <!-- Title -->
                                             <div class="col-sm-7">
-                                                <a data-toggle="collapse" href="#noteCont{{ pNumber }}x{{ iden }}" id="nCollapseButton"><h5 class="panel-title unselectable">{{ author }}</h5></a>
+                                                <a data-toggle="collapse" href="#noteCont{{ pNumber }}x{{ iden }}" id="nCollapseButton"><h5 class="panel-title">{{ author }}</h5></a>
                                             </div>
                                             <!-- Buttons -->
                                             <div class="col-sm-5">
@@ -255,8 +255,8 @@
                                     </div>
                                     <!-- Note content -->
                                     <div id="noteCont{{ pNumber }}x{{ iden }}" class="collapse">
-	                                    <div class="panel-body unselectable">
-	                                        <p class="unselectable">{{ body }}</p>
+	                                    <div class="panel-body">
+	                                        <p>{{ body }}</p>
 	                                    </div>
                                 	</div>
                                 </div>
@@ -268,7 +268,7 @@
                                         <div class="row">
                                             <!-- Title -->
                                             <div class="col-sm-7">
-                                                <a data-toggle="collapse" href="#highlightCont{{ pNumber }}x{{ iden }}" id="hCollapseButton"><h6 class="panel-title unselectable">{{ author }}</h6></a>
+                                                <a data-toggle="collapse" href="#highlightCont{{ pNumber }}x{{ iden }}" id="hCollapseButton"><h6 class="panel-title">{{ author }}</h6></a>
                                             </div>
                                             <!-- Buttons -->
                                             <div class="col-sm-5">
@@ -287,11 +287,11 @@
                                     </div>
                                     <!-- Note content -->
                                     <div id="highlightCont{{ pNumber }}x{{ iden }}" class="collapse">
-	                                    <div class="panel-body unselectable">
-	                                        <p class="unselectable"><small>{{ hText }}</small></p>
+	                                    <div class="panel-body">
+	                                        <p><small>{{ hText }}</small></p>
 	                                    </div>
-	                                    <div class="panel-footer unselectable">
-	                                		<p class="unselectable">{{ nText }}</p>
+	                                    <div class="panel-footer">
+	                                		<p>{{ nText }}</p>
 	                            		</div>
 	                            	</div>
                                 </div>
