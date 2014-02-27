@@ -126,13 +126,24 @@
 						<!-- Note from student -->
 						<div class="panel panel-default">
 							<!-- Note header -->
-							<div class="panel-heading" id="notePanelHead">
-								<div class="row">
-									<!-- Title -->
+							<div class="panel-heading clearfix" id="notePanelHead">
+								<h5 class="panel-title pull-left">
+                                	Note from {{ author }}
+                                </h5>
+                                <div class="btn-group pull-right">
+                                	<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                		<span class="caret"></span>
+                                	</button>
+                                	<ul class="dropdown-menu" role="menu">
+                                    	<li><a href="#" class="edit-obj-note" data-toggle="modal" data-target="#editNoteModal" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
+                                    	<li class="divider"></li>
+                                    	<li><a href="/deleteNote/{{../../details.name}}?pNum={{ pNumber }}&iden={{ iden }}&url=/summary/{{../../details.name}}" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
+                                    </ul>
+                                </div>
+								<!--<div class="row">
 									<div class="col-sm-10">
 										<h4 class="panel-title">Note from {{ author }}</h4>
 									</div>
-									<!-- Buttons -->
 									<div class="col-sm-2">
 										<div class="btn-group pull-right">
                                         	<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -145,7 +156,7 @@
                                             </ul>
                                         </div>
 									</div>
-								</div>
+								</div>-->
 							</div>
 							<!-- Note content -->
 							<div class="panel-body" id = "noteCont{{ pNumber }}x{{ iden }}">
@@ -164,13 +175,22 @@
                 {{#each glossary}}
 					<!-- Word -->
                     <div class="panel panel-default">
-                        <div class="panel-heading" id="glosPanelHead">
-                            <div class="row">
-                                <!-- Title -->
+                        <div class="panel-heading clearfix" id="glosPanelHead">
+                        	<h4 class="panel-title pull-left">{{ word }}</h4>
+                        	<div class="btn-group pull-right">
+                            	<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                            		<span class="caret"></span>
+                            	</button>
+                            	<ul class="dropdown-menu" role="menu">
+                                	<li><a href="#" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
+                                	<li class="divider"></li>
+                                	<li><a href="/deleteDefinition/{{../details.name}}?paper={{ ../details.name }}&word={{ word }}&url=/summary/{{../details.name}}" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
+                                </ul>
+                            </div>
+                            <!--<div class="row">
                                 <div class="col-sm-10">
                                     <h4 class="panel-title">{{ word }}</h4>
                                 </div>
-                                <!-- Buttons -->
                                 <div class="col-sm-2">
                                     <div class="btn-group pull-right">
                                     	<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -183,7 +203,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
                         <!-- Definitions -->
                         {{#each defs}}
@@ -198,15 +218,24 @@
 
 
 
-
 			<div class="tab-pane fade" id="highlights">
                 {{#each paragraphs}}
                     {{#each highlights}}
                         <!-- Highlight -->
-                        <div class="panel panel-default" id={{pNumber}}>
-                            <!-- Highlight heading-->
-                            <div class="panel-heading" id="hiliPanelHead">
-                                <div class="row">
+                        <div class="panel panel-default" id="{{pNumber}}">
+                            <div class="panel-heading clearfix" id="hiliPanelHead">
+                            	<h4 class="panel-title pull-left">{{ author }}</h4>
+                            	<div class="btn-group pull-right">
+                                	<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                		<span class="caret"></span>
+                                	</button>
+                                	<ul class="dropdown-menu" role="menu">
+                                    	<li><a href="#" class="edit-obj-hi" data-toggle="modal" data-target="#editHighlightModal"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
+                                    	<li class="divider"></li>
+                                    	<li><a href="/deleteHighlight/{{../../details.name}}?pNum={{ pNumber }}&iden={{ iden }}&url=/summary/{{../../details.name}}" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
+                                    </ul>
+                                </div>
+                                <!--<div class="row">
                                     <div class="col-sm-10">
                                         <h4 class="panel-title">{{ author }}</h4>
                                     </div>
@@ -222,7 +251,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                             <!-- Quote-->
                             <div id="highlightCont{{ pNumber }}x{{ iden }}" class="panel-body">
@@ -317,13 +346,13 @@
 	<script src="/js/jquery-1.11.0.js"></script>
 	<script src="/js/bootstrap.js"></script>
 	<script src="/js/paperworm.js"></script>
-	<!--
+	
 	<script src="/js/rangy/rangy-core.js"></script>
 	<script src="/js/rangy/rangy-cssclassapplier.js"></script>
 	<script src="/js/rangy/rangy-highlighter.js"></script>
 	<script src="/js/rangy/rangy-selectionsaverestore.js"></script>
 	<script src="/js/rangy/rangy-serializer.js"></script>
 	<script src="/js/rangy/rangy-textrange.js"></script>
-	-->
+	
 </body>
 </html>

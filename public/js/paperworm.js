@@ -58,12 +58,14 @@ $(document).ready(function() {
 		e.preventDefault();
 		addHighlight(highlighter, serializedHighlights, currentPNumber, currentPage);
 	});
-    
+
     $('.edit-obj-note').click(function(e){
         e.preventDefault();
+        console.log("in click edit-obj-note");
         var str = "";
         var text = "";
         var curr = e.target.parentNode.parentNode.parentNode.parentNode.parentNode;
+        console.log(curr.className);
         for (var i=0; i<curr.childNodes.length; ++i){
             if(curr.childNodes[i].className == "collapse" || curr.childNodes[i].className == "in"){
                 str = curr.childNodes[i].id.substring(8);
