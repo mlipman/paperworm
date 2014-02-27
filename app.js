@@ -58,7 +58,7 @@ app.get('/addDefn/:paper', add.defn);
 app.get('/deleteDefinition/:paper', add.delDef);
 app.get('/editDefinition/:paper', add.editDef);
 
-app.get('/serializedString', data.serializedString);
+app.get('/serializedString/:paper', data.serializedString);
 
 // Example route
 // app.get('/users', user.list);

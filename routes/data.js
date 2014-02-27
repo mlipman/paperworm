@@ -1,7 +1,8 @@
 var data = require("../data.json");
 
 exports.serializedString = function(req, res) {    
-	var serString = data["scads"]["serializedString"];
+	var paper = req.params.paper;
+	var serString = data[paper]["serializedString"];
 	var hash = {};
 	hash["val"] = serString;
 
