@@ -106,6 +106,17 @@ $(document).ready(function() {
 	});
 
 	//Determine id of the current selected text
+	$('.text-para').on({'touchstart': function(e) {
+		var currentHilightID = e.target.id;
+		var pageNumIndex = 'pageNum'.length;
+		var xIndex = currentHilightID.indexOf('x');
+		currentPage = currentHilightID.substring(7, xIndex);
+		currentPNumber = currentHilightID.substring(xIndex+1);
+		console.log(currentHilightID);
+		console.log("Page "+currentPage);
+		console.log("Para "+currentPNumber);
+	}});
+
 	$('.text-para').mousedown(function(e) {
 		var currentHilightID = e.target.id;
 		var pageNumIndex = 'pageNum'.length;
