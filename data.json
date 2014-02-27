@@ -435,7 +435,15 @@
                 "pNumber":1,
                 "text":"Predicting Tie Strength With Social Media",
                 "highlights":[],
-                "notes":[],
+                "notes":[
+                    {
+                        "pNumber":1,
+                        "iden" : 1,
+                        "author":"Professor McClelland",
+                        "page": 1,
+                        "body":"Though this article is optional, it is extremely interesting! While reading, think critically about what the authors are arguing in comparison to your own experience using Facebook. You will get extra credits if you submit a short reading response of this article by the end of next week."
+                    }
+                ],
                 "images":[]
             },
             {
