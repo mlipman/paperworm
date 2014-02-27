@@ -63,7 +63,7 @@ $(document).ready(function() {
         e.preventDefault();
         var str = "";
         var text = "";
-        var curr = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
+        var curr = e.target.parentNode.parentNode.parentNode.parentNode.parentNode;
         for (var i=0; i<curr.childNodes.length; ++i){
             if(curr.childNodes[i].className == "collapse" || curr.childNodes[i].className == "in"){
                 str = curr.childNodes[i].id.substring(8);
@@ -80,7 +80,7 @@ $(document).ready(function() {
         var str = "";
         var text = "";
         var high = "";
-        var curr = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
+        var curr = e.target.parentNode.parentNode.parentNode.parentNode.parentNode;
         for (var i=0; i<curr.childNodes.length; ++i){
             if(curr.childNodes[i].className == "collapse" || curr.childNodes[i].className == "in"){
                 str = curr.childNodes[i].id.substring(13);
@@ -106,18 +106,7 @@ $(document).ready(function() {
 	});
 
 	//Determine id of the current selected text
-	$('.text-para').on({'touchstart': function(e) {
-		var currentHilightID = e.target.id;
-		var pageNumIndex = 'pageNum'.length;
-		var xIndex = currentHilightID.indexOf('x');
-		currentPage = currentHilightID.substring(7, xIndex);
-		currentPNumber = currentHilightID.substring(xIndex+1);
-		console.log(currentHilightID);
-		console.log("Page "+currentPage);
-		console.log("Para "+currentPNumber);
-	}});
-
-	$('.text-para').mousedown(function(e) {
+	$('.text-para').on('touchstart mousedown', function(e) {
 		var currentHilightID = e.target.id;
 		var pageNumIndex = 'pageNum'.length;
 		var xIndex = currentHilightID.indexOf('x');
@@ -128,6 +117,18 @@ $(document).ready(function() {
 		console.log("Para "+currentPNumber);
 	});
 
+	/*
+	$('.text-para').mousedown(function(e) {
+		var currentHilightID = e.target.id;
+		var pageNumIndex = 'pageNum'.length;
+		var xIndex = currentHilightID.indexOf('x');
+		currentPage = currentHilightID.substring(7, xIndex);
+		currentPNumber = currentHilightID.substring(xIndex+1);
+		console.log(currentHilightID);
+		console.log("Page "+currentPage);
+		console.log("Para "+currentPNumber);
+	});
+	*/
 })
 
 /*function equalHeight(group) {   

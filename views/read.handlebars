@@ -231,26 +231,19 @@
                         	{{#each notes}}
                                 <div class="panel panel-default">
                                     <!-- Note header -->
-                                    <div class="panel-heading" id="notePanelHead">
-                                        <div class="row">
-                                            <!-- Title -->
-                                            <div class="col-sm-7">
-                                                <a data-toggle="collapse" href="#noteCont{{ pNumber }}x{{ iden }}" id="nCollapseButton"><h5 class="panel-title">{{ author }}</h5></a>
-                                            </div>
-                                            <!-- Buttons -->
-                                            <div class="col-sm-5">
-                                                <div class="btn-group pull-right">
-                                                	<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                                		<span class="caret"></span>
-                                                	</button>
-                                                	<ul class="dropdown-menu" role="menu">
-                                                        <!--"/editNote?pNum={{ pNumber }}&iden={{ iden }}&url=/read/{{details.name}}&text="-->
-                                                    	<li><a href="#" class="edit-obj-note" data-toggle="modal" data-target="#editNoteModal"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
-                                                    	<li class="divider"></li>
-                                                    	<li><a href="/deleteNote/{{ ../../details.name }}?pNum={{ pNumber }}&iden={{ iden }}&url=/read/{{ ../../details.name }}", id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
+                                    <div class="panel-heading clearfix" id="notePanelHead" data-toggle="collapse" data-target="#noteCont{{ pNumber }}x{{ iden }}">
+                                        <h5 class="panel-title pull-left">
+                                        	{{ author }}
+                                        </h5>
+                                        <div class="btn-group pull-right">
+                                        	<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        		<span class="caret"></span>
+                                        	</button>
+                                        	<ul class="dropdown-menu" role="menu">
+                                            	<li><a href="#" class="edit-obj-note" data-toggle="modal" data-target="#editNoteModal"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
+                                            	<li class="divider"></li>
+                                            	<li><a href="/deleteNote/{{ ../../details.name }}?pNum={{ pNumber }}&iden={{ iden }}&url=/read/{{ ../../details.name }}", id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
+                                            </ul>
                                         </div>
                                     </div>
                                     <!-- Note content -->
@@ -263,14 +256,24 @@
                         	{{/each}}
                         	{{#each highlights}}
                                 <div class="panel panel-default">
-                                    <!-- Note header -->
-                                    <div class="panel-heading" id="hiliPanelHead">
-                                        <div class="row">
-                                            <!-- Title -->
+                                    <!-- Hilight header -->
+                                    <div class="panel-heading clearfix" id="hiliPanelHead" data-toggle="collapse" data-target="#highlightCont{{ pNumber }}x{{ iden }}">
+                                    	<h6 class="panel-title pull-left">{{ author }}</h6>
+                                    	<div class="btn-group pull-right">
+                                        	<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        		<span class="caret"></span>
+                                        	</button>
+                                        	<ul class="dropdown-menu" role="menu">
+                                            	<li><a href="#" data-toggle="modal" data-target="#editHighlightModal" class="edit-obj-hi"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
+                                            	<li class="divider"></li>
+                                            	<li><a href="/deleteHighlight/{{../../details.name}}?pNum={{ pNumber }}&iden={{ iden }}&url=/read/{{../../details.name}}", id="remove-obj" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <!--<div class="row">
                                             <div class="col-sm-7">
                                                 <a data-toggle="collapse" href="#highlightCont{{ pNumber }}x{{ iden }}" id="hCollapseButton"><h6 class="panel-title">{{ author }}</h6></a>
                                             </div>
-                                            <!-- Buttons -->
                                             <div class="col-sm-5">
                                                 <div class="btn-group pull-right">
                                                 	<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -283,7 +286,7 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>-->
                                     </div>
                                     <!-- Note content -->
                                     <div id="highlightCont{{ pNumber }}x{{ iden }}" class="collapse">
