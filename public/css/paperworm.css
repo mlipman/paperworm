@@ -162,6 +162,9 @@ body {
     cursor: pointer;
 }
 
+#flagForJS {
+	display: none;
+}
 
 
 
@@ -171,11 +174,6 @@ h1 {
 }
 
 
-  body {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: #eee;
-  }
 
   .form-signin {
     max-width: 280px;

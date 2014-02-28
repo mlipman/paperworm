@@ -52,6 +52,7 @@ app.get('/login', login.view);
 app.get('/loginAfter', login.after);
 app.get('/logout', login.out);
 app.get('/read/:paper', read.view);
+app.get('/readAlt/:paper', read.viewAlt);
 app.get('/summary/:paper', summary.view);
 
 app.get('/addNote/:paper', add.note);
