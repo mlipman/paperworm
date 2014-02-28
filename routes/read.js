@@ -7,11 +7,12 @@ exports.view = function(req, res) {
 	if (user==undefined){
 		user="user";
 	}
-	info["currUser"]=user;
-	info["alt"]=false;
 	models.Papers.find({"details.name" : paper}).exec(afterQuery);
 	function afterQuery(err, myresult){
-		res.render('read', myresult[0]);
+		var temp = myresult[0];
+		temp["currUser"]=user;
+		temp["alt"]=false;
+		res.render('read', temp);
 	}
 };
 
@@ -21,10 +22,11 @@ exports.viewAlt = function(req, res) {
 	if (user==undefined){
 		user="user";
 	}
-	info["currUser"]=user;
-	info["alt"]=true;
 	models.Papers.find({"details.name" : paper}).exec(afterQuery);
 	function afterQuery(err, myresult){
-		res.render('read', myresult[0]);
+		var temp = myresult[0];
+		temp["currUser"]=user;
+		temp["alt"]=true;
+		res.render('read', temp);
 	}
 };
