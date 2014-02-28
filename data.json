@@ -1,18 +1,19 @@
 {
-	"scads":
-	{
-		"details":
-		{
-			"name":"scads",
+    "scads":
+    {
+        "name": "scads",
+        "details":
+        {
+            "name":"scads",
             "title":"SCADS: A Model of Children's Strategy Choices and Strategy Discoveries",
             "authors":"Jeff Shrager and Robert S. Siegler",
             "journal":"Psychological Sciences",
-			"pubdate": "Sep 1, 1998",
-			"pages": 7,
+            "pubdate": "Sep 1, 1998",
+            "pages": 7,
             "total-paragraphs": 41,
-			"abstract":"Preschoolers show surprising competence in choosing adaptively among alternative strategies and in discovering new approaches. The SCADS computer simulation illustrates how simple processes can generate this impressive competence. The model's behavior parallels data on children's addition in at least eight ways: It uses diverse strategies over prolonged periods of time, makes adaptive choices among strategies, discovers the same strategies as children, discovers strategies in the same sequence as children, makes discoveries without trial and error, makes discoveries without having experienced failure, narrowly generalizes new approaches, and generalizes more broadly following challenging problems. SCADS thus indicates plausible sources of young children's surprising competence at strategy choice and strategy discovery.",
-			"citation":"Shrager, J., and Siegler, R. S. (1998). SCADS: A model of children's strategy choices and strategy discoveries. Psychological Science, 9(5), 405-410. doi:10.1111/1467-9280.00076"
-		},
+            "abstract":"Preschoolers show surprising competence in choosing adaptively among alternative strategies and in discovering new approaches. The SCADS computer simulation illustrates how simple processes can generate this impressive competence. The model's behavior parallels data on children's addition in at least eight ways: It uses diverse strategies over prolonged periods of time, makes adaptive choices among strategies, discovers the same strategies as children, discovers strategies in the same sequence as children, makes discoveries without trial and error, makes discoveries without having experienced failure, narrowly generalizes new approaches, and generalizes more broadly following challenging problems. SCADS thus indicates plausible sources of young children's surprising competence at strategy choice and strategy discovery.",
+            "citation":"Shrager, J., and Siegler, R. S. (1998). SCADS: A model of children's strategy choices and strategy discoveries. Psychological Science, 9(5), 405-410. doi:10.1111/1467-9280.00076"
+        },
         "paragraphs":
         [
             {
@@ -418,39 +419,34 @@
             }
         ],
 
-		"glossary":
-		[
-			{
-				"word":"Hello",
-                "defs":[
-                    {
-                        "author":"Professor McClelland",
-                        "def":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla."
-                    },
-                    {
-                        "author":"You",
-                        "def":"a greeting"
-                    }
-                ]
-			},
-			{
-				"word":"Goodbye",
-                "defs":[
-                    {
-                        "author":"Mirium Webster",
-                        "def":"a word to signal the end of an interaction"
-                    },
-                    {
-                        "author":"You",
-                        "def":"like hello, but opposite"
-                    }
-                ]
-			}
-		],
+        "glossary":
+        [
+            {
+                "word":"Hello",
+                "author":"Professor McClelland",
+                "def":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla."
+            },
+            {
+                "word":"Hello",
+                "author":"You",
+                "def":"a greeting"
+            },
+            {
+                "word":"Goodbye",
+                "author":"Mirium Webster",
+                "def":"a word to signal the end of an interaction"
+            },
+            {
+                "word":"Goodbye",
+                "author":"You",
+                "def":"like hello, but opposite"
+            }
+        ],
         "serializedString":""
-	},
+    },
     "social":
     {
+        "name": "scads",
         "details":
         {
             "name":"social",
@@ -1422,29 +1418,23 @@
         [
             {
                 "word":"Hello",
-                "defs":[
-                    {
-                        "author":"Professor McClelland",
-                        "def":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla."
-                    },
-                    {
-                        "author":"You",
-                        "def":"a greeting"
-                    }
-                ]
+                "author":"Professor McClelland",
+                "def":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla."
+            },
+            {
+                "word":"Hello",
+                "author":"You",
+                "def":"a greeting"
             },
             {
                 "word":"Goodbye",
-                "defs":[
-                    {
-                        "author":"Mirium Webster",
-                        "def":"a word to signal the end of an interaction"
-                    },
-                    {
-                        "author":"You",
-                        "def":"like hello, but opposite"
-                    }
-                ]
+                "author":"Mirium Webster",
+                "def":"a word to signal the end of an interaction"
+            },
+            {
+                "word":"Goodbye",
+                "author":"You",
+                "def":"like hello, but opposite"
             }
         ],
         "serializedString":""

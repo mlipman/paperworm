@@ -7,6 +7,7 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars')
+var mongoose = require('mongoose');
 
 // Example route
 // var user = require('./routes/user');
@@ -16,7 +17,10 @@ var summary = require('./routes/summary');
 var add = require('./routes/add');
 var data = require('./routes/data');
 
-
+var local_database_name = 'paperworm';
+var local_database_uri  = 'mongodb://localhost/' + local_database_name
+var database_uri = process.env.MONGOLAB_URI || local_database_uri
+mongoose.connect(database_uri);
 
 var app = express();
 

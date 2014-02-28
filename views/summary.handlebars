@@ -176,7 +176,7 @@
 					<!-- Word -->
                     <div class="panel panel-default">
                         <div class="panel-heading clearfix" id="glosPanelHead">
-                        	<h4 class="panel-title pull-left">{{ word }}</h4>
+                        	<h4 class="panel-title pull-left">{{ author }} Definition</h4>
                         	<div class="btn-group pull-right">
                             	<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                             		<span class="glyphicon glyphicon-cog"></span>
@@ -206,12 +206,10 @@
                             </div>-->
                         </div>
                         <!-- Definitions -->
-                        {{#each defs}}
-                            <div class="panel-body getInfoHere">
-                                <h5>{{ author }} Definition: </h5>
-                                <p> {{ def }} </p>
-                            </div>
-                        {{/each}}
+                        <div class="panel-body getInfoHere">
+                            <h5>{{ word }}</h5>
+                            <p> {{ def }} </p>
+                        </div>
                     </div>
                 {{/each}}
 			</div> <!-- End of Glossary tab -->
