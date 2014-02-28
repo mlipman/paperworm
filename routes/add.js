@@ -13,23 +13,20 @@ exports.note = function(req, res) {
 	var num = data[paper]["paragraphs"][pNum-1]["notes"].length;
 	var note = {
 		"pNumber": pNum,
-		"iden": num + 1,
+		"iden": num, //TODO: GINA
 		"author":author,
-		"page": data[paper]["paragraphs"][pNum-1]["page"],
+		"page": pageNum,
 		"body":body
 	};
-	//console.log(window.getSelection().anchorNode);
 
     var paper = req.params.paper;
-    //models.Papers.find({"details.name" : paper}).select({"paragraphs.pNumber" : pNum}).update({"notes": notes.push(note)}).exec(afterQuery);
-    models.Papers.update({"details.name" : paper},{'$push': {"glossary": {"word":"one", "def":"one", "author":"one"}}}).exec(afterQuery);
-    //models.Papers.update({"details.name" : paper},{"$push": {"paragraphs[pNum-1].notes": note}}).exec(afterQuery);
+    models.Papers.update({"details.name" : paper, "paragraphs.pNumber": pNum},{$push: {"paragraphs.$.notes" : note }}).exec(afterQuery);
     function afterQuery(err, myresult){
-        console.log(myresult);
-        res.render('read', myresult)
+        models.Papers.find({"details.name" : paper}).exec(finalQuery)
     }
-	//data[paper]["paragraphs"][pNum-1]["notes"].push(note);
-    //res.render('read', data[paper]);	
+    function finalQuery(err, myresult){
+        res.render('read', myresult[0])
+    }
 }
 
 exports.defn = function(req, res) {
@@ -41,21 +38,23 @@ exports.defn = function(req, res) {
 	var word = req.query.word;
 	var def = req.query.defn;
 	entry = {
-        "author":"You",
+        "author": author,
 		"word":word,
 		"def":def
 	}
-    models.Papers.update({"details.name" : paper},{'$push': {"glossary": {"word":"one", "def":"one", "author":"one"}}}).exec(afterQuery);
+    models.Papers.update({"details.name" : paper},{$push: {"glossary" : entry }}).exec(afterQuery);
     
     function afterQuery(err, myresult){
-        console.print(myresult)
-        res.render('read', myresult)
+        models.Papers.find({"details.name" : paper}).exec(finalQuery)
+    }
+    function finalQuery(err, myresult){
+        res.render('read', myresult[0])
     }
 
 }
 
 
-exports.highlight = function(req, res) { //#HEREEEE
+exports.highlight = function(req, res) {
     var paper = req.params.paper;
 
 	console.log("in highlight function");
@@ -63,9 +62,9 @@ exports.highlight = function(req, res) { //#HEREEEE
 	var num = data[paper]["paragraphs"][pNum-1]["highlights"].length;
 	var tempHighlight = {
 		"pNumber": pNum,
-		"iden": num + 1,
+		"iden": num + 1, //TODO: GINA
 		"author":info["currUser"],
-		"page":data[paper]["paragraphs"][pNum-1]["page"],
+		"page": 1, //TODO: GINA
 		"hText":req.query.htext,
 		"hStart":0,
 		"hEnd":0,
@@ -73,10 +72,19 @@ exports.highlight = function(req, res) { //#HEREEEE
 
 	}
 	data[paper]["serializedString"] = req.query.sstring;
-	data[paper]["paragraphs"][pNum - 1]["highlights"].push(tempHighlight);
 
+    models.Papers.update({"details.name" : paper, "paragraphs.pNumber": pNum},{$push: {"paragraphs.$.highlights" : tempHighlight }}).exec(afterQuery);
 
-	res.render('read', data[paper]);
+    function afterQuery(err, myresult){
+        models.Papers.update({"details.name" : paper}, {$set: {"serializedString": req.query.sstring}}).exec(anotherQuery);
+    }
+    function anotherQuery(err, myresult){
+        models.Papers.find({"details.name" : paper}).exec(finalQuery);
+    }
+
+    function finalQuery(err, myresult){
+        res.render('read', myresult[0]);
+    }
 
 
 }
@@ -96,6 +104,10 @@ exports.delNote = function(req, res){
         }
     }
     data[paper]["paragraphs"][pNum - 1]["notes"].splice(index, 1);
+    function afterQuery(err, myresult){
+        res.render('read', myresult[0]);
+        res.redirect(url);
+    }
     res.render('read', data[paper]);
     res.redirect(url);
 }
@@ -114,6 +126,10 @@ exports.delHi = function(req, res){
         }
     }
     data[paper]["paragraphs"][pNum - 1]["highlights"].splice(index, 1);
+    function afterQuery(err, myresult){
+        res.render('read', myresult[0]);
+        res.redirect(url);
+    }
     res.render('read', data[paper]);
     res.redirect(url);
 }
@@ -129,17 +145,11 @@ exports.delDef = function(req, res){
             break;
         }
     }
-    /**
-    var index2 = data[paper]["glossary"][index]["defs"].length
-    for (var i=0; i<data[paper]["glossary"][index]["defs"].length; ++i){
-        if (data[paper]["glossary"][index]["defs"][i]["author"] == author){
-            index2 = i;
-            break;
-        }
-    }
-    data[paper]["glossary"][index]["defs"].splice(index2, 1);
-    **/
     data[paper]["glossary"].splice(index, 1);
+    function afterQuery(err, myresult){
+        res.render('read', myresult[0]);
+        res.redirect(url);
+    }
     res.render('read', data[paper]);
     res.redirect(url);
 }
