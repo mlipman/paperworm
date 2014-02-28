@@ -383,23 +383,22 @@
             }
         ],
 
-<<<<<<< HEAD
         "glossary":
         [
             {
-                "word":"Hello",
+                "word":"ASCM",
+                "author":"Robert Siegler",
+                "def":"Adaptive Strategy Choice Model: Children use multiple strategies, even if they know the one that is considered the most efficient, they will only start to solely use that one when it becomes the most efficient one for them. multiple strategies are available in a child's repertoire, they are competing for use, with time, the best strategy win. but it is not like the best strategy is automatically taken up, like steps, but rather overlapping waves."
+            },
+            {
+                "word":"Metacognition",
+                "author":"Merrium Webster",
+                "def":"Awareness or analysis of one's own learning or thinking processes"
+            },
+            {
+                "word":"SCADS",
                 "author":"Professor McClelland",
-                "def":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla."
-            },
-            {
-                "word":"Hello",
-                "author":"You",
-                "def":"a greeting"
-            },
-            {
-                "word":"Goodbye",
-                "author":"Mirium Webster",
-                "def":"a word to signal the end of an interaction"
+                "def":"Strategy Choice And Discovery Simulation. It's a computer simulation model that extends ASCM and gives more accurate result. Pay attention to Fig. 2."
             },
             {
                 "word":"Goodbye",
@@ -407,38 +406,6 @@
                 "def":"like hello, but opposite"
             }
         ],
-=======
-		"glossary":
-		[
-			{
-                "word":"ASCM",
-                "defs":[
-                    {
-                        "author":"Robert Siegler",
-                        "def":"Adaptive Strategy Choice Model: Children use multiple strategies, even if they know the one that is considered the most efficient, they will only start to solely use that one when it becomes the most efficient one for them. multiple strategies are available in a child's repertoire, they are competing for use, with time, the best strategy win. but it is not like the best strategy is automatically taken up, like steps, but rather overlapping waves."
-                    }
-                ]
-            },
-            {
-                "word":"Metacognition",
-                "defs":[
-                    {
-                        "author":"Merrium Webster",
-                        "def":"Awareness or analysis of one's own learning or thinking processes"
-                    }
-                ]
-            },
-            {
-                "word":"SCADS",
-                "defs":[
-                    {
-                        "author":"Professor McClelland",
-                        "def":"Strategy Choice And Discovery Simulation. It's a computer simulation model that extends ASCM and gives more accurate result. Pay attention to Fig. 2."
-                    }
-                ]
-            }
-		],
->>>>>>> 3c2d65287245c716273fc5445b203ad0489ef5a2
         "serializedString":""
     },
     "social":
