@@ -1,11 +1,11 @@
 var data = require("../data.json");
 var models = require('../models');
-
+var info = require('../currSession.json');
 exports.note = function(req, res) {
     var paper = req.params.paper;
 
 	//var author = req.query.auth;
-    var author = "You";
+    var author = info["currUser"];
 	var body = req.query.bod;
 	var pNum = req.query.pNum;
 	var pageNum = req.query.pageNum;
@@ -37,7 +37,7 @@ exports.defn = function(req, res) {
 
 	console.log(req.query.defn);
 	//var author = req.query.auth;
-    var author = "You";
+    var author = info["currUser"];
 	var word = req.query.word;
 	var def = req.query.defn;
 	entry = {
@@ -64,7 +64,7 @@ exports.highlight = function(req, res) { //#HEREEEE
 	var tempHighlight = {
 		"pNumber": pNum,
 		"iden": num + 1,
-		"author":"You",
+		"author":info["currUser"],
 		"page":data[paper]["paragraphs"][pNum-1]["page"],
 		"hText":req.query.htext,
 		"hStart":0,
