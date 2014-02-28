@@ -21,6 +21,7 @@
 </head>
 
 <body>
+	<span id="flagForJS">{{#if alt}}true{{else}}false{{/if}}</span>
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
@@ -43,7 +44,7 @@
 		<li>
 			<div class="btn-group-vertical">
 				<button type="button" class="btn btn-default btn-lg" id="addNoteButton" data-toggle="modal" data-target="#noteModal"><span class="glyphicon glyphicon-edit"></button>
-				<button type="button" class="btn btn-default btn-lg" id="searchDict" data-toggle="modal" data-target="#defModal"><span class="glyphicon glyphicon-search"></button>
+				<button type="button" class="btn btn-default btn-lg" id="searchDict" data-toggle="modal" data-target="#defModal{{#if alt}}2{{/if}}"><span class="glyphicon glyphicon-search"></button>
 				<button type="button" class="btn btn-default btn-lg" id="addHighlightButton" data-toggle="modal" data-target="#highlightModal"><img class="icon-img" src="/highlighter01.png"></button>
 				<button type="button" class="btn btn-default btn-lg" id="deleteHighlightButton"><img class="icon-img" src="/eraser-icon.png"></button>
 			</div>
@@ -116,7 +117,7 @@
 		</div>
 	</div>
     
-	<!-- Definition Modal -->
+	<!-- Definition Modal Selected-->
 	<div class="modal fade" id="defModal" tabindex="-1" role="dialog" aria-labelledby="defModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -125,9 +126,28 @@
 					<h4 class="modal-title" id="defModalLabel">Definition</h4>
 				</div>
 				<div class="modal-body" id="defModalBody"></div>
-				<div class="modal-footer">
+				<!--<div class="modal-footer">
 					<button type="button" class="btn btn-primary" data-dismiss="modal">Add</button>
-					<!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+				</div>-->
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- Definition Modal Ask For Lookup-->
+	<div class="modal fade" id="defModal2" tabindex="-1" role="dialog" aria-labelledby="defModalLabel2" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="defModalLabel2">Define</h4>
+				</div>
+				<div class="modal-body" id="defModalBody2">
+					<input id="lookUpWord" name="lookUpWord" type="text" placeholder="Enter word to be defined" class="form-control"></input>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="lookUpButton">Look Up</button>
 				</div>
 			</div>
 		</div>
@@ -224,7 +244,11 @@
                         <h5>Add Notes</h5>
                         <p>You can add notes to a paragraph simply by clicking <span class="glyphicon glyphicon-edit"></span> button</p>
                         <h5>Look up words</h5>
-                        <p>You can look up a word by selecting the word first, then click <span class="glyphicon glyphicon-search"></span> button</p>
+                        {{#if alt}}
+                        	<p>You can look up a word by clicking the <span class="glyphicon glyphicon-search"></span> button and then entering the word</p>
+                        {{else}}
+	                        <p>You can look up a word by selecting the word first, then click <span class="glyphicon glyphicon-search"></span> button</p>
+    					{{/if}}
                         <h5>Add/Remove Highlights</h5>
                         <p>You can add highlights along with annotations by selecting the portion of text first, then click <img class="icon-img" src="/highlighter01.png"> button.</p>
                         <p>To remove highlighted text, select a portion of highlighted text, then click <img class="icon-img" src="/eraser-icon.png"> button</p>

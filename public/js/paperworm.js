@@ -19,24 +19,12 @@ $(document).ready(function() {
     //equalHeight($(".caption").children("h3"));
 
     showPageNumber();
-
-    $('#searchDict').click(function(e) {
-    	e.preventDefault();
-    	var sel = rangy.getSelection();
-		var range = sel.getRangeAt(0);
-		var selectedText = range.text();
-		selectedText = trimString(selectedText);
-		console.log(selectedText);
-		var lowercaseText = selectedText.toLowerCase();
-		console.log(lowercaseText);
-		if (selectedText.length > 0) {
-			$('#defModalBody').html("");
-			$.get("http://glosbe.com/gapi/translate?from=eng&dest=eng&format=json&pretty=true&phrase=" + 
-			selectedText + "&callback=showDefinition", showDefinition, 'jsonp');
-			if (selectedText != lowercaseText) {$.get("http://glosbe.com/gapi/translate?from=eng&dest=eng&format=json&pretty=true&phrase=" + 
-			lowercaseText + "&callback=showDefinition", showDefinition, 'jsonp');}
-		};
-    });
+    var flagg = $('#flagForJS').text();
+    if (flagg=="true") {
+    	$('#searchDict').click(askForLookUp);	
+    } else {
+    	$('#searchDict').click(lookUpSelected);
+    }
 	//$('#paperToRead').load('SchragerSieglerText.html');
 
 	var highlighter = rangy.createHighlighter();
@@ -184,11 +172,29 @@ function showDefinition(result) {
 	} else {
 		var meanings = result['tuc'][0]['meanings'];
 		for (var i = 0; i < meanings.length; i++) {
-		defHTML += '<h5> Definition No. ' + (i + 1) + '</h5>' + 
-		'<p>' + meanings[i]['text'] + '</p>';
+			defHTML += '<h5> Definition No. ' + (i + 1) + '</h5>' + 
+				'<p>' + meanings[i]['text'] + '</p>';
 		};
 		console.log(defHTML);
 		$('#defModalBody').append(defHTML);	
+	}
+}
+
+//Show definition on the definition modal on read mode
+function showDefinition2(result) {
+	console.log(result);
+	console.log(result['tuc']);
+	var defHTML = '<h4>' + result['phrase'] + '</h4>';
+	if (result['tuc'] == undefined || result['tuc'].length == 0) {
+		$('#defModalBody2').append(defHTML + "<p>No definition</p>");
+	} else {
+		var meanings = result['tuc'][0]['meanings'];
+		for (var i = 0; i < meanings.length; i++) {
+			defHTML += '<h5> Definition No. ' + (i + 1) + '</h5>' + 
+				'<p>' + meanings[i]['text'] + '</p>';
+		};
+		console.log(defHTML);
+		$('#defModalBody2').append(defHTML);	
 	}
 }
 
@@ -269,6 +275,47 @@ function trimString (str) {
 }
 
 
+function lookUpSelected(e) {
+	e.preventDefault();
+	var sel = rangy.getSelection();
+	var range = sel.getRangeAt(0);
+	var selectedText = range.text();
+	selectedText = trimString(selectedText);
+	console.log(selectedText);
+	var lowercaseText = selectedText.toLowerCase();
+	console.log(lowercaseText);
+	if (selectedText.length > 0) {
+		$('#defModalBody').html("");
+		$.get("http://glosbe.com/gapi/translate?from=eng&dest=eng&format=json&pretty=true&phrase=" + 
+		selectedText + "&callback=showDefinition", showDefinition, 'jsonp');
+		if (selectedText != lowercaseText) {$.get("http://glosbe.com/gapi/translate?from=eng&dest=eng&format=json&pretty=true&phrase=" + 
+		lowercaseText + "&callback=showDefinition", showDefinition, 'jsonp');}
+	};
+}
+
+function askForLookUp(e) {
+	e.preventDefault();
+	$('#lookUpButton').click(lookUp);
+
+}
+
+function lookUp(e) {
+	var selectedText = $('#lookUpWord').val();
+	selectedText = trimString(selectedText);
+	console.log(selectedText);
+	var lowercaseText = selectedText.toLowerCase();
+	console.log(lowercaseText);
+	if (selectedText.length > 0) {
+		$('#defModalBody').html("");
+		$.get("http://glosbe.com/gapi/translate?from=eng&dest=eng&format=json&pretty=true&phrase=" + 
+		selectedText + "&callback=showDefinition2", showDefinition2, 'jsonp');
+		if (selectedText != lowercaseText) {$.get("http://glosbe.com/gapi/translate?from=eng&dest=eng&format=json&pretty=true&phrase=" + 
+		lowercaseText + "&callback=showDefinition2", showDefinition2, 'jsonp');}
+	};
+
+
+
+};
 
 
 
