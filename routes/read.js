@@ -1,29 +1,36 @@
 var data = require("../data.json");
+var models = require('../models');
 
 exports.view = function(req, res) {
 	var paper = req.params.paper;
-
 	var user = req.session.username;
 	if (user==undefined){
 		user="user";
 	}
-
-	var info = data[paper];
 	info["currUser"]=user;
 	info["alt"]=false;
-	res.render('read', info);
+	models.Papers.find().exec(afterQuery);
+	function afterQuery(err, myresult){
+		for (var i=0; i<myresult.length; ++i){
+			if (myresult[i].details.name == paper)
+				res.render('read', myresult[i]);
+		}
+	}
 };
 
 exports.viewAlt = function(req, res) {
 	var paper = req.params.paper;
-
 	var user = req.session.username;
 	if (user==undefined){
 		user="user";
 	}
-
-	var info = data[paper];
 	info["currUser"]=user;
 	info["alt"]=true;
-	res.render('read', info);
+	models.Papers.find().exec(afterQuery);
+	function afterQuery(err, myresult){
+		for (var i=0; i<myresult.length; ++i){
+			if (myresult[i].details.name == paper)
+				res.render('read', myresult[i]);
+		}
+	}
 };

@@ -1,4 +1,5 @@
 var data = require("../data.json");
+var models = require('../models');
 
 exports.note = function(req, res) {
     var paper = req.params.paper;
@@ -18,9 +19,17 @@ exports.note = function(req, res) {
 		"body":body
 	};
 	//console.log(window.getSelection().anchorNode);
-	data[paper]["paragraphs"][pNum-1]["notes"].push(note);
 
-	res.render('read', data[paper]);	
+    var paper = req.params.paper;
+    //models.Papers.find({"details.name" : paper}).select({"paragraphs.pNumber" : pNum}).update({"notes": notes.push(note)}).exec(afterQuery);
+    models.Papers.update({"details.name" : paper},{'$push': {"glossary": {"word":"one", "def":"one", "author":"one"}}}).exec(afterQuery);
+    //models.Papers.update({"details.name" : paper},{"$push": {"paragraphs[pNum-1].notes": note}}).exec(afterQuery);
+    function afterQuery(err, myresult){
+        console.log(myresult);
+        res.render('read', myresult)
+    }
+	//data[paper]["paragraphs"][pNum-1]["notes"].push(note);
+    //res.render('read', data[paper]);	
 }
 
 exports.defn = function(req, res) {
@@ -31,25 +40,17 @@ exports.defn = function(req, res) {
     var author = "You";
 	var word = req.query.word;
 	var def = req.query.defn;
-
-	var fullDef = {
-		"author":author,
-		"def":def
-	};
-	var defnArray = new Array();
-	defnArray.push(fullDef);
-
-	// stretch: if entry exists, add to existing
-	// starting new entry
 	entry = {
+        "author":"You",
 		"word":word,
-		"defs":defnArray
+		"def":def
 	}
-	data[paper]["glossary"].push(entry);
-
-	//console.log(data[paper]["glossary"][])
-
-	res.render('read', data[paper]);	
+    models.Papers.update({"details.name" : paper},{'$push': {"glossary": {"word":"one", "def":"one", "author":"one"}}}).exec(afterQuery);
+    
+    function afterQuery(err, myresult){
+        console.print(myresult)
+        res.render('read', myresult)
+    }
 
 }
 
