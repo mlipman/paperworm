@@ -15,6 +15,7 @@ var read = require('./routes/read');
 var summary = require('./routes/summary');
 var add = require('./routes/add');
 var data = require('./routes/data');
+var login = require('./routes/login');
 
 
 
@@ -41,8 +42,11 @@ if ('development' == app.get('env')) {
 }
 
 // Add routes here
-app.get('/', index.view);
+app.get('/', login.view);
 app.get('/index', index.view);
+app.get('/login', login.view);
+app.get('/loginAfter', login.after);
+app.get('/logout', login.out);
 app.get('/read/:paper', read.view);
 app.get('/summary/:paper', summary.view);
 
