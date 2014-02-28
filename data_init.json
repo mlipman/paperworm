@@ -1,4 +1,4 @@
-{
+[
     {
         "name": "scads",
         "details":
@@ -385,7 +385,7 @@
         "serializedString":""
     },
     {
-        "name": "scads",
+        "name": "social",
         "details":
         {
             "name":"social",
@@ -1377,5 +1377,5 @@
             }
         ],
         "serializedString":""
-    }
-}
+    }    
+]
