@@ -34,7 +34,7 @@
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<a href="#" class="btn btn-default navbar-btn navbar-right"><span class="glyphicon glyphicon-off"></span> Log out</a>
+				<a href="/logout" class="btn btn-default navbar-btn navbar-right"><span class="glyphicon glyphicon-off"></span> Log out {{currUser}}</a>
 			</div>
 		</div>
 	</nav>
@@ -47,14 +47,14 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">Tutorial</h4>
+                        <h4 class="modal-title" id="myModalLabel">Welcome</h4>
                     </div>
                     <div class="modal-body">
                         <h3>Welcome to Paperworm!</h3>
                         <p>Paperworm makes your academic paper reading experience more enjoyable.</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Get Start!</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Get Started!</button>
                     </div>
                 </div>
             </div>
@@ -73,7 +73,7 @@
 		    	<h4 id="authors">{{details.authors}}</h4>
 					<div class="btn-group btn-group-justified">
 						<a href="/summary/{{details.name}}" class="btn btn-default" role="button"><span class="glyphicon glyphicon-list-alt"></span> Summary</a>
-						<a href="/read/{{details.name}}" class="btn btn-default" role="button"><span class="glyphicon glyphicon-book"> Read</a>
+						<a href="/read/{{details.name}}" class="btn btn-default" role="button"><span class="glyphicon glyphicon-book"></span> Read</a>
 					</div>
 		    </div>
 		  </div>

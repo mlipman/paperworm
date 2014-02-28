@@ -44,8 +44,12 @@ $(document).ready(function() {
 	var callbackProxy = function(dataFromServer) {
 	  callbackFunc(dataFromServer, highlighter);
 	};
-	$.getJSON("/serializedString", callbackProxy);
-
+	var pathArray = document.location.pathname.split("/");
+	if (pathArray.length > 2) {
+		var paperName = pathArray[2];
+		$.getJSON("/serializedString/"+paperName, callbackProxy);
+	}
+	
 
 	var serializedHighlights = highlighter.serialize();
 	var currentPNumber = 1; //current paragraph number

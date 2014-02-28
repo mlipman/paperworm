@@ -140,7 +140,7 @@
 				<form class="form-horizontal" id="addHighlightForm" role="form" method="get" action="/addHighlight/{{details.name}}"> <!-- HEREEEE -->
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title" id="highlightModalLabel">Add Annotation</h4>
+						<h4 class="modal-title" id="highlightModalLabel">Add Highlight</h4>
 					</div>
 					<div class="modal-body" id="highlightModalBody">
                         <!--
@@ -222,12 +222,14 @@
                     <div class="modal-body">
                         <h4>Features</h4>
                         <h5>Add Notes</h5>
-                        <p>You can add notes to a paragraph simply by clicking <span class="glyphicon glyphicon-edit"> button</p>
+                        <p>You can add notes to a paragraph simply by clicking <span class="glyphicon glyphicon-edit"></span> button</p>
                         <h5>Look up words</h5>
-                        <p>You can look up a word by selecting the word first, then click <span class="glyphicon glyphicon-search"> button</p>
+                        <p>You can look up a word by selecting the word first, then click <span class="glyphicon glyphicon-search"></span> button</p>
                         <h5>Add/Remove Highlights</h5>
                         <p>You can add highlights along with annotations by selecting the portion of text first, then click <img class="icon-img" src="/highlighter01.png"> button.</p>
                         <p>To remove highlighted text, select a portion of highlighted text, then click <img class="icon-img" src="/eraser-icon.png"> button</p>
+                        <h5>Edit/Remove Notes/Annotations</h5>
+                        <p>To edit/remove notes/annotations you've added, click <span class="glyphicon glyphicon-cog"></span> button and choose Edit/Remove.</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Got it!</button>
@@ -244,7 +246,7 @@
 					<div class="row" id="pNumber{{ pNumber }}">
 						<div class="col-sm-7" id="para-left">
 							<div id="pageNum{{ page }}x{{ pNumber }}"></div>
-							<p class="text-para" id="pageNum{{ page }}x{{ pNumber }}">[{{ pNumber }}] {{ text }}</p>
+							<p class="text-para" id="pageNum{{ page }}x{{ pNumber }}"><!--[{{ pNumber }}]--> {{ text }}</p>
 						</div>
                         <div class="col-sm-5" id="annotation-right">
                         	{{#each images}}
@@ -258,7 +260,7 @@
                                     <!-- Note header -->
                                     <div class="panel-heading clearfix" id="notePanelHead" data-toggle="collapse" data-target="#noteCont{{ pNumber }}x{{ iden }}">
                                         <h5 class="panel-title pull-left">
-                                        	{{ author }}
+                                        	&#9660;&nbsp;{{ author }}
                                         </h5>
                                         <div class="btn-group pull-right">
                                         	<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -283,7 +285,7 @@
                                 <div class="panel panel-default">
                                     <!-- Hilight header -->
                                     <div class="panel-heading clearfix" id="hiliPanelHead" data-toggle="collapse" data-target="#highlightCont{{ pNumber }}x{{ iden }}">
-                                    	<h6 class="panel-title pull-left">{{ author }}</h6>
+                                    	<h6 class="panel-title pull-left">&#9660;&nbsp;{{ author }}</h6>
                                     	<div class="btn-group pull-right">
                                         	<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                                         		<span class="glyphicon glyphicon-cog"></span>
