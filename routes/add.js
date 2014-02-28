@@ -96,20 +96,12 @@ exports.delNote = function(req, res){
     var ID = req.query.iden;
     var pNum = req.query.pNum;
     var url = req.query.url;
-    var index = data[paper]["paragraphs"][pNum - 1]["notes"].length;
-    for (var i=0; i<data[paper]["paragraphs"][pNum - 1]["notes"].length; ++i){
-        if (data[paper]["paragraphs"][pNum - 1]["notes"][i]["iden"] == ID){
-            index = i;
-            break;
-        }
-    }
-    data[paper]["paragraphs"][pNum - 1]["notes"].splice(index, 1);
+
+    models.Papers.update({"details.name" : paper, "paragraphs.pNumber": pNum}, {$pull: {"paragraphs.$.notes": {"iden": ID}}}).exec(afterQuery);
     function afterQuery(err, myresult){
         res.render('read', myresult[0]);
         res.redirect(url);
     }
-    res.render('read', data[paper]);
-    res.redirect(url);
 }
 
 exports.delHi = function(req, res){
@@ -118,20 +110,11 @@ exports.delHi = function(req, res){
     var ID = req.query.iden;
     var pNum = req.query.pNum;
     var url = req.query.url;
-    var index = data[paper]["paragraphs"][pNum - 1]["highlights"].length;
-    for (var i=0; i<data[paper]["paragraphs"][pNum - 1]["highlights"].length; ++i){
-        if (data[paper]["paragraphs"][pNum - 1]["highlights"][i]["iden"] == ID){
-            index = i;
-            break;
-        }
-    }
-    data[paper]["paragraphs"][pNum - 1]["highlights"].splice(index, 1);
+    models.Papers.update({"details.name" : paper, "paragraphs.pNumber": pNum}, {$pull: {"paragraphs.$.highlights": {"iden": ID}}}).exec(afterQuery);
     function afterQuery(err, myresult){
         res.render('read', myresult[0]);
         res.redirect(url);
     }
-    res.render('read', data[paper]);
-    res.redirect(url);
 }
 
 exports.delDef = function(req, res){
@@ -139,22 +122,14 @@ exports.delDef = function(req, res){
     var word = req.query.word;
     var index = data[paper]["glossary"].length;
     var url = req.query.url;
-    for (var i=0; i<data[paper]["glossary"].length; ++i){
-        if (data[paper]["glossary"][i]["word"] == word){
-            index = i;
-            break;
-        }
-    }
-    data[paper]["glossary"].splice(index, 1);
+    models.Papers.update({"details.name" : paper}, {$pull: {"glossary": {"word": word}}}).exec(afterQuery);
     function afterQuery(err, myresult){
         res.render('read', myresult[0]);
         res.redirect(url);
     }
-    res.render('read', data[paper]);
-    res.redirect(url);
 }
 
-exports.editNote = function(req, res){
+exports.editNote = function(req, res){ //TODO: GINA
     var paper = req.params.paper;
     var ID = req.query.iden;
     var newpNum = req.query.pNum;
@@ -179,7 +154,7 @@ exports.editNote = function(req, res){
     res.render('read', data[paper]);
     res.redirect(url);
 }
-exports.editHi = function(req, res){
+exports.editHi = function(req, res){ //TODO: GINA
     var paper = req.params.paper;
     var ID = req.query.iden;
     var newpNum = req.query.pNumHi;
@@ -212,7 +187,7 @@ exports.editHi = function(req, res){
     res.render('read', data[paper]);
     res.redirect(url);
 }
-exports.editDef = function(req, res){ //TODO: GINA
+exports.editDef = function(req, res){ //TODO: GINA, doesn't work at all
     var paper = req.params.paper;
     var word = req.query.word;
     var changes = req.query.changes;
