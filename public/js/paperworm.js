@@ -188,7 +188,6 @@ function initializePage() {
 	$("#read-to-sum").click(function(){
 		ga("send", "event", "read-to-sum", "click");
 	});
-	$()
 	//TODO: record time on page, taken care of by Google?
 }
 
