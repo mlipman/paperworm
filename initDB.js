@@ -28,7 +28,6 @@ mongoose.connect(database_uri);
 var data_json = require('./data_init.json');
 
 // Step 2: Remove all existing documents
-models.Authors.find().remove()
 models.Papers
   .find()
   .remove()
@@ -44,7 +43,7 @@ function onceClear(err) {
     var json = data_json[i];
     var proj = new models.Papers(json);
     console.log(proj);
-    /*
+    
     proj.save(function(err, proj) {
       if(err) console.log(err);
 
@@ -57,7 +56,7 @@ function onceClear(err) {
         mongoose.connection.close()
       }
     });
-    */
+    
     /*
     json = data_json['paragraphs'];
     for(var k=0; k<json.length; k++){
