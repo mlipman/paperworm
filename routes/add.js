@@ -137,36 +137,36 @@ exports.delDef = function(req, res){
     }
 }
 
-exports.editNote = function(req, res){ //TODO: GINA
+exports.editNote = function(req, res){
     var paper = req.params.paper;
     var ID = req.query.iden;
     var newpNum = req.query.pNum;
     var oldpNum = req.query.oldpNum;
     var url = req.query.url;
     var text = req.query.bod;
-    var temp = {}
     
     //get old info
     models.Papers.find({"details.name" : paper, "paragraphs.pNumber": newpNum, "paragraphs.notes.iden":ID}).exec(one);
 
     function one(err, myresult){
         var curr = myresult[0]["paragraphs"][oldpNum-1]["notes"];
-        for (var i=0; i<curr.length; ++i){
+        var i=0;
+        for (; i<curr.length; ++i){
             if (curr[i]["iden"] == ID){
                 curr[i]["body"] = text;
                 curr[i]["pNumber"] = newpNum;
-                curr[i]["page"] = 0;
+                curr[i]["page"] = myresult[0]["paragraphs"][newpNum-1]["page"];   
+                break; 
             }
         }
         if (oldpNum == newpNum){
             models.Papers.update({"details.name" : paper, "paragraphs.pNumber": newpNum, "paragraphs.notes.iden":ID}, {$set: {"paragraphs.$.notes": curr}}).exec(two);
         } else{
-
-            models.Papers.update({"details.name" : paper, "paragraphs.pNumber": newpNum},{$push: {"paragraphs.$.notes" : curr }}).exec(oneb);
+            models.Papers.update({"details.name" : paper, "paragraphs.pNumber": newpNum},{$push: {"paragraphs.$.notes" : curr[i] }}).exec(oneb);
         }
     }
     function oneb(err, myresult){
-        models.Papers.update({"details.name" : paper, "paragraphs.pNumber": oldpNum}, {$pull: {"paragraphs.$.notes": {"iden": ID}}}).exec(two);
+        models.Papers.update({"details.name" : paper, "paragraphs.pNumber": oldpNum}, {$pull: {"paragraphs.$.notes": {"iden": ID}}}).exec(two);    
     }
     function two(err, myresult){
         models.Papers.find({"details.name" : paper}).exec(three);
@@ -192,26 +192,41 @@ exports.editHi = function(req, res){
     if (highlight.charAt(highlight.length-1)!='"'){
         highlight = highlight + '"'
     }
-    if(newpNum == oldpNum){
-        //edit in place
 
-    }else{
-        //delete old
-        //create new
+    //get old info
+    models.Papers.find({"details.name" : paper, "paragraphs.pNumber": newpNum, "paragraphs.highlights.iden":ID}).exec(one);
+
+    function one(err, myresult){
+        var curr = myresult[0]["paragraphs"][oldpNum-1]["highlights"];
+        var tmp = {}
+        var i=0;
+        for (; i<curr.length; ++i){
+            if (curr[i]["iden"] == ID){
+                curr[i]["nText"] = text;
+                curr[i]["hText"] = highlight;
+                curr[i]["pNumber"] = newpNum;
+                curr[i]["page"] = myresult[0]["paragraphs"][newpNum-1]["page"];  
+                break; 
+            }
+        }
+        if (oldpNum == newpNum){
+            console.log(curr[i]);
+            models.Papers.update({"details.name" : paper, "paragraphs.pNumber": newpNum, "paragraphs.highlights.iden":ID}, {$set: {"paragraphs.$.highlights": curr}}).exec(two);
+        } else{
+            console.log(curr[i]);
+            models.Papers.update({"details.name" : paper, "paragraphs.pNumber": newpNum},{$push: {"paragraphs.$.highlights" : curr[i] }}).exec(oneb);
+        }
     }
-    /*
-    data[paper]["paragraphs"][oldpNum - 1]["highlights"][index]["nText"] = text;
-    data[paper]["paragraphs"][oldpNum - 1]["highlights"][index]["hText"] = highlight;//update highlight text
-    if (newpNum != oldpNum){
-        data[paper]["paragraphs"][newpNum - 1]["highlights"].push(data[paper]["paragraphs"][oldpNum - 1]["highlights"][index]);
-        data[paper]["paragraphs"][oldpNum - 1]["highlights"].splice(index, 1)
-        len =  data[paper]["paragraphs"][newpNum - 1]["highlights"].length; //update paragraph number, page number
-        data[paper]["paragraphs"][newpNum - 1]["highlights"][len-1]["pNumber"] = newpNum;
-        data[paper]["paragraphs"][newpNum - 1]["highlights"][len-1]["page"] = data[paper]["paragraphs"][newpNum - 1]["page"];
+    function oneb(err, myresult){
+        models.Papers.update({"details.name" : paper, "paragraphs.pNumber": oldpNum}, {$pull: {"paragraphs.$.highlights": {"iden": ID}}}).exec(two);    
     }
-    res.render('read', data[paper]);
-    res.redirect(url);
-    */
+    function two(err, myresult){
+        models.Papers.find({"details.name" : paper}).exec(three);
+    }
+    function three(err, myresult){
+        res.render('read', myresult[0]);
+        res.redirect(url);
+    }
 }
 exports.editDef = function(req, res){ //TODO: GINA, doesn't work at all
     var paper = req.params.paper;
