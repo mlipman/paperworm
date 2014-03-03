@@ -1,6 +1,7 @@
 var data = require("../data.json");
 var models = require('../models');
 var info = require('../currSession.json');
+
 exports.note = function(req, res) {
     var paper = req.params.paper;
 
@@ -228,23 +229,18 @@ exports.editHi = function(req, res){
         res.redirect(url);
     }
 }
-exports.editDef = function(req, res){ //TODO: GINA, doesn't work at all
+exports.editDef = function(req, res){
     var paper = req.params.paper;
+    var ID = req.query.iden;
     var word = req.query.word;
-    var changes = req.query.changes;
-    var index = data[paper]["glossary"].length
-    for (var i=0; i<data[paper]["glossary"].length; ++i){
-        if (data[paper]["glossary"][i]["word"] == word){
-            index = i;
-            break;
-        }
+    var def = req.query.def;
+    console.log(ID);
+    models.Papers.update({"details.name" : paper, "glossary.dID" : ID}, {$set: {"glossary.$.word": word, "glossary.$.def": def}}).exec(one);
+    function one(err, myresult){
+        models.Papers.find({"details.name" : paper}).exec(three);
     }
-    remove = []
-    for (var i=0; i<data[paper]["glossary"][index]["defs"].length; ++i){
-        if (data[paper]["glossary"][index]["defs"][i]["author"] in changes){
-            data[paper]["glossary"][index]["defs"][i]["def"] = changes["author"]
-        }
-    } //TODO: remove authors no longer with definitions
-    res.render('read', data[paper]);
-    res.redirect('/');
+    function three(err, myresult){
+        res.render('read', myresult[0]);
+        res.redirect('/summary/'+paper);
+    }
 }

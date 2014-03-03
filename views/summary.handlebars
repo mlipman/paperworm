@@ -182,31 +182,14 @@
                             		<span class="glyphicon glyphicon-cog"></span>
                             	</button>
                             	<ul class="dropdown-menu" role="menu">
-                                	<li><a href="#" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
+                                	<li><a href="#" class="edit-obj-def" data-toggle="modal" data-target="#editDefinitionModal"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
                                 	<li class="divider"></li>
                                 	<li><a href="/deleteDefinition/{{../details.name}}?paper={{ ../details.name }}&url=/summary/{{../details.name}}&ID={{ dID }}" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
                                 </ul>
                             </div>
-                            <!--<div class="row">
-                                <div class="col-sm-10">
-                                    <h4 class="panel-title">{{ word }}</h4>
-                                </div>
-                                <div class="col-sm-2">
-                                    <div class="btn-group pull-right">
-                                    	<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    		<span class="caret"></span>
-                                    	</button>
-                                    	<ul class="dropdown-menu" role="menu">
-                                        	<li><a href="#" id="edit-obj"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
-                                        	<li class="divider"></li>
-                                        	<li><a href="/deleteDefinition/{{../details.name}}?paper={{ ../details.name }}&word={{ word }}&url=/summary/{{../details.name}}" id="remove-obj"><span class="glyphicon glyphicon-remove"></span> Remove</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>-->
                         </div>
                         <!-- Definitions -->
-                        <div class="panel-body getInfoHere">
+                        <div class="panel-body" id="{{ dID }}">
                             <h5>{{ word }}</h5>
                             <p> {{ def }} </p>
                         </div>
@@ -308,7 +291,7 @@
 	<div class="modal fade" id="editHighlightModal" tabindex="-1" role="dialog" aria-labelledby="highlightModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form class="form-horizontal" id="editHighlightForm" role="form" method="get" action="/editHighlight/{{details.name}}?url=/read"> <!-- HEREEEE -->
+				<form class="form-horizontal" id="editHighlightForm" role="form" method="get" action="/editHighlight/{{details.name}}?url=/read">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						<h4 class="modal-title" id="highlightModalLabel">Edit Annotation</h4>
@@ -327,8 +310,8 @@
 							<textarea type="text" class="form-control ntext-e" id="ntext" placeholder="Type an optional annotation here..." name="ntext" rows="3"></textarea>
 						</div>
                         <input type="hidden" class="form-control" id="sstring" name="sstring"></input>		
-                        <input class = "oldpNum-e" type="hidden" name="oldpNum" value=1>
-                        <input class = "iden-e" type="hidden" name="iden" value="">
+                        <input class = "oldpNum-e" type="hidden" name="oldpNum">
+                        <input class = "iden-e" type="hidden" name="iden">
                         <input type="hidden" name="url" value="/summary/{{details.name}}">
 				    </div>
 				    <div class="modal-footer">
@@ -340,7 +323,34 @@
 		</div>
 	</div>
 
-	
+	<!-- Edit Definition Modal -->
+	<div class="modal fade" id="editDefinitionModal" tabindex="-1" role="dialog" aria-labelledby="definitionModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form class="form-horizontal" id="editDefinitionForm" role="form" method="get" action="/editDefinition/{{details.name}}">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="highlightModalLabel">Edit Definition</h4>
+					</div>
+					<div class="modal-body" id="highlightModalBody">
+						<div class="form-group">
+							<label for="htext">Word:</label>
+							<textarea type="text" class="form-control word-e" id="word" placeholder="Insert the word to define..." name="word" rows="3"></textarea>
+						</div>
+						<div class="form-group">
+							<label for="ntext">Definition:</label>
+							<textarea type="text" class="form-control def-e" id="def" placeholder="Type the definition..." name="def" rows="3"></textarea>
+						</div>
+                        <input class = "iden-e" type="hidden" name="iden">
+				    </div>
+				    <div class="modal-footer">
+						<input type="submit" id="submitBtn" class="btn btn-default" value="Save"></input>
+						<!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 	<script src="/js/jquery-1.11.0.js"></script>
 	<script src="/js/bootstrap.js"></script>
 	<script src="/js/paperworm.js"></script>

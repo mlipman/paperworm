@@ -87,12 +87,27 @@ $(document).ready(function() {
                 str = curr.childNodes[i].id.substring(13);
                 high = curr.childNodes[i].childNodes[1].childNodes[3].innerHTML;
                 text = curr.childNodes[i].childNodes[5].childNodes[1].innerHTML;
-                console.log(text)
                 console.log(curr.childNodes[i].childNodes.length)
             }
         }
         editHighlight(Number(str.split("x")[0]), Number(str.split("x")[1]), text, high);
     });
+	$('.edit-obj-def').click(function(e){
+		e.preventDefault();
+        var str = "";
+        var word = "";
+        var def = "";
+        var curr = e.target.parentNode.parentNode.parentNode.parentNode.parentNode;
+        for (var i=0; i<curr.childNodes.length; ++i){
+            if (curr.childNodes[i].className == "panel-body"){
+                str = curr.childNodes[i].id;
+                console.log(str);
+                word = curr.childNodes[i].childNodes[1].innerHTML;
+                def = curr.childNodes[i].childNodes[3].innerHTML;
+            }
+        }
+        editDefinition(str, word, def);
+	});
 	$('#deleteHighlightButton').click(function(e) {
 		e.preventDefault();
 		//var sel = rangy.getSelection();
@@ -234,6 +249,13 @@ function editHighlight(pNum, iden, text, high){
     $(".ntext-e").val(text);
     $(".htext-e").val(high);
     console.log("end");
+}
+
+function editDefinition(iden, word, def){
+	$(".iden-e").val(iden);
+	$(".word-e").val(word);
+	$(".def-e").val(def);
+	console.log(iden);
 }
 function showPageNumber(){
 	var curPage = 1;
