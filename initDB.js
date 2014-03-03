@@ -42,7 +42,7 @@ function onceClear(err) {
   for(var i=0; i<data_json.length; i++) {
     var json = data_json[i];
     var proj = new models.Papers(json);
-    console.log(proj);
+    //console.log(proj);
     
     proj.save(function(err, proj) {
       if(err) console.log(err);
@@ -56,13 +56,6 @@ function onceClear(err) {
         mongoose.connection.close()
       }
     });
-    
-    /*
-    json = data_json['paragraphs'];
-    for(var k=0; k<json.length; k++){
-      console.log(json[k]);
-    }
-    */
   }
 }
 

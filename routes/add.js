@@ -9,26 +9,34 @@ exports.note = function(req, res) {
 	var body = req.query.bod;
 	var pNum = req.query.pNum;
 	var pageNum = req.query.pageNum;
-	//existed number of notes
-	var num = data[paper]["paragraphs"][pNum-1]["notes"].length;
-	var note = {
-		"pNumber": pNum,
-		"iden": num, //TODO: GINA
-		"author":author,
-		"page": pageNum,
-		"body":body
-	};
+    var ID = 0;
 
-    var paper = req.params.paper;
-    models.Papers.update({"details.name" : paper, "paragraphs.pNumber": pNum},{$push: {"paragraphs.$.notes" : note }}).exec(afterQuery);
-    function afterQuery(err, myresult){
-        models.Papers.find({"details.name" : paper}).exec(finalQuery)
+    models.Papers.find({"details.name" : paper}).select("details.annotID").exec(one);
+    function one(err, myresult){
+        ID = myresult[0]["details"]["annotID"];
+        console.log(ID);
+        var note = {
+        "pNumber": pNum,
+        "iden": ID,
+        "author":author,
+        "page": pageNum,
+        "body":body
+        };
+        models.Papers.update({"details.name" : paper, "paragraphs.pNumber": pNum},{$push: {"paragraphs.$.notes" : note }}).exec(two);
+    }
+    function two(err, myresult){
+        ID = ID + 1;
+        models.Papers.update({"details.name" : paper}, {$set: {"details.annotID": ID}}).exec(three);
+    }
+    function three(err, myresult){
+        models.Papers.find({"details.name" : paper}).exec(finalQuery);
     }
     function finalQuery(err, myresult){
-        res.render('read', myresult[0])
+        res.render('read', myresult[0]);
+        res.redirect('/read/'+paper);
     }
 }
-
+/*
 exports.defn = function(req, res) {
     var paper = req.params.paper;
 
@@ -51,47 +59,50 @@ exports.defn = function(req, res) {
     }
 
 }
-
+*/
 
 exports.highlight = function(req, res) {
     var paper = req.params.paper;
-
-	console.log("in highlight function");
 	var pNum = req.query.pNumHi;
-	var num = data[paper]["paragraphs"][pNum-1]["highlights"].length;
-	var tempHighlight = {
-		"pNumber": pNum,
-		"iden": num + 1, //TODO: GINA
-		"author":info["currUser"],
-		"page": 1, //TODO: GINA
-		"hText":req.query.htext,
-		"hStart":0,
-		"hEnd":0,
-		"nText":req.query.ntext
-
-	}
-	data[paper]["serializedString"] = req.query.sstring;
-
-    models.Papers.update({"details.name" : paper, "paragraphs.pNumber": pNum},{$push: {"paragraphs.$.highlights" : tempHighlight }}).exec(afterQuery);
-
-    function afterQuery(err, myresult){
-        models.Papers.update({"details.name" : paper}, {$set: {"serializedString": req.query.sstring}}).exec(anotherQuery);
+    var ID = 0;
+    var SS = "";
+    models.Papers.find({"details.name" : paper}).exec(one);
+    function one(err, myresult){
+        ID = myresult[0]["details"]["annotID"];
+        SS = myresult[0]["serializedString"];
+        console.log(SS);
+        var highlight = {
+            "pNumber": pNum,
+            "iden": ID,
+            "author":info["currUser"],
+            "page": req.query.pageNum,
+            "hText":req.query.htext,
+            "hStart":0,
+            "hEnd":0,
+            "nText":req.query.ntext
+        };
+        var paper = req.params.paper;
+        models.Papers.update({"details.name" : paper, "paragraphs.pNumber": pNum},{$push: {"paragraphs.$.highlights" : highlight }}).exec(two);
     }
-    function anotherQuery(err, myresult){
+    function two(err, myresult){
+        ID = ID + 1;
+        models.Papers.update({"details.name" : paper}, {$set: {"details.annotID": ID}}).exec(three);
+    }
+    function three(err, myresult){
+         models.Papers.update({"details.name" : paper}, {$set: {"serializedString": req.query.sstring}}).exec(four); //TODO: not sure how this serializedString works. Needs old SS?
+    }
+    function four(err, myresult){
         models.Papers.find({"details.name" : paper}).exec(finalQuery);
     }
-
     function finalQuery(err, myresult){
         res.render('read', myresult[0]);
+        res.redirect('/read/'+paper);
     }
-
 
 }
 
 exports.delNote = function(req, res){
     var paper = req.params.paper;
-
-    console.log(req);
     var ID = req.query.iden;
     var pNum = req.query.pNum;
     var url = req.query.url;
@@ -105,7 +116,6 @@ exports.delNote = function(req, res){
 
 exports.delHi = function(req, res){
     var paper = req.params.paper;
-    console.log(req.query.id);
     var ID = req.query.iden;
     var pNum = req.query.pNum;
     var url = req.query.url;
@@ -118,10 +128,9 @@ exports.delHi = function(req, res){
 
 exports.delDef = function(req, res){
     var paper = req.params.paper;
-    var word = req.query.word;
-    var index = data[paper]["glossary"].length;
+    var ID = req.query.ID;
     var url = req.query.url;
-    models.Papers.update({"details.name" : paper}, {$pull: {"glossary": {"word": word}}}).exec(afterQuery); //TODO: GINA
+    models.Papers.update({"details.name" : paper}, {$pull: {"glossary": {"dID": ID}}}).exec(afterQuery);
     function afterQuery(err, myresult){
         res.render('read', myresult[0]);
         res.redirect(url);
@@ -135,13 +144,26 @@ exports.editNote = function(req, res){ //TODO: GINA
     var oldpNum = req.query.oldpNum;
     var url = req.query.url;
     var text = req.query.bod;
-    var index = data[paper]["paragraphs"][oldpNum - 1]["notes"].length;
-    for (var i=0; i<data[paper]["paragraphs"][oldpNum - 1]["notes"].length; ++i){
-        if (data[paper]["paragraphs"][oldpNum - 1]["notes"][i]["iden"] == ID){
-            index = i;
-            break;
-        }
+    console.log(ID);
+
+    if (oldpNum == newpNum){
+        //edit in place
+        models.Papers.update({"details.name" : paper, "paragraphs.pNumber": newpNum, "paragraphs.$.notes.iden": ID},{$set: {"paragraphs.$.notes.$.body" : text }}).exec(one);
+    }else{
+        //delete old
+        //create new
     }
+
+    function one(err, myresult){
+        console.log(myresult);
+        models.Papers.find({"details.name" : paper}).exec(two);
+    }
+    function two(err, myresult){
+        console.log(myresult[0]);
+        res.render('read', myresult[0]);
+        res.redirect(url);
+    }
+    /*
     data[paper]["paragraphs"][oldpNum - 1]["notes"][index]["body"] = text;
     if (newpNum != oldpNum){
         data[paper]["paragraphs"][newpNum - 1]["notes"].push(data[paper]["paragraphs"][oldpNum - 1]["notes"][index]);
@@ -150,10 +172,11 @@ exports.editNote = function(req, res){ //TODO: GINA
         data[paper]["paragraphs"][newpNum - 1]["notes"][len-1]["pNumber"] = newpNum;
         data[paper]["paragraphs"][newpNum - 1]["notes"][len-1]["page"] = data[paper]["paragraphs"][newpNum - 1]["page"];
     }
-    res.render('read', data[paper]);
-    res.redirect(url);
+    */
+    
 }
-exports.editHi = function(req, res){ //TODO: GINA
+
+exports.editHi = function(req, res){
     var paper = req.params.paper;
     var ID = req.query.iden;
     var newpNum = req.query.pNumHi;
@@ -167,13 +190,14 @@ exports.editHi = function(req, res){ //TODO: GINA
     if (highlight.charAt(highlight.length-1)!='"'){
         highlight = highlight + '"'
     }
-    var index = data[paper]["paragraphs"][oldpNum - 1]["highlights"].length;
-    for (var i=0; i<data[paper]["paragraphs"][oldpNum - 1]["highlights"].length; ++i){
-        if (data[paper]["paragraphs"][oldpNum - 1]["highlights"][i]["iden"] == ID){
-            index = i;
-            break;
-        }
+    if(newpNum == oldpNum){
+        //edit in place
+
+    }else{
+        //delete old
+        //create new
     }
+    /*
     data[paper]["paragraphs"][oldpNum - 1]["highlights"][index]["nText"] = text;
     data[paper]["paragraphs"][oldpNum - 1]["highlights"][index]["hText"] = highlight;//update highlight text
     if (newpNum != oldpNum){
@@ -185,6 +209,7 @@ exports.editHi = function(req, res){ //TODO: GINA
     }
     res.render('read', data[paper]);
     res.redirect(url);
+    */
 }
 exports.editDef = function(req, res){ //TODO: GINA, doesn't work at all
     var paper = req.params.paper;

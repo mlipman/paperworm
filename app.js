@@ -59,11 +59,11 @@ app.get('/addNote/:paper', add.note);
 app.get('/deleteNote/:paper', add.delNote);
 app.get('/editNote/:paper', add.editNote);
 
-app.get('/addHighlight/:paper', add.highlight); // HEREEEE
+app.get('/addHighlight/:paper', add.highlight);
 app.get('/deleteHighlight/:paper', add.delHi);
 app.get('/editHighlight/:paper', add.editHi);
 
-app.get('/addDefn/:paper', add.defn);
+//app.get('/addDefn/:paper', add.defn);
 app.get('/deleteDefinition/:paper', add.delDef);
 app.get('/editDefinition/:paper', add.editDef);
 

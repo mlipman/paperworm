@@ -13,7 +13,7 @@ var PaperSchema = new Mongoose.Schema({
         "total-paragraphs": Number,
         "abstract":String,
         "citation": String,
-        "figID": Number, //NEW
+        "figID": Number,
         "annotID": Number, //NEW 
         "dID": Number
     },
@@ -28,7 +28,7 @@ var PaperSchema = new Mongoose.Schema({
         }],
         "highlights":[{
             "iden": Number, //KEY
-            "author": String, //TODO: link
+            "author": String,
             "hText": String,
             "nText": String,
             "pNumber": Number, //TODO: unnecessary
@@ -38,7 +38,7 @@ var PaperSchema = new Mongoose.Schema({
         }],
         "notes": [{
             "iden": Number, //KEY
-            "author": String, //TODO: link
+            "author": String,
             "body": String,
             "pNumber": Number, //TODO: unnecessary
             "page": Number
@@ -46,7 +46,7 @@ var PaperSchema = new Mongoose.Schema({
     }],
     "glossary":[{
         "dID": Number,
-        "author": String, //TODO: link
+        "author": String,
         "word": String,
         "def": String
     }],
