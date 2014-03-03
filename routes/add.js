@@ -33,7 +33,6 @@ exports.defn = function(req, res) {
     var paper = req.params.paper;
 
 	console.log(req.query.defn);
-	//var author = req.query.auth;
     var author = info["currUser"];
 	var word = req.query.word;
 	var def = req.query.defn;
@@ -122,7 +121,7 @@ exports.delDef = function(req, res){
     var word = req.query.word;
     var index = data[paper]["glossary"].length;
     var url = req.query.url;
-    models.Papers.update({"details.name" : paper}, {$pull: {"glossary": {"word": word}}}).exec(afterQuery);
+    models.Papers.update({"details.name" : paper}, {$pull: {"glossary": {"word": word}}}).exec(afterQuery); //TODO: GINA
     function afterQuery(err, myresult){
         res.render('read', myresult[0]);
         res.redirect(url);

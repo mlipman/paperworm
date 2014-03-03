@@ -1,5 +1,4 @@
 {
-    "scads":
     {
         "details":
         {
@@ -386,35 +385,22 @@
         [
             {
                 "word":"ASCM",
-                "defs":[
-                    {
-                        "author":"Robert Siegler",
-                        "def":"Adaptive Strategy Choice Model: Children use multiple strategies, even if they know the one that is considered the most efficient, they will only start to solely use that one when it becomes the most efficient one for them. multiple strategies are available in a child's repertoire, they are competing for use, with time, the best strategy win. but it is not like the best strategy is automatically taken up, like steps, but rather overlapping waves."
-                    }
-                ]
+                "author":"Robert Siegler",
+                "def":"Adaptive Strategy Choice Model: Children use multiple strategies, even if they know the one that is considered the most efficient, they will only start to solely use that one when it becomes the most efficient one for them. multiple strategies are available in a child's repertoire, they are competing for use, with time, the best strategy win. but it is not like the best strategy is automatically taken up, like steps, but rather overlapping waves."
             },
             {
                 "word":"Metacognition",
-                "defs":[
-                    {
-                        "author":"Merrium Webster",
-                        "def":"Awareness or analysis of one's own learning or thinking processes"
-                    }
-                ]
+                "author":"Merrium Webster",
+                "def":"Awareness or analysis of one's own learning or thinking processes"
             },
             {
                 "word":"SCADS",
-                "defs":[
-                    {
-                        "author":"Professor McClelland",
-                        "def":"Strategy Choice And Discovery Simulation. It's a computer simulation model that extends ASCM and gives more accurate result. Pay attention to Fig. 2."
-                    }
-                ]
+                "author":"Professor McClelland",
+                "def":"Strategy Choice And Discovery Simulation. It's a computer simulation model that extends ASCM and gives more accurate result. Pay attention to Fig. 2."
             }
         ],
         "serializedString":""
     },
-    "social":
     {
         "details":
         {
@@ -1395,21 +1381,13 @@
         [
             {
                 "word":"Tie strength",
-                "defs":[
-                    {
-                        "author":"Wikipedia",
-                        "def":"In mathematical sociology, interpersonal ties are defined as information-carrying connections between people. Interpersonal ties, generally, come in three varieties: strong, weak, or absent. Weak social ties, it is argued, are responsible for the majority of the embeddedness and structure of social networks in society as well as the transmission of information through these networks."
-                    }
-                ]
+                "author":"Wikipedia",
+                "def":"In mathematical sociology, interpersonal ties are defined as information-carrying connections between people. Interpersonal ties, generally, come in three varieties: strong, weak, or absent. Weak social ties, it is argued, are responsible for the majority of the embeddedness and structure of social networks in society as well as the transmission of information through these networks."
             },
             {
                 "word":"Neighborhood effect",
-                "defs":[
-                    {
-                        "author":"Wikipedia",
-                        "def":"The neighbourhood effect is one of the contextual variables that explains the tendency of a person to vote in a certain direction based upon the relational effects of the people living in the neighbourhood. The voting preference of a neighbourhood tends to be formed by consensus, where people tend to vote with the general trend of the neighbourhood. This consensus is formed by the personal connections a person forms in a community. There also seems to be some socio-economic correlation to voting patterns, and this has also been used to predict voting behavior."
-                    }
-                ]
+                "author":"Wikipedia",
+                "def":"The neighbourhood effect is one of the contextual variables that explains the tendency of a person to vote in a certain direction based upon the relational effects of the people living in the neighbourhood. The voting preference of a neighbourhood tends to be formed by consensus, where people tend to vote with the general trend of the neighbourhood. This consensus is formed by the personal connections a person forms in a community. There also seems to be some socio-economic correlation to voting patterns, and this has also been used to predict voting behavior."
             }
         ],
         "serializedString":""

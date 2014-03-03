@@ -1,12 +1,7 @@
 
 var Mongoose = require('mongoose');
 
-var AuthorSchema = new Mongoose.Schema([{
-    "name" : String,
-    "email" : String,
-    "password" : String,
-}]);
-
+//v1: needs to add counter for note/highlight id
 var PaperSchema = new Mongoose.Schema({
     "details" : {
         "name": String, 
@@ -17,19 +12,22 @@ var PaperSchema = new Mongoose.Schema({
         "pages": Number,
         "total-paragraphs": Number,
         "abstract":String,
-        "citation": String
+        "citation": String,
+        "figID": Number, //NEW
+        "annotID": Number, //NEW 
+        "dID": Number
     },
     "paragraphs": [{
         "pNumber": Number,
         "page": Number,
         "text": String,
         "images": [{
-            "fig": String,
+            "fig": String, //KEY
             "label": String,
-            "src": String
+            "src": String,
         }],
         "highlights":[{
-            "iden": Number,
+            "iden": Number, //KEY
             "author": String, //TODO: link
             "hText": String,
             "nText": String,
@@ -39,7 +37,7 @@ var PaperSchema = new Mongoose.Schema({
             "hEnd": Number
         }],
         "notes": [{
-            "iden": Number,
+            "iden": Number, //KEY
             "author": String, //TODO: link
             "body": String,
             "pNumber": Number, //TODO: unnecessary
@@ -47,6 +45,7 @@ var PaperSchema = new Mongoose.Schema({
         }],
     }],
     "glossary":[{
+        "dID": Number,
         "author": String, //TODO: link
         "word": String,
         "def": String
@@ -75,39 +74,43 @@ var PaperSchema = new Mongoose.Schema({
 });
 
 var ParaSchema = new Mongoose.Schema({
-    "paper": PaperSchema, //TODO: ID
+    "pNumber": Number,
     "page": Number,
     "text": String,
-    "images": []
+    "images": [],
     "highlights":[],
     "notes": [],
 });
 
 var ImgSchema = new Mongoose.Schema({
-    "pNumber": ParaSchema, //TODO: link
-    "url": String,
+    "fig": String,
+    "label": String,
+    "src": String
 });
 
-var DefSchema = new Mongoose.Schema({ 
-    "paper" : PaperSchema, //TODO: link
-    "author": AuthorSchema, //TODO: link
-    "word":String,
-    "def": String,
-});
 
 var HighSchema = new Mongoose.Schema({
-    "pNumber": ParaSchema, //TODO: link
-    "author" : AuthorSchema, //TODO: link
-    "hText" : String,
-    "nText" : String,
+    "author": String,
+    "hText": String,
+    "nText": String,
+    "pNumber": Number, //TODO: unnecessary
+    "page": Number, 
+    "hStart": Number,
+    "hEnd": Number
 });
 
 var NoteSchema = new Mongoose.Schema({
-    "pNumber": ParaSchema, //TODO: link
-    "author": AuthorSchema, //TODO: link
+    "author": String,
     "body": String,
+    "pNumber": Number,
+    "page": Number
+});
+
+var DefSchema = new Mongoose.Schema({
+    "author": String,
+    "word": String,
+    "def": String
 });
 **/
 
-exports.Authors = Mongoose.model('Author', AuthorSchema);
 exports.Papers = Mongoose.model('Paper', PaperSchema);
