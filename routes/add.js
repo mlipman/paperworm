@@ -144,35 +144,37 @@ exports.editNote = function(req, res){ //TODO: GINA
     var oldpNum = req.query.oldpNum;
     var url = req.query.url;
     var text = req.query.bod;
-    console.log(ID);
-
-    if (oldpNum == newpNum){
-        //edit in place
-        models.Papers.update({"details.name" : paper, "paragraphs.pNumber": newpNum, "paragraphs.$.notes.iden": ID},{$set: {"paragraphs.$.notes.$.body" : text }}).exec(one);
-    }else{
-        //delete old
-        //create new
-    }
+    var temp = {}
+    
+    //get old info
+    models.Papers.find({"details.name" : paper, "paragraphs.pNumber": newpNum, "paragraphs.notes.iden":ID}).exec(one);
 
     function one(err, myresult){
-        console.log(myresult);
-        models.Papers.find({"details.name" : paper}).exec(two);
+        var curr = myresult[0]["paragraphs"][oldpNum-1]["notes"];
+        for (var i=0; i<curr.length; ++i){
+            if (curr[i]["iden"] == ID){
+                curr[i]["body"] = text;
+                curr[i]["pNumber"] = newpNum;
+                curr[i]["page"] = 0;
+            }
+        }
+        if (oldpNum == newpNum){
+            models.Papers.update({"details.name" : paper, "paragraphs.pNumber": newpNum, "paragraphs.notes.iden":ID}, {$set: {"paragraphs.$.notes": curr}}).exec(two);
+        } else{
+
+            models.Papers.update({"details.name" : paper, "paragraphs.pNumber": newpNum},{$push: {"paragraphs.$.notes" : curr }}).exec(oneb);
+        }
+    }
+    function oneb(err, myresult){
+        models.Papers.update({"details.name" : paper, "paragraphs.pNumber": oldpNum}, {$pull: {"paragraphs.$.notes": {"iden": ID}}}).exec(two);
     }
     function two(err, myresult){
-        console.log(myresult[0]);
+        models.Papers.find({"details.name" : paper}).exec(three);
+    }
+    function three(err, myresult){
         res.render('read', myresult[0]);
         res.redirect(url);
     }
-    /*
-    data[paper]["paragraphs"][oldpNum - 1]["notes"][index]["body"] = text;
-    if (newpNum != oldpNum){
-        data[paper]["paragraphs"][newpNum - 1]["notes"].push(data[paper]["paragraphs"][oldpNum - 1]["notes"][index]);
-        data[paper]["paragraphs"][oldpNum - 1]["notes"].splice(index, 1);
-        len =  data[paper]["paragraphs"][newpNum - 1]["notes"].length; //update paragraph number, page number
-        data[paper]["paragraphs"][newpNum - 1]["notes"][len-1]["pNumber"] = newpNum;
-        data[paper]["paragraphs"][newpNum - 1]["notes"][len-1]["page"] = data[paper]["paragraphs"][newpNum - 1]["page"];
-    }
-    */
     
 }
 
