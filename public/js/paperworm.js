@@ -3,12 +3,6 @@
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
 	initializePage();
-	/*$('.friend-name').click(function(e) {
-		e.preventDefault()
-		var header = $(this).children()[0]
-		var anagram = anagrammedName($(header).text());
-		$(header).text(anagram)
-	});*/
 	
 	$("#welcomeModal").modal('show');
 	$("#tutorialModal").modal('show');
@@ -25,7 +19,6 @@ $(document).ready(function() {
     } else {
     	$('#searchDict').click(lookUpSelected);
     }
-	//$('#paperToRead').load('SchragerSieglerText.html');
 
 	var highlighter = rangy.createHighlighter();
 
@@ -161,6 +154,42 @@ $(document).ready(function() {
  */
 function initializePage() {
 	console.log("Javascript connected!");
+
+	//GOOGLE ANALYTICS HERE
+	//add notes/highlight
+	$("#submitBtn-note").click(function(){
+		ga("send", "event", "addNote", "click");
+		//TODO: get paragraph number
+	});
+	$("#submitBtn-hi").click(function(){
+		ga("send", "event", "addAnno", "click");
+		//TODO: get paragraph number
+	});
+
+	//click tool bar
+	$("#addNoteButton").click(function(){
+		ga("send", "event", "note", "click");
+	});
+	$("#searchDict").click(function(){
+		ga("send", "event", "lookupDef", "click");
+		//TODO: get word looked up?
+	});
+	$("#addHighlightButton").click(function(){
+		ga("send", "event", "highlight", "click");
+	});
+	$("#deleteHighlightButton").click(function(){
+		ga("send", "event", "unhighlight", "click");
+	});
+	
+	//summary-page traversal
+	$("#sum-to-read").click(function(){
+		ga("send", "event", "sum-to-read", "click");
+	});
+	$("#read-to-sum").click(function(){
+		ga("send", "event", "read-to-sum", "click");
+	});
+	$()
+	//TODO: record time on page, taken care of by Google?
 }
 
 function showNoteBox(e) {
