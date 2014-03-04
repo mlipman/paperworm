@@ -1017,18 +1017,7 @@
                 "page":1,
                 "pNumber":1,
                 "text": "Psychological Science http://pss.sagepub.com/ SCADS: A Model of Children's Strategy Choices and Strategy Discoveries Jeff Shrager and Robert S. Siegler Psychological Science 1998 9: 405 DOI: 10.1111/1467-9280.00076 The online version of this article can be found at: http://pss.sagepub.com/content/9/5/405",
-                "highlights":[
-                    {
-                        "pNumber":1,
-                        "iden" : 1,
-                        "author" : "Professor McClelland",
-                        "page" : 1,
-                        "hText" : "\" my highlight \"",
-                        "hStart" : 11,
-                        "hEnd" : 12,
-                        "nText" : "Just trying to use annotation feature, lol."
-                    }
-                ],
+                "highlights":[],
                 "notes":[
                     {
                         "pNumber":1,
