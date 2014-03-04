@@ -352,7 +352,18 @@ function lookUpSelected(e) {
 
 function askForLookUp(e) {
 	e.preventDefault();
-	$('#lookUpButton').click(lookUp);
+	$('#defModalResults2').html("");
+	var sel = rangy.getSelection();
+	if (sel.rangeCount==0) {
+		$('#lookUpButton').click(lookUp);
+		// google event: clicked search button with no selection in readAlt
+	} else {
+		var selectedText = sel.getRangeAt(0).text();
+		$('#lookUpWord').val(selectedText);
+		$('#lookUpButton').click(lookUp);
+		// google event: clicked search button after selection in readAlt
+	}
+	
 
 }
 
