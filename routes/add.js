@@ -62,6 +62,8 @@ exports.defn = function(req, res) {
 }
 */
 
+
+
 exports.highlight = function(req, res) {
     var paper = req.params.paper;
 	var pNum = req.query.pNumHi;
@@ -90,7 +92,7 @@ exports.highlight = function(req, res) {
         models.Papers.update({"details.name" : paper}, {$set: {"details.annotID": ID}}).exec(three);
     }
     function three(err, myresult){
-         models.Papers.update({"details.name" : paper}, {$set: {"serializedString": req.query.sstring}}).exec(four); //TODO: not sure how this serializedString works. Needs old SS?
+         models.Papers.update({"details.name" : paper}, {$set: {"serializedString": req.query.sstring}}).exec(four); //TODO:
     }
     function four(err, myresult){
         models.Papers.find({"details.name" : paper}).exec(finalQuery);

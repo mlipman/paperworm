@@ -171,8 +171,7 @@ function initializePage() {
 		ga("send", "event", "note", "click");
 	});
 	$("#searchDict").click(function(){
-		ga("send", "event", "lookupDef", "click");
-		//TODO: get word looked up?
+		//ga("send", "event", "lookupDef", "click"); //Taken care of below
 	});
 	$("#addHighlightButton").click(function(){
 		ga("send", "event", "highlight", "click");
@@ -329,11 +328,14 @@ function trimString (str) {
 function lookUpSelected(e) {
 	e.preventDefault();
 	var sel = rangy.getSelection();
+	ga("send", "event", "lookupDef", "click");
 	if (sel.rangeCount==0) {
 		console.log("looking up blank word");
+		ga("send", "event", "lookupDef", "blank"); //Google analytics
 		var instructionHTML = "<p>Select a word before hitting the <span class=\"glyphicon glyphicon-search\"></span> button in order to get the definition</p>";
 		$('#defModalBody').html(instructionHTML);
 	} else {
+		ga("send", "event", "lookupDef", "words");
 		var range = sel.getRangeAt(0);
 		var selectedText = range.text();
 		selectedText = trimString(selectedText);
@@ -354,7 +356,9 @@ function askForLookUp(e) {
 	e.preventDefault();
 	$('#defModalResults2').html("");
 	var sel = rangy.getSelection();
+	ga("send", "event", "lookupDef", "click");
 	if (sel.rangeCount==0) {
+		ga("send", "event", "lookupDef", "blank"); //Google analytics
 		$('#lookUpButton').click(lookUp);
 		// google event: clicked search button with no selection in readAlt
 	} else {
@@ -362,6 +366,7 @@ function askForLookUp(e) {
 		$('#lookUpWord').val(selectedText);
 		$('#lookUpButton').click(lookUp);
 		// google event: clicked search button after selection in readAlt
+
 	}
 	
 
@@ -372,6 +377,7 @@ function lookUp(e) {
 	selectedText = trimString(selectedText);
 	//console.log(selectedText);
 	var lowercaseText = selectedText.toLowerCase();
+	ga("send", "event", "lookupDef", "words");
 	//console.log(lowercaseText);
 	if (selectedText.length > 0) {
 		$('#defModalBody').html("");
