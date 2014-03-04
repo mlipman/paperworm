@@ -15,7 +15,7 @@ exports.note = function(req, res) {
     models.Papers.find({"details.name" : paper}).select("details.annotID").exec(one);
     function one(err, myresult){
         ID = myresult[0]["details"]["annotID"];
-        console.log(ID);
+        
         var note = {
         "pNumber": pNum,
         "iden": ID,
@@ -38,7 +38,7 @@ exports.note = function(req, res) {
     }
 }
 /*
-exports.defn = function(req, res) {
+exports.defn = function(req, res) { //not sure if tested...
     var paper = req.params.paper;
 
 	console.log(req.query.defn);
@@ -61,7 +61,13 @@ exports.defn = function(req, res) {
 
 }
 */
-
+exports.setSS = function(req, res){
+    var paper = req.params.paper;
+    models.Papers.update({"details.name" : paper}, {$set: {"serializedString": req.query.sstring}}).exec(finalQuery);
+    function finalQuery(err, myresult){
+        res.redirect('/read/'+paper);
+    }
+}
 
 
 exports.highlight = function(req, res) {
@@ -92,7 +98,7 @@ exports.highlight = function(req, res) {
         models.Papers.update({"details.name" : paper}, {$set: {"details.annotID": ID}}).exec(three);
     }
     function three(err, myresult){
-         models.Papers.update({"details.name" : paper}, {$set: {"serializedString": req.query.sstring}}).exec(four); //TODO:
+         models.Papers.update({"details.name" : paper}, {$set: {"serializedString": req.query.sstring}}).exec(four); //TODO: will be unnecessary
     }
     function four(err, myresult){
         models.Papers.find({"details.name" : paper}).exec(finalQuery);
@@ -109,6 +115,7 @@ exports.delNote = function(req, res){
     var ID = req.query.iden;
     var pNum = req.query.pNum;
     var url = req.query.url;
+    url = "/"+url.substr(1).replace("/", "alt/");
 
     models.Papers.update({"details.name" : paper, "paragraphs.pNumber": pNum}, {$pull: {"paragraphs.$.notes": {"iden": ID}}}).exec(afterQuery);
     function afterQuery(err, myresult){

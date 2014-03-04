@@ -108,6 +108,7 @@ $(document).ready(function() {
 		serializedHighlights = highlighter.serialize();
 		console.log(serializedHighlights);
 		//data['serializedHistory'] = serializedHighlights;
+		//TODO: update mongodb with /editSS/paper?sstring="serializedHighlights".............................................................................
 	});
 
 	//Determine id of the current selected text
@@ -252,14 +253,13 @@ function addHighlight(highlighter, serializedHighlights, currentPNumber, current
 	highlighter.addClassApplier(cssApplier);
 	highlighter.highlightSelection("highlightText");
 	serializedHighlights = highlighter.serialize();
-	$('#sstring').val(serializedHighlights);
 
-	console.log(serializedHighlights);
+	//TODO: update mongodb with /editSS/paper?sstring="serializedHighlights".............................................................................
+
+	$('#sstring').val(serializedHighlights);
 	$("#htext").val('"' + selectedText + '"');
 	$("#pNumHi").val(currentPNumber);
 	$("#page").val(currentPage);
-
-
 }
 
 function editNote(pNum, iden, text){

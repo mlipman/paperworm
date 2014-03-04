@@ -17,6 +17,7 @@ var summary = require('./routes/summary');
 var add = require('./routes/add');
 var data = require('./routes/data');
 var login = require('./routes/login');
+var alt = require('./routes/alt'); //HERE
 
 var local_database_name = 'paperworm';
 var local_database_uri  = 'mongodb://localhost/' + local_database_name
@@ -52,14 +53,15 @@ app.get('/login', login.view);
 app.get('/loginAfter', login.after);
 app.get('/logout', login.out);
 app.get('/read/:paper', read.view);
-app.get('/readAlt/:paper', read.viewAlt);
+app.get('/readAlt/:paper', read.viewAlt); //HERE
 app.get('/summary/:paper', summary.view);
-app.get('/summaryAlt/:paper', summary.viewAlt);
+app.get('/summaryAlt/:paper', summary.viewAlt); //HERE
 
 app.get('/addNote/:paper', add.note);
 app.get('/deleteNote/:paper', add.delNote);
 app.get('/editNote/:paper', add.editNote);
 
+app.get('/editSS/:paper', add.setSS);
 app.get('/addHighlight/:paper', add.highlight);
 app.get('/deleteHighlight/:paper', add.delHi);
 app.get('/editHighlight/:paper', add.editHi);
@@ -70,8 +72,19 @@ app.get('/editDefinition/:paper', add.editDef);
 
 app.get('/serializedString/:paper', data.serializedString);
 
-// Example route
-// app.get('/users', user.list);
+//HERE
+app.get('/addNoteAlt/:paper', alt.note);
+app.get('/deleteNoteAlt/:paper', alt.delNote);
+app.get('/editNoteAlt/:paper', alt.editNote);
+
+app.get('/editSSAlt/:paper', alt.setSS);
+app.get('/addHighlightAlt/:paper', alt.highlight);
+app.get('/deleteHighlightAlt/:paper', alt.delHi);
+app.get('/editHighlightAlt/:paper', alt.editHi);
+
+app.get('/deleteDefinitionAlt/:paper', alt.delDef);
+app.get('/editDefinitionAlt/:paper', alt.editDef);
+//HERE END
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
