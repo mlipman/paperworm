@@ -225,11 +225,12 @@ function showDefinition(result) {
 
 //Show definition on the definition modal on read mode
 function showDefinition2(result) {
+	$('#defModalResults2').html("");
 	console.log(result);
 	console.log(result['tuc']);
 	var defHTML = '<h4>' + result['phrase'] + '</h4>';
 	if (result['tuc'] == undefined || result['tuc'].length == 0) {
-		$('#defModalBody2').append(defHTML + "<p>No definition</p>");
+		$('#defModalResults2').append(defHTML + "<p>No definition</p>");
 	} else {
 		var meanings = result['tuc'][0]['meanings'];
 		for (var i = 0; i < meanings.length; i++) {
@@ -237,7 +238,7 @@ function showDefinition2(result) {
 				'<p>' + meanings[i]['text'] + '</p>';
 		};
 		console.log(defHTML);
-		$('#defModalBody2').append(defHTML);	
+		$('#defModalResults2').append(defHTML);	
 	}
 }
 
