@@ -54,6 +54,7 @@ app.get('/logout', login.out);
 app.get('/read/:paper', read.view);
 app.get('/readAlt/:paper', read.viewAlt);
 app.get('/summary/:paper', summary.view);
+app.get('/summaryAlt/:paper', summary.viewAlt);
 
 app.get('/addNote/:paper', add.note);
 app.get('/deleteNote/:paper', add.delNote);

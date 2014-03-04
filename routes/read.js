@@ -1,6 +1,7 @@
 var data = require("../data.json");
 var models = require('../models');
 var info = require('../currSession.json');
+
 exports.view = function(req, res) {
 	var paper = req.params.paper;
 	var user = req.session.username;

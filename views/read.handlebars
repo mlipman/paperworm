@@ -170,7 +170,7 @@
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<a href="/summary/{{details.name}}" class="btn btn-default navbar-btn navbar-right" id="read-to-sum"><span class="glyphicon glyphicon-list-alt"></span> Summary</a>
+				<a href="/summary{{#if alt}}alt{{/if}}/{{details.name}}" class="btn btn-default navbar-btn navbar-right" id="read-to-sum"><span class="glyphicon glyphicon-list-alt"></span> Summary</a>
 			</div>
 		</div>
 	</nav>
@@ -533,7 +533,7 @@
 	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-	  ga('create', 'UA-48614105-1', { 'cookieDomain': 'none' });
+	  ga('create', 'UA-48614105-1', 'paperworm.herokuapp.com');
 	  ga('send', 'pageview');
 
 	</script>

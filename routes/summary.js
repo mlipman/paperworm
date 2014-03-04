@@ -16,3 +16,21 @@ exports.view = function(req, res) {
 		res.render('summary', myresult[0])
 	}
 };
+
+exports.viewAlt = function(req, res) {
+	// we will build a paper specific json object called info for this paper only
+	var user = req.session.username;
+	if (user==undefined){
+		user="user";
+	}
+
+	var paper = req.params.paper;
+	models.Papers.find({"details.name" : paper}).exec(afterQuery);
+
+	function afterQuery(err, myresult){
+		temp = myresult[0];
+		temp["alt"]=true;
+		temp["currUser"]=user;
+		res.render('summary', temp)
+	}
+};
