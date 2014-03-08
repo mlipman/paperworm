@@ -57,7 +57,7 @@ app.get('/readAlt/:paper', read.viewAlt); //HERE
 app.get('/summary/:paper', summary.view);
 app.get('/summaryAlt/:paper', summary.viewAlt); //HERE
 
-app.get('/addNote/:paper', add.note);
+app.post('/addNote/:paper', add.note);
 app.get('/deleteNote/:paper', add.delNote);
 app.get('/editNote/:paper', add.editNote);
 

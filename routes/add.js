@@ -7,9 +7,9 @@ exports.note = function(req, res) {
 
 	//var author = req.query.auth;
     var author = req.session.username ? req.session.username : "user" ;
-	var body = req.query.bod;
-	var pNum = req.query.pNum;
-	var pageNum = req.query.pageNum;
+	var body = req.body.bod;
+	var pNum = req.body.pNum;
+	var pageNum = 0;
     var ID = 0;
 
     models.Papers.find({"details.name" : paper}).select("details.annotID").exec(one);
@@ -23,18 +23,19 @@ exports.note = function(req, res) {
         "page": pageNum,
         "body":body
         };
-        models.Papers.update({"details.name" : paper, "paragraphs.pNumber": pNum},{$push: {"paragraphs.$.notes" : note }}).exec(two);
+        models.Papers.update({"details.name" : paper, "paragraphs.pNumber": pNum},{$push: {"paragraphs.$.notes" : note }}).exec(function(err, myresult) {return two(err, myresult, note)});
     }
-    function two(err, myresult){
+    function two(err, myresult, note){
         ID = ID + 1;
-        models.Papers.update({"details.name" : paper}, {$set: {"details.annotID": ID}}).exec(three);
+        models.Papers.update({"details.name" : paper}, {$set: {"details.annotID": ID}}).exec(function(err, myresult) {return three(err, myresult, note)});
     }
-    function three(err, myresult){
-        models.Papers.find({"details.name" : paper}).exec(finalQuery);
+    function three(err, myresult, note){
+        models.Papers.find({"details.name" : paper}).exec(function(err, myresult) {return finalQuery(err, myresult, note)});
     }
-    function finalQuery(err, myresult){
-        res.render('read', myresult[0]);
-        res.redirect('/read/'+paper);
+    function finalQuery(err, myresult, note){
+        //res.render('read', myresult[0]);
+        //res.redirect('/read/'+paper);
+        res.json(note);  // need to pass note to show
     }
 }
 /*

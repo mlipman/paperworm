@@ -59,7 +59,7 @@
 	<div class="modal fade" id="noteModal" tabindex="-1" role="dialog" aria-labelledby="noteModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form class="form-horizontal" id="addNoteForm" role="form" method="get" action="/addNote{{#if alt}}alt{{/if}}/{{details.name}}">
+				<form class="form-horizontal" id="addNoteForm" role="form" method="" action="">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						<h4 class="modal-title" id="noteModalLabel">Add Note</h4>
@@ -80,6 +80,7 @@
 							<textarea type="text" class="form-control" id="bod" placeholder="Type your note here..." name="bod" rows="5"></textarea>
 					    </div>
 				    </div>
+				    <input type="hidden" id="addNoteAction" name="act" value="/addNote{{#if alt}}alt{{/if}}/{{details.name}}"></input> 
 				    <div class="modal-footer">
 				    	<!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
 						<input type="submit" id="submitBtn-note" class="btn btn-default" value="Add"></input>

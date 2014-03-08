@@ -1,0 +1,126 @@
+diff --git a/app.js b/app.js
+index 8a6482d..843330a 100644
+--- a/app.js
++++ b/app.js
+@@ -57,7 +57,7 @@ app.get('/readAlt/:paper', read.viewAlt); //HERE
+ app.get('/summary/:paper', summary.view);
+ app.get('/summaryAlt/:paper', summary.viewAlt); //HERE
+ 
+-app.get('/addNote/:paper', add.note);
++app.post('/addNote/:paper', add.note);
+ app.get('/deleteNote/:paper', add.delNote);
+ app.get('/editNote/:paper', add.editNote);
+ 
+diff --git a/public/js/paperworm.js b/public/js/paperworm.js
+index efce520..6a34bb9 100644
+--- a/public/js/paperworm.js
++++ b/public/js/paperworm.js
+@@ -36,10 +36,13 @@ $(document).ready(function() {
+ 	var currentPNumber = 1; //current paragraph number
+ 	var currentPage = 1; //current page number
+ 
++	$('#submitBtn-note').click(ajaxAddNote);
++
+ 	$('#addNoteButton').click(function(e) {
+ 		e.preventDefault();
+ 		$('#pageNum').val(currentPage);
+ 		$('#pNum').val(currentPNumber);
++		$('#bod').val("");
+ 	});
+ 
+ 	$('#addHighlightButton').click(function(e) {
+@@ -390,13 +393,27 @@ function lookUp(e) {
+ 		if (selectedText != lowercaseText) {$.get("http://glosbe.com/gapi/translate?from=eng&dest=eng&format=json&pretty=true&phrase=" + 
+ 		lowercaseText + "&callback=showDefinition2", showDefinition2, 'jsonp');}
+ 	} 
++};
+ 
+ 
++function ajaxAddNote(e) {
++	var destination = $('#addNoteAction').val();
++	var paraNum = $('#pNum').val();
++	var body = $('#bod').val();
+ 
+-};
++	var dataString = 'pNum=' + paraNum + '&bod=' + body;
++	$.post(destination, dataString, successAddNote);
+ 
++	return false;
+ 
++}
+ 
++function successAddNote(data, textStatus, jqXHR) {
++	console.log("successfullly note added");
++	console.log("message back: " + data.vol);
++	$('.modal').modal('hide');
++	location.reload();
++}
+ 
+ 
+ 
+diff --git a/routes/add.js b/routes/add.js
+index c219232..29ea494 100644
+--- a/routes/add.js
++++ b/routes/add.js
+@@ -7,9 +7,9 @@ exports.note = function(req, res) {
+ 
+ 	//var author = req.query.auth;
+     var author = req.session.username ? req.session.username : "user" ;
+-	var body = req.query.bod;
+-	var pNum = req.query.pNum;
+-	var pageNum = req.query.pageNum;
++	var body = req.body.bod;
++	var pNum = req.body.pNum;
++	var pageNum = 0;
+     var ID = 0;
+ 
+     models.Papers.find({"details.name" : paper}).select("details.annotID").exec(one);
+@@ -23,18 +23,19 @@ exports.note = function(req, res) {
+         "page": pageNum,
+         "body":body
+         };
+-        models.Papers.update({"details.name" : paper, "paragraphs.pNumber": pNum},{$push: {"paragraphs.$.notes" : note }}).exec(two);
++        models.Papers.update({"details.name" : paper, "paragraphs.pNumber": pNum},{$push: {"paragraphs.$.notes" : note }}).exec(function(err, myresult) {return two(err, myresult, note)});
+     }
+-    function two(err, myresult){
++    function two(err, myresult, note){
+         ID = ID + 1;
+-        models.Papers.update({"details.name" : paper}, {$set: {"details.annotID": ID}}).exec(three);
++        models.Papers.update({"details.name" : paper}, {$set: {"details.annotID": ID}}).exec(function(err, myresult) {return three(err, myresult, note)});
+     }
+-    function three(err, myresult){
+-        models.Papers.find({"details.name" : paper}).exec(finalQuery);
++    function three(err, myresult, note){
++        models.Papers.find({"details.name" : paper}).exec(function(err, myresult) {return finalQuery(err, myresult, note)});
+     }
+-    function finalQuery(err, myresult){
+-        res.render('read', myresult[0]);
+-        res.redirect('/read/'+paper);
++    function finalQuery(err, myresult, note){
++        //res.render('read', myresult[0]);
++        //res.redirect('/read/'+paper);
++        res.json(note);  // need to pass note to show
+     }
+ }
+ /*
+diff --git a/views/read.handlebars b/views/read.handlebars
+index 64b8dee..ec1fc24 100644
+--- a/views/read.handlebars
++++ b/views/read.handlebars
+@@ -59,7 +59,7 @@
+ 	<div class="modal fade" id="noteModal" tabindex="-1" role="dialog" aria-labelledby="noteModalLabel" aria-hidden="true">
+ 		<div class="modal-dialog">
+ 			<div class="modal-content">
+-				<form class="form-horizontal" id="addNoteForm" role="form" method="get" action="/addNote{{#if alt}}alt{{/if}}/{{details.name}}">
++				<form class="form-horizontal" id="addNoteForm" role="form" method="" action="">
+ 					<div class="modal-header">
+ 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+ 						<h4 class="modal-title" id="noteModalLabel">Add Note</h4>
+@@ -80,6 +80,7 @@
+ 							<textarea type="text" class="form-control" id="bod" placeholder="Type your note here..." name="bod" rows="5"></textarea>
+ 					    </div>
+ 				    </div>
++				    <input type="hidden" id="addNoteAction" name="act" value="/addNote{{#if alt}}alt{{/if}}/{{details.name}}"></input> 
+ 				    <div class="modal-footer">
+ 				    	<!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+ 						<input type="submit" id="submitBtn-note" class="btn btn-default" value="Add"></input>

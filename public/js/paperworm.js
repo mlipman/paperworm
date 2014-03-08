@@ -36,10 +36,13 @@ $(document).ready(function() {
 	var currentPNumber = 1; //current paragraph number
 	var currentPage = 1; //current page number
 
+	$('#submitBtn-note').click(ajaxAddNote);
+
 	$('#addNoteButton').click(function(e) {
 		e.preventDefault();
 		$('#pageNum').val(currentPage);
 		$('#pNum').val(currentPNumber);
+		$('#bod').val("");
 	});
 
 	$('#addHighlightButton').click(function(e) {
@@ -390,13 +393,27 @@ function lookUp(e) {
 		if (selectedText != lowercaseText) {$.get("http://glosbe.com/gapi/translate?from=eng&dest=eng&format=json&pretty=true&phrase=" + 
 		lowercaseText + "&callback=showDefinition2", showDefinition2, 'jsonp');}
 	} 
-
-
-
 };
 
 
+function ajaxAddNote(e) {
+	var destination = $('#addNoteAction').val();
+	var paraNum = $('#pNum').val();
+	var body = $('#bod').val();
 
+	var dataString = 'pNum=' + paraNum + '&bod=' + body;
+	$.post(destination, dataString, successAddNote);
+
+	return false;
+
+}
+
+function successAddNote(data, textStatus, jqXHR) {
+	console.log("successfullly note added");
+	console.log("message back: " + data.vol);
+	$('.modal').modal('hide');
+	location.reload();
+}
 
 
 
