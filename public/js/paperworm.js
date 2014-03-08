@@ -4,7 +4,7 @@
 $(document).ready(function() {
 	initializePage();
 	
-	$("#welcomeModal").modal('show');
+	//$("#welcomeModal").modal('show');
 	//$("#tutorialModal").modal('show');
 
 	rangy.init();
