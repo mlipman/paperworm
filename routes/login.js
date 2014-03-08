@@ -10,7 +10,13 @@ exports.view = function(req, res) {
 
 
 exports.after = function(req, res) {
-	req.session.username = req.query.username;
+	if (req.query.username) {
+		req.session.username = req.query.username;
+		console.log("setting session username to: " + req.session.username);	
+	} else {
+		req.session.username = "user";
+		console.log("prob not show up, defaulting to user");
+	}
 	info["currUser"] = req.session.username;
 	res.redirect("/index");
 };

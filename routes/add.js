@@ -6,7 +6,7 @@ exports.note = function(req, res) {
     var paper = req.params.paper;
 
 	//var author = req.query.auth;
-    var author = info["currUser"];
+    var author = req.session.username ? req.session.username : "user" ;
 	var body = req.query.bod;
 	var pNum = req.query.pNum;
 	var pageNum = req.query.pageNum;
@@ -83,7 +83,7 @@ exports.highlight = function(req, res) {
         var highlight = {
             "pNumber": pNum,
             "iden": ID,
-            "author":info["currUser"],
+            "author":req.session.username ? req.session.username : "user" ,
             "page": req.query.pageNum,
             "hText":req.query.htext,
             "hStart":0,
