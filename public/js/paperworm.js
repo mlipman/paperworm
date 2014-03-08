@@ -45,6 +45,7 @@ $(document).ready(function() {
 	$('#addHighlightButton').click(function(e) {
 		e.preventDefault();
 		addHighlight(highlighter, serializedHighlights, currentPNumber, currentPage);
+		console.log("me");
 	});
 
     $('.edit-obj-note').click(function(e){
@@ -109,6 +110,7 @@ $(document).ready(function() {
 		console.log(serializedHighlights);
 		//data['serializedHistory'] = serializedHighlights;
 		//TODO: update mongodb with /editSS/paper?sstring="serializedHighlights".............................................................................
+		//models.Papers.update({"details.name" : paper}, {$set: {"serializedString": serializedHighlights}});
 	});
 
 	//Determine id of the current selected text
@@ -158,6 +160,7 @@ function initializePage() {
 
 	//GOOGLE ANALYTICS HERE
 	//add notes/highlight
+	/*
 	$("#submitBtn-note").click(function(){
 		ga("send", "event", "addNote", "click");
 		//TODO: get paragraph number
@@ -189,6 +192,7 @@ function initializePage() {
 		ga("send", "event", "read-to-sum", "click");
 	});
 	//TODO: record time on page, taken care of by Google?
+	*/
 }
 
 function showNoteBox(e) {
@@ -254,12 +258,12 @@ function addHighlight(highlighter, serializedHighlights, currentPNumber, current
 	highlighter.highlightSelection("highlightText");
 	serializedHighlights = highlighter.serialize();
 
-	//TODO: update mongodb with /editSS/paper?sstring="serializedHighlights".............................................................................
-
 	$('#sstring').val(serializedHighlights);
 	$("#htext").val('"' + selectedText + '"');
 	$("#pNumHi").val(currentPNumber);
 	$("#page").val(currentPage);
+	//TODO: update mongodb with /editSS/paper?sstring="serializedHighlights".............................................................................
+	//models.Papers.update({"details.name" : paper}, {$set: {"serializedString": serializedHighlights}});
 }
 
 function editNote(pNum, iden, text){
@@ -356,9 +360,9 @@ function askForLookUp(e) {
 	e.preventDefault();
 	$('#defModalResults2').html("");
 	var sel = rangy.getSelection();
-	ga("send", "event", "lookupDef", "click");
+	//ga("send", "event", "lookupDef", "click");
 	if (sel.rangeCount==0) {
-		ga("send", "event", "lookupDef", "blank"); //Google analytics
+		//ga("send", "event", "lookupDef", "blank"); //Google analytics
 		$('#lookUpButton').click(lookUp);
 		// google event: clicked search button with no selection in readAlt
 	} else {
@@ -377,7 +381,7 @@ function lookUp(e) {
 	selectedText = trimString(selectedText);
 	//console.log(selectedText);
 	var lowercaseText = selectedText.toLowerCase();
-	ga("send", "event", "lookupDef", "words");
+	//ga("send", "event", "lookupDef", "words");
 	//console.log(lowercaseText);
 	if (selectedText.length > 0) {
 		$('#defModalBody').html("");
