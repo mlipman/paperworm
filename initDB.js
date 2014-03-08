@@ -25,7 +25,7 @@ mongoose.connect(database_uri);
 // Do the initialization here
 
 // Step 1: load the JSON data
-var data_json = require('./data_init.json');
+var data_json = require('./data_init_2.json');
 
 // Step 2: Remove all existing documents
 models.Papers
@@ -39,7 +39,7 @@ function onceClear(err) {
   // loop over the projects, construct and save an object from each one
   // Note that we don't care what order these saves are happening in...
   var to_save_count = data_json.length;
-  for(var i=1; i<data_json.length; i++) {
+  for(var i=0; i<data_json.length; i++) {
     var json = data_json[i];
     var proj = new models.Papers(json);
     //console.log(proj);
