@@ -8,7 +8,7 @@ exports.serializedString = function(req, res) {
 		var serString = myresult[0]["serializedString"];
 		var hash = {};
 		hash["val"] = serString;
-		res.json('read', hash)
+		res.json(hash);
 	}
 
 }
