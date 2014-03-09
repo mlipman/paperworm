@@ -406,6 +406,12 @@ function ajaxAddNote(e) {
 	var dataString = 'pNum=' + paraNum + '&bod=' + body;
 	$.post(destination, dataString, successAddNote);
 
+	// destination is a url, app.js needs to register the route as a post (like app.js line 60)
+	// dataString is in query format
+	// pNum=54&bod=textetexttext&nextParam=examplee
+	// in server code access 54 with query.body.pNum 
+	// successAddNote is the callback function that is called in the browser after the server is done
+
 	return false;
 
 }
