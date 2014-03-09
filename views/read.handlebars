@@ -80,7 +80,7 @@
 							<textarea type="text" class="form-control" id="bod" placeholder="Type your note here..." name="bod" rows="5"></textarea>
 					    </div>
 				    </div>
-				    <input type="hidden" id="addNoteAction" name="act" value="/addNote{{#if alt}}alt{{/if}}/{{details.name}}"></input> 
+				    <input type="hidden" id="addNoteAction" name="act" value="/addNote/{{details.name}}"></input> 
 				    <div class="modal-footer">
 				    	<!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
 						<input type="submit" id="submitBtn-note" class="btn btn-default" value="Add"></input>
@@ -191,7 +191,7 @@
 							<input type="hidden" class="form-control" id="sstring" name="sstring"></input>
 						</div>						
 				    </div>
-				    <input type="hidden" id="addHighlightAction" name="act" value="/addHighlight{{#if alt}}alt{{/if}}/{{details.name}}"></input>
+				    <input type="hidden" id="addHighlightAction" name="act" value="/addHighlight/{{details.name}}"></input>
 				    <div class="modal-footer">
 						<input type="submit" id="submitBtn-hi" class="btn btn-default" value="Add"></input>
 						<!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
