@@ -49,7 +49,6 @@ $(document).ready(function() {
 	$('#addHighlightButton').click(function(e) {
 		e.preventDefault();
 		addHighlight(highlighter, serializedHighlights, currentPNumber, currentPage);
-		console.log("me");
 	});
 
     $('.edit-obj-note').click(function(e){
@@ -111,10 +110,16 @@ $(document).ready(function() {
 		//var sel = rangy.getSelection();
 		highlighter.unhighlightSelection();
 		serializedHighlights = highlighter.serialize();
-		console.log(serializedHighlights);
-		//data['serializedHistory'] = serializedHighlights;
+		var paperName = ""
+		var pathArray = document.location.pathname.split("/");
+		if (pathArray.length > 2) {
+			paperName = pathArray[2];
+		}
+		var destination = '/editSS/'+paperName;
+		var dataString = 'sstring=' + serializedHighlights;
+		$.get(destination, dataString, successChangeHighlight);
+		return false;
 		//TODO: update mongodb with /editSS/paper?sstring="serializedHighlights".............................................................................
-		//models.Papers.update({"details.name" : paper}, {$set: {"serializedString": serializedHighlights}});
 	});
 
 	//Determine id of the current selected text
@@ -268,7 +273,10 @@ function addHighlight(highlighter, serializedHighlights, currentPNumber, current
 	$("#page").val(currentPage);
 	$("#ntext").val("");
 	//TODO: update mongodb with /editSS/paper?sstring="serializedHighlights".............................................................................
-	//models.Papers.update({"details.name" : paper}, {$set: {"serializedString": serializedHighlights}});
+	var destination = '/editSS/'+$('#addHighlightAction').val().substring($('#addHighlightAction').val().lastIndexOf('/')+1);
+	var dataString = 'sstring=' + serializedHighlights;
+	$.get(destination, dataString, successChangeHighlight);
+	return false;
 }
 
 function editNote(pNum, iden, text){
@@ -423,6 +431,7 @@ function successAddNote(data, textStatus, jqXHR) {
 
 function ajaxAddHighlight(e) {
 	var destination = $('#addHighlightAction').val();
+	console.log("lookie here: "+destination);
 	var dataString = 'pNumHi=' + $('#pNumHi').val();
 	dataString += '&htext=' + $('#htext').val();
 	dataString += '&ntext=' + $('#ntext').val();
@@ -436,8 +445,9 @@ function successAddHighlight(e) {
 	location.reload();
 }
 
-
-
+function successChangeHighlight(data, textStatus, jqXHR) {
+	//do nothing
+}
 
 
 
