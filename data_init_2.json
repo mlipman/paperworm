@@ -12,7 +12,7 @@
             "abstract":"No Abstract",
             "citation":"Freire, P. (2000). Pedagogy of the oppressed. 30th anniversary ed. New York: Continuum. (Chs. 1-2)",
             "figID": 0,
-            "annotID": 2,
+            "annotID": 1,
             "dID": 3
         },
         "paragraphs":
@@ -22,15 +22,7 @@
                 "pNumber":1,
                 "text":"CHAPTER 1",
                 "highlights":[],
-                "notes":[
-                    {
-                        "pNumber":1,
-                        "iden" : 1,
-                        "author":"Professor McClelland",
-                        "page": 575,
-                        "body":"Though this article is optional, it is extremely interesting! While reading, think critically about what the authors are arguing in comparison to your own experience using Facebook. You will get extra credits if you submit a short reading response of this article by the end of next week."
-                    }
-                ],
+                "notes":[],
                 "images":[]
             },
             {
@@ -2046,15 +2038,15 @@
         [
             {
                 "dID": 1,
-                "word":"Word 1",
+                "word":"Conscientizacao",
                 "author":"Wikipedia",
-                "def":"Def 1"
+                "def":"Critical consciousness, conscientization, or conscientização (Portuguese), is a popular education and social concept developed by Brazilian pedagogue and educational theorist Paulo Freire, grounded in Marxist critical theory. Critical consciousness focuses on achieving an in-depth understanding of the world, allowing for the perception and exposure of social and political contradictions. Critical consciousness also includes taking action against the oppressive elements in one's life that are illuminated by that understanding."
             },
             {
                 "dID": 2,
-                "word":"Word 2",
-                "author":"Wikipedia",
-                "def":"Def 2"
+                "word":"Necrophilia",
+                "author":"The Free Dictionary",
+                "def":"(1) Obsessive fascination with death and corpses. (2) Erotic attraction to or sexual contact with corpses."
             }
         ],
         "serializedString":""
@@ -2073,7 +2065,7 @@
             "abstract":"The concept of objectivity in theoretical & practical feminist activities is investigated, mainly by comparison with the respective nonfeminist notions. It is argued that feminist studies can, in theory, use modern critical theories of how meanings & bodies get made; the power of these theories would then be used to build lifelike meanings & \"bodies,\" (defined as \"a finite point of view\"), rather than deny them, as often done in nonfeminist theories. Feminist objectivity, therefore, is defined as a highly positive vision of the existing reality. This vision presupposes partial, locatable critical knowledges sustaining the possibility of interrelations between elements, eg, shared epistemology. Based on the view from the body, which is described as complex, contradictory, structuring, & structured, feminist objectivity is thus opposed to relativism & simplicity. The body is also considered as the key goal of the proposed situated knowledges. Since these knowledges require that their object be pictured as actor & agent, the essential agentivity of the body is posited. M. Polinsky",
             "citation":"Haraway, D. (1988). Situated knowledges: The science question in feminism and the privilege of partial perspective. Feminist Studies, 14(3), 575-599. Retrieved from http://search.proquest.com/docview/60987527?accountid=14026",
             "figID": 0,
-            "annotID": 2,
+            "annotID": 1,
             "dID": 3
         },
         "paragraphs":
@@ -2083,15 +2075,7 @@
                 "pNumber":1,
                 "text":"SITUATED KNOWLEDGES: THE SCIENCE QUESTION IN FEMINISM AND THE PRIVILEGE OF PARTIAL PERSPECTIVE DONNA HARAWAY Academic and activist feminist inquiry has repeatedly tried to come to terms with the question of what we might mean by the curious and inescapable term \"objectivity.\" We have used a lot of toxic ink and trees processed into paper decrying what they have meant and how it hurts us. The imagined \"they\" constitute a kind of invisible conspiracy of masculinist scientists and philosophers replete with grants and laboratories. The imagined \"we\" are the embodied others, who are not allowed not to have a body, a finite point of view, and so an inevitably disqualifying and polluting bias in any discussion of consequence outside our own little circles, where a \"mass\"-subscription journal might reach a few thousand readers composed mostly of science haters. At least, I confess to these paranoid fantasies and academic resentments lurking under- neath some convoluted reflections in print under my name in the feminist literature in the history and philosophy of science. We, the feminists in the debates about science and technology, are the Reagan era's \"special-interest groups\" in the rarified realm of epistemology, where traditionally what can count as knowledge is policed by philosophers codifying cognitive canon law. Of course, a special-interest group is, by Reaganoid definition, any collective historical subject that dares to resist the stripped-down atomism of Star Wars, hypermarket, postmodern, media-simulated citizen- ship. Max Headroom doesn't have a body; therefore, he alone sees everything in the great communicator's empire of the Global Net- work. No wonder Max gets to have a naive sense of humor and a kind of happily regressive, preoedipal sexuality, a sexuality that",
                 "highlights":[],
-                "notes":[
-                    {
-                        "pNumber":1,
-                        "iden" : 1,
-                        "author":"Professor McClelland",
-                        "page": 575,
-                        "body":"Though this article is optional, it is extremely interesting! While reading, think critically about what the authors are arguing in comparison to your own experience using Facebook. You will get extra credits if you submit a short reading response of this article by the end of next week."
-                    }
-                ],
+                "notes":[],
                 "images":[]
             },
             {
@@ -2787,15 +2771,15 @@
         [
             {
                 "dID": 1,
-                "word":"Word 1",
+                "word":"Feminist empiricism",
                 "author":"Wikipedia",
-                "def":"Def 1"
+                "def":"Feminist empiricism is a perspective within feminism research that focuses on combining the objectives and observations of feminism with the research methods and philosophical underpinnings of empiricism. Feminist empiricism is typically connected to mainstream notions of positivism; feminist empiricism proposes that feminist theories can be objectively proven through evidence. However, one should not conclude that feminist empiricism is a positivist approach furthering a feminist agenda. Feminist empiricism is a distinct perspective, critiquing what it perceives to be inadequacies and biases within mainstream research methods, including positivism."
             },
             {
                 "dID": 2,
-                "word":"Word 2",
-                "author":"Wikipedia",
-                "def":"Def 2"
+                "word":"Successor science",
+                "author":"Stanford Encyclopedia of Philosophy",
+                "def":"A similar impulse is evident in a great deal of research undertaken by feminists in the social sciences, or in response to feminist demands, where the goal has been to apply established research tools to neglected questions that particularly concern women and feminists. These \"successor science\" traditions of research have faced stiff internal criticism since at least the mid-1980s, on grounds that they are \"insufficiently critical\" of the scientific ideals that animate many social sciences (Harding 1986, 30), but they continue to thrive and have made substantial contributions in a number of contexts."
             }
         ],
         "serializedString":""
