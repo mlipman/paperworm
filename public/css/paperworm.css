@@ -88,14 +88,14 @@ td {
 }
 
 .icon-img {
-	width: 20px;
-	height: 20px;
+	width: 30px;
+	height: 30px;
 }
 
 .side-bar {
 	position: fixed;
 	top: 50%;
-	width: 40px;
+	width: 45px;
 	right: 10px;
 }
 
