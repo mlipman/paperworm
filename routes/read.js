@@ -12,7 +12,7 @@ exports.view = function(req, res) {
 	function afterQuery(err, myresult){
 		var temp = myresult[0];
 		temp["currUser"]=user;
-		temp["alt"]=false;
+		temp["alt"]=true;
 		res.render('read', temp);
 	}
 };
