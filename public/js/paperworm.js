@@ -37,6 +37,7 @@ $(document).ready(function() {
 	var currentPage = 1; //current page number
 
 	$('#submitBtn-note').click(ajaxAddNote);
+	$('#submitBtn-hi').click(ajaxAddHighlight);
 
 	$('#addNoteButton').click(function(e) {
 		e.preventDefault();
@@ -265,6 +266,7 @@ function addHighlight(highlighter, serializedHighlights, currentPNumber, current
 	$("#htext").val('"' + selectedText + '"');
 	$("#pNumHi").val(currentPNumber);
 	$("#page").val(currentPage);
+	$("#ntext").val("");
 	//TODO: update mongodb with /editSS/paper?sstring="serializedHighlights".............................................................................
 	//models.Papers.update({"details.name" : paper}, {$set: {"serializedString": serializedHighlights}});
 }
@@ -409,13 +411,24 @@ function ajaxAddNote(e) {
 }
 
 function successAddNote(data, textStatus, jqXHR) {
-	console.log("successfullly note added");
-	console.log("message back: " + data.vol);
 	$('.modal').modal('hide');
 	location.reload();
 }
 
+function ajaxAddHighlight(e) {
+	var destination = $('#addHighlightAction').val();
+	var dataString = 'pNumHi=' + $('#pNumHi').val();
+	dataString += '&htext=' + $('#htext').val();
+	dataString += '&ntext=' + $('#ntext').val();
+	dataString += '&sstring=' + $('#sstring').val();
+	$.post(destination, dataString, successAddHighlight);
+	return false;
+}
 
+function successAddHighlight(e) {
+	$('.modal').modal('hide');
+	location.reload();
+}
 
 
 

@@ -62,7 +62,7 @@ app.get('/deleteNote/:paper', add.delNote);
 app.get('/editNote/:paper', add.editNote);
 
 app.get('/editSS/:paper', add.setSS);
-app.get('/addHighlight/:paper', add.highlight);
+app.post('/addHighlight/:paper', add.highlight);
 app.get('/deleteHighlight/:paper', add.delHi);
 app.get('/editHighlight/:paper', add.editHi);
 

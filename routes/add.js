@@ -73,7 +73,7 @@ exports.setSS = function(req, res){
 
 exports.highlight = function(req, res) {
     var paper = req.params.paper;
-	var pNum = req.query.pNumHi;
+	var pNum = req.body.pNumHi;
     var ID = 0;
     var SS = "";
     models.Papers.find({"details.name" : paper}).exec(one);
@@ -85,11 +85,11 @@ exports.highlight = function(req, res) {
             "pNumber": pNum,
             "iden": ID,
             "author":req.session.username ? req.session.username : "user" ,
-            "page": req.query.pageNum,
-            "hText":req.query.htext,
+            "page": 0,
+            "hText":req.body.htext,
             "hStart":0,
             "hEnd":0,
-            "nText":req.query.ntext
+            "nText":req.body.ntext
         };
         var paper = req.params.paper;
         models.Papers.update({"details.name" : paper, "paragraphs.pNumber": pNum},{$push: {"paragraphs.$.highlights" : highlight }}).exec(two);
@@ -99,14 +99,15 @@ exports.highlight = function(req, res) {
         models.Papers.update({"details.name" : paper}, {$set: {"details.annotID": ID}}).exec(three);
     }
     function three(err, myresult){
-         models.Papers.update({"details.name" : paper}, {$set: {"serializedString": req.query.sstring}}).exec(four); //TODO: will be unnecessary
+         models.Papers.update({"details.name" : paper}, {$set: {"serializedString": req.body.sstring}}).exec(four); //TODO: will be unnecessary
     }
     function four(err, myresult){
         models.Papers.find({"details.name" : paper}).exec(finalQuery);
     }
     function finalQuery(err, myresult){
-        res.render('read', myresult[0]);
-        res.redirect('/read/'+paper);
+        res.json({});
+        // res.render('read', myresult[0]);
+        // res.redirect('/read/'+paper);
     }
 
 }
