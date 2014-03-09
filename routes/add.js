@@ -156,7 +156,7 @@ exports.editNote = function(req, res){
     var oldpNum = req.query.oldpNum;
     var url = req.query.url;
     var text = req.query.bod;
-    
+    console.log(paper+ID+newpNum+oldpNum+url+text);
     //get old info
     models.Papers.find({"details.name" : paper, "paragraphs.pNumber": newpNum, "paragraphs.notes.iden":ID}).exec(one);
 
